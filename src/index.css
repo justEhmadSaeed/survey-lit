@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+body {
+	font-family: Poppins, apercu-pro, 'Apercu Pro', -apple-system,
+		BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+.btn {
+	@apply shadow-md py-3 px-6 rounded-md transition duration-300;
+}
