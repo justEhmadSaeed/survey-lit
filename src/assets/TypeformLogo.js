@@ -7,6 +7,7 @@ const TypeformLogo = () => {
 			viewBox="0 0 245 55"
 			width="100"
 			xmlns="http://www.w3.org/2000/svg"
+			className='mr-0'
 		>
 			<title>Typeform</title>
 			<path
