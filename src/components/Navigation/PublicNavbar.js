@@ -17,22 +17,18 @@ const PublicNavbar = () => {
 				<NavItem
 					text="Solutions"
 					Icon={<ChevronDownIcon className="h-4 w-4" />}
-					link="/"
 				/>
 				<NavItem
 					text="Templates"
 					Icon={<ChevronDownIcon className="h-4 w-4" />}
-					link="/"
 				/>
 				<NavItem
 					text="Integration"
 					Icon={<ChevronDownIcon className="h-4 w-4" />}
-					link="/"
 				/>
 				<NavItem
 					text="Resources"
 					Icon={<ChevronDownIcon className="h-4 w-4" />}
-					link="/"
 				/>
 				<NavItem text="Pricing" link="/" />
 				<NavItem text="Enterprise" link="/" />

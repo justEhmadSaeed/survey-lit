@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { PATH_HOME } from 'utils/constants/ROUTING_PATHS.constant';
 
 const NavItem = ({ text, Icon, link }) => {
 	return (
@@ -15,4 +17,15 @@ const NavItem = ({ text, Icon, link }) => {
 	);
 };
 
+NavItem.propTypes = {
+	text: PropTypes.string,
+	Icon: PropTypes.element,
+	link: PropTypes.string
+};
+
+NavItem.defaultProps = {
+	text: '',
+	Icon: undefined,
+	link: PATH_HOME
+};
 export default NavItem;
