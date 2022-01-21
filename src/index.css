@@ -9,5 +9,5 @@ body {
 		BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 }
 .btn {
-	@apply shadow-md py-3 px-6 rounded-md transition duration-300;
+	@apply rounded transition duration-300;
 }

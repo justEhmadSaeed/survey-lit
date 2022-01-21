@@ -3,7 +3,8 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'template-black': '#262627'
+				'template-black': '#262627',
+				'template-home-background': '#F2ECE4'
 			}
 		},
 		fontFamily: {

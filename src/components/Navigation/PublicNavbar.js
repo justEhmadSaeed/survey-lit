@@ -34,10 +34,10 @@ const PublicNavbar = () => {
 				<NavItem text="Enterprise" link="/" />
 			</ul>
 			<div className="hidden lg:flex gap-3">
-				<button className="px-4 py-2 rounded border-2 text-template-black bg-white border-template-black">
+				<button className=" btn px-4 py-2 rounded border-2 text-template-black border-template-black hover:opacity-80">
 					<Link to={PATH_LOGIN}>Log in</Link>
 				</button>
-				<button className="px-4 py-2 rounded bg-template-black text-white ">
+				<button className="btn px-4 py-2 rounded bg-template-black text-white hover:opacity-80">
 					<Link to={PATH_SIGNUP}>Sign up</Link>
 				</button>
 			</div>
