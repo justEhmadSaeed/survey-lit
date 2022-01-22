@@ -1,5 +1,5 @@
 import React from 'react';
-import TypeformLogo from 'assets/TypeformLogo';
+import TypeformLogo from 'assets/typeform_logo';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import NavItem from 'components/Navigation/NavItem';
 import { Link } from 'react-router-dom';

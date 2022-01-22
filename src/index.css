@@ -11,3 +11,4 @@ body {
 .btn {
 	@apply rounded transition duration-300;
 }
+

@@ -2,10 +2,6 @@ import React from 'react';
 import Routers from 'Routes';
 
 const App = () => {
-	return (
-		<div>
-			<Routers />
-		</div>
-	);
+	return <Routers />;
 };
 export default App;

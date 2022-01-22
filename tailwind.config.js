@@ -5,6 +5,16 @@ module.exports = {
 			colors: {
 				'template-black': '#262627',
 				'template-home-background': '#F2ECE4'
+			},
+			bottom: {
+				'-20%': '-20%',
+				'20%': '20%'
+			},
+			left: {
+				'-5%': '-5%'
+			},
+			height: {
+				'150%': '150%'
 			}
 		},
 		fontFamily: {
