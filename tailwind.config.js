@@ -4,7 +4,8 @@ module.exports = {
 		extend: {
 			colors: {
 				'template-black': '#262627',
-				'template-home-background': '#F2ECE4'
+				'template-home-background': '#F2ECE4',
+				'template-signup-text': '#4c4c4c'
 			},
 			bottom: {
 				'-20%': '-20%',
