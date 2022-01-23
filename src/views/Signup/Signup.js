@@ -3,15 +3,11 @@ import SignupSvg_1 from 'assets/signup_svg_1';
 import SignupSvg_2 from 'assets/signup_svg_2';
 import TypeformLogo from 'assets/typeform_logo';
 import TextField from 'components/TextField';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-	authChange,
 	signInWithGoogle
 } from 'services/firebase/firebase';
-import { userLogged, userSignout } from 'store/auth/actions.auth';
 import {
 	TYPE_EMAIL,
 	TYPE_PASSWORD
@@ -20,31 +16,8 @@ import {
 	PATH_HOME,
 	PATH_LOGIN
 } from 'utils/constants/ROUTING_PATHS.constant';
-import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-	const user = useSelector((state) => state.user);
-	const navigate = useNavigate();
-	console.log(user);
-
-	const dispatch = useDispatch();
-	useEffect(() => {
-		authChange((user) => {
-			if (user) {
-				dispatch(
-					userLogged({
-						name: user.displayName,
-						id: user.uid,
-						email: user.email
-					})
-				);
-				navigate(PATH_HOME);
-			} else {
-				dispatch(userSignout());
-			}
-		});
-	}, []);
-
 	return (
 		<div className="bg-template-black flex overflow-hidden">
 			{/* Left Image Part */}
