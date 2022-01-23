@@ -3,20 +3,48 @@ import SignupSvg_1 from 'assets/signup_svg_1';
 import SignupSvg_2 from 'assets/signup_svg_2';
 import TypeformLogo from 'assets/typeform_logo';
 import TextField from 'components/TextField';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
+	authChange,
+	signInWithGoogle
+} from 'services/firebase/firebase';
+import { userLogged, userSignout } from 'store/auth/actions.auth';
+import {
 	TYPE_EMAIL,
-	TYPE_PASSWORD,
-	TYPE_SUBMIT
+	TYPE_PASSWORD
 } from 'utils/constants/INPUT_TYPE.constant';
 import {
 	PATH_HOME,
 	PATH_LOGIN
 } from 'utils/constants/ROUTING_PATHS.constant';
-// import second from '';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+	const user = useSelector((state) => state.user);
+	const navigate = useNavigate();
+	console.log(user);
+
+	const dispatch = useDispatch();
+	useEffect(() => {
+		authChange((user) => {
+			if (user) {
+				dispatch(
+					userLogged({
+						name: user.displayName,
+						id: user.uid,
+						email: user.email
+					})
+				);
+				navigate(PATH_HOME);
+			} else {
+				dispatch(userSignout());
+			}
+		});
+	}, []);
+
 	return (
 		<div className="bg-template-black flex overflow-hidden">
 			{/* Left Image Part */}
@@ -76,44 +104,41 @@ const Signup = () => {
 								{/* Auth Content */}
 								<div className="px-2">
 									<div className="relative flex flex-col items-center">
-										<form>
+										<div>
+											<h2 className="text-left font-extralight text-xl text-template-signup-text mb-6">
+												Get better data with
+												conversational forms,
+												surveys, quizzes &
+												more.
+											</h2>
+											{/* Signup Fields */}
 											<div>
-												<h2 className="text-left font-extralight text-xl text-template-signup-text mb-6">
-													Get better data
-													with
-													conversational
-													forms, surveys,
-													quizzes & more.
-												</h2>
-												{/* Signup Fields */}
-												<div>
-													<TextField
-														type={
-															TYPE_EMAIL
-														}
-														placeholder="Email"
-													/>
-													<TextField
-														type={
-															TYPE_PASSWORD
-														}
-														placeholder="Password"
-													/>
-												</div>
-											</div>
-											<div className="pb-6 flex flex-col items-center">
-												<input
-													type={TYPE_SUBMIT}
-													value="Create my free account"
-													className="w-56 h-10 bg-template-black text-white text-sm rounded cursor-pointer btn hover:opacity-90"
-													onClick={(e) => {
-														e.preventDefault();
-													}}
+												<TextField
+													type={TYPE_EMAIL}
+													placeholder="Email"
+												/>
+												<TextField
+													type={
+														TYPE_PASSWORD
+													}
+													placeholder="Password"
 												/>
 											</div>
-										</form>
+										</div>
+										<div className="pb-6 flex flex-col items-center">
+											<button
+												// type={TYPE_SUBMIT}
+												// value="Create my free account"
+												className="w-56 h-10 bg-template-black text-white text-sm rounded cursor-pointer btn hover:opacity-90"
+												onClick={
+													signInWithGoogle
+												}
+											>
+												Create my free account
+											</button>
+										</div>
 										{/* Auth Container */}
-										<div className='w-56'>
+										<div className="w-60">
 											{/* Auth Divder */}
 											<div className="bg-gray-500 h-1px text-center mb-6">
 												<span className="relative px-4 text-sm text-gray-500 bg-white -top-[0.7rem]">
