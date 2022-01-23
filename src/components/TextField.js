@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { TYPE_TEXT } from 'utils/constants/INPUT_TYPE.constant';
 
 const TextField = ({ type, placeholder }) => {
 	return (
@@ -13,4 +15,13 @@ const TextField = ({ type, placeholder }) => {
 	);
 };
 
+TextField.propTypes = {
+	type: PropTypes.string,
+	placeholder: PropTypes.string
+};
+
+TextField.defaultProps = {
+	type: TYPE_TEXT,
+	placeholder: ''
+};
 export default TextField;

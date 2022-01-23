@@ -15,7 +15,11 @@ module.exports = {
 				'-5%': '-5%'
 			},
 			height: {
-				'150%': '150%'
+				'150%': '150%',
+				'1px': '1px'
+			},
+			top: {
+				'-0.7rem': '-0.7rem'
 			}
 		},
 		fontFamily: {

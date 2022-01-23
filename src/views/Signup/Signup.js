@@ -1,9 +1,19 @@
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import SignupSvg_1 from 'assets/signup_svg_1';
 import SignupSvg_2 from 'assets/signup_svg_2';
+import TypeformLogo from 'assets/typeform_logo';
+import TextField from 'components/TextField';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PATH_LOGIN } from 'utils/constants/ROUTING_PATHS.constant';
+import {
+	TYPE_EMAIL,
+	TYPE_PASSWORD,
+	TYPE_SUBMIT
+} from 'utils/constants/INPUT_TYPE.constant';
+import {
+	PATH_HOME,
+	PATH_LOGIN
+} from 'utils/constants/ROUTING_PATHS.constant';
 // import second from '';
 
 const Signup = () => {
@@ -23,7 +33,7 @@ const Signup = () => {
 			</div>
 			{/* Right Sign up Module */}
 			<div className="flex relative flex-col flex-1 basis-1/3 w-full h-full max-h-full bg-white text-template-signup-text">
-				{/* Login Link */}
+				{/* Login Navigation */}
 				<div className="flex items-center justify-between px-6 py-2">
 					<span className="flex items-center p-2 border-0 cursor-pointer text-sm">
 						<svg
@@ -52,7 +62,71 @@ const Signup = () => {
 					</Link>
 				</div>
 				{/* Content Container */}
-				<div className="relative overflow-y-auto w-full h-full mt-6"></div>
+				<div className="relative overflow-y-auto w-full h-full mt-6">
+					<div className="box-inherit">
+						{/* Logo */}
+						<div className="flex items-center justify-center mt-20 h-20">
+							<Link to={PATH_HOME}>
+								<TypeformLogo />
+							</Link>
+						</div>
+						{/* Signup Module */}
+						<div className="box-inherit">
+							<main className="w-96 h-auto mx-auto mb-2">
+								{/* Auth Content */}
+								<div className="px-2">
+									<div className="relative flex flex-col items-center">
+										<form>
+											<div>
+												<h2 className="text-left font-extralight text-xl text-template-signup-text mb-6">
+													Get better data
+													with
+													conversational
+													forms, surveys,
+													quizzes & more.
+												</h2>
+												{/* Signup Fields */}
+												<div>
+													<TextField
+														type={
+															TYPE_EMAIL
+														}
+														placeholder="Email"
+													/>
+													<TextField
+														type={
+															TYPE_PASSWORD
+														}
+														placeholder="Password"
+													/>
+												</div>
+											</div>
+											<div className="pb-6 flex flex-col items-center">
+												<input
+													type={TYPE_SUBMIT}
+													value="Create my free account"
+													className="w-56 h-10 bg-template-black text-white text-sm rounded cursor-pointer btn hover:opacity-90"
+													onClick={(e) => {
+														e.preventDefault();
+													}}
+												/>
+											</div>
+										</form>
+										{/* Auth Container */}
+										<div className='w-56'>
+											{/* Auth Divder */}
+											<div className="bg-gray-500 h-1px text-center mb-6">
+												<span className="relative px-4 text-sm text-gray-500 bg-white -top-[0.7rem]">
+													OR
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</main>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
