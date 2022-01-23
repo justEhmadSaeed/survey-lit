@@ -11,4 +11,6 @@ body {
 .btn {
 	@apply rounded transition duration-300;
 }
-
+.box-inherit {
+	box-sizing: inherit;
+}
