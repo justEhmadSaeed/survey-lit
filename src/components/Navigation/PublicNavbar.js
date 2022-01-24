@@ -1,5 +1,5 @@
 import React from 'react';
-import TypeformLogo from 'assets/typeform_logo';
+import typeform_logo from 'assets/typeform_logo.svg';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import NavItem from 'components/Navigation/NavItem';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ const PublicNavbar = () => {
 	return (
 		<nav className="flex items-center justify-between flex-wrap p-6">
 			<div className="py-1 w-32">
-				<TypeformLogo />
+				<img src={typeform_logo} alt="Logo" />
 			</div>
 			<ul className="hidden lg:flex flex-1 justify-center items-center gap-5 text-template-black text-s">
 				<NavItem

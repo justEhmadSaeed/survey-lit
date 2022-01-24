@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PATH_SIGNUP } from 'utils/constants/ROUTING_PATHS.constant';
+import lg_screen_video from 'assets/homepage-videos/typeform-video-lg.mp4';
+import md_screen_video from 'assets/homepage-videos/typeform-video-md.mp4';
+import sm_screen_video from 'assets/homepage-videos/typeform-video-sm.mp4';
 
 const PublicHero = () => {
 	return (
@@ -53,7 +56,7 @@ const PublicHero = () => {
 						className="w-full hidden xl:block"
 					>
 						<source
-							src="/assets/typeform-video-lg.mp4"
+							src={lg_screen_video}
 							type="video/mp4"
 						/>
 						<track
@@ -72,7 +75,7 @@ const PublicHero = () => {
 						className="w-full hidden lg:block xl:hidden"
 					>
 						<source
-							src="/assets/typeform-video-md.mp4"
+							src={md_screen_video}
 							type="video/mp4"
 						/>
 						<track
@@ -91,7 +94,7 @@ const PublicHero = () => {
 						className="w-full md:block lg:hidden"
 					>
 						<source
-							src="/assets/typeform-video-sm.mp4"
+							src={sm_screen_video}
 							type="video/mp4"
 						/>
 						<track

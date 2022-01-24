@@ -1,13 +1,11 @@
-import { ChevronDownIcon } from '@heroicons/react/solid';
-import SignupSvg_1 from 'assets/signup_svg_1';
-import SignupSvg_2 from 'assets/signup_svg_2';
-import TypeformLogo from 'assets/typeform_logo';
+import { ChevronDownIcon, GlobeIcon } from '@heroicons/react/solid';
+import signupSvg_1 from 'assets/signup_vector_1.svg';
+import signupSvg_2 from 'assets/signup_vector_2.svg';
+import typeform_logo from 'assets/typeform_logo.svg';
 import TextField from 'components/TextField';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-	signInWithGoogle
-} from 'services/firebase/firebase';
+import { signInWithGoogle } from 'services/firebase/firebase';
 import {
 	TYPE_EMAIL,
 	TYPE_PASSWORD
@@ -23,8 +21,16 @@ const Signup = () => {
 			{/* Left Image Part */}
 			<div className="relative hidden h-screen lg:block flex-1 px-4 py-8">
 				<div className="h-full">
-					<SignupSvg_1 />
-					<SignupSvg_2 />
+					<img
+						src={signupSvg_1}
+						alt="signup svg"
+						className="-bottom-[10%] -left-[2%] w-full absolute"
+					/>
+					<img
+						src={signupSvg_2}
+						alt="signup svg"
+						className="h-150% -bottom-40 left-28 absolute"
+					/>
 					<img
 						src="https://public-assets.typeform.com/bouncer/bouncer.037ef56b8203e10d37902ff7fb06fd55.png"
 						alt="signup"
@@ -37,18 +43,7 @@ const Signup = () => {
 				{/* Login Navigation */}
 				<div className="flex items-center justify-between px-6 py-2">
 					<span className="flex items-center p-2 border-0 cursor-pointer text-sm">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							className="h-6 w-6 mr-2"
-							viewBox="0 0 20 20"
-							fill="currentColor"
-						>
-							<path
-								fillRule="evenodd"
-								d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
-								clipRule="evenodd"
-							/>
-						</svg>
+						<GlobeIcon className="h-6 w-6" />
 						English
 						<ChevronDownIcon className="h-4 w-4" />
 					</span>
@@ -68,7 +63,7 @@ const Signup = () => {
 						{/* Logo */}
 						<div className="flex items-center justify-center mt-20 h-20">
 							<Link to={PATH_HOME}>
-								<TypeformLogo />
+								<img src={typeform_logo} alt="Logo" />
 							</Link>
 						</div>
 						{/* Signup Module */}

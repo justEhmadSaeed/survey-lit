@@ -4,7 +4,8 @@ import {
 	getAuth,
 	GoogleAuthProvider,
 	onAuthStateChanged,
-	signInWithPopup
+	signInWithPopup,
+	signOut
 } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -35,3 +36,7 @@ export const signInWithGoogle = () =>
 // export Auth Change Function
 export const authChange = async (callBack) =>
 	onAuthStateChanged(auth, callBack);
+
+// export signout with Google Function
+export const signoutWithGoogle = () =>
+	signOut(auth).catch((error) => console.log(error));
