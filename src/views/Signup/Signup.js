@@ -2,6 +2,9 @@ import { ChevronDownIcon, GlobeIcon } from '@heroicons/react/solid';
 import signupSvg_1 from 'assets/signup_vector_1.svg';
 import signupSvg_2 from 'assets/signup_vector_2.svg';
 import typeform_logo from 'assets/typeform_logo.svg';
+import google_icon from 'assets/google_icon.svg';
+import microsoft_icon from 'assets/microsoft_icon.svg';
+import AuthTile from 'components/Auth/AuthTile';
 import TextField from 'components/TextField';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -70,7 +73,7 @@ const Signup = () => {
 						<div className="box-inherit">
 							<main className="w-96 h-auto mx-auto mb-2">
 								{/* Auth Content */}
-								<div className="px-2">
+								<div className="px-2 py-5">
 									<div className="relative flex flex-col items-center">
 										<div>
 											<h2 className="text-left font-extralight text-xl text-template-signup-text mb-6">
@@ -112,6 +115,27 @@ const Signup = () => {
 												<span className="relative px-4 text-sm text-gray-500 bg-white -top-[0.7rem]">
 													OR
 												</span>
+											</div>
+											{/* Auth Modules */}
+											<div>
+												<AuthTile
+													title="Sign up with Google"
+													imgSrc={
+														google_icon
+													}
+													onClick={
+														signInWithGoogle
+													}
+												/>
+												<AuthTile
+													title="Sign up with Microsoft"
+													imgSrc={
+														microsoft_icon
+													}
+													onClick={
+														signInWithGoogle
+													}
+												/>
 											</div>
 										</div>
 									</div>

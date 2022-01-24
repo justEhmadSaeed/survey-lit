@@ -4,7 +4,7 @@ import {
 	getAuth,
 	GoogleAuthProvider,
 	onAuthStateChanged,
-	signInWithPopup,
+	signInWithRedirect,
 	signOut
 } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
@@ -29,7 +29,7 @@ const googleProvider = new GoogleAuthProvider();
 
 // export signInWith Google Function
 export const signInWithGoogle = () =>
-	signInWithPopup(auth, googleProvider).catch((error) =>
+	signInWithRedirect(auth, googleProvider).catch((error) =>
 		console.log(error)
 	);
 
