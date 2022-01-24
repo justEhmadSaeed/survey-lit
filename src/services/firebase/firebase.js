@@ -4,6 +4,7 @@ import {
 	getAuth,
 	GoogleAuthProvider,
 	onAuthStateChanged,
+	signInWithPopup,
 	signInWithRedirect,
 	signOut
 } from 'firebase/auth';
@@ -29,7 +30,7 @@ const googleProvider = new GoogleAuthProvider();
 
 // export signInWith Google Function
 export const signInWithGoogle = () =>
-	signInWithRedirect(auth, googleProvider).catch((error) =>
+	signInWithPopup(auth, googleProvider).catch((error) =>
 		console.log(error)
 	);
 

@@ -1,4 +1,3 @@
-import { ChevronDownIcon, GlobeIcon } from '@heroicons/react/solid';
 import signupSvg_1 from 'assets/signup_vector_1.svg';
 import signupSvg_2 from 'assets/signup_vector_2.svg';
 import typeform_logo from 'assets/typeform_logo.svg';
@@ -17,6 +16,8 @@ import {
 	PATH_HOME,
 	PATH_LOGIN
 } from 'utils/constants/ROUTING_PATHS.constant';
+import AuthNavbar from 'components/Auth/AuthNavbar';
+import AuthDivider from 'components/Auth/AuthDivider';
 
 const Signup = () => {
 	return (
@@ -43,23 +44,12 @@ const Signup = () => {
 			</div>
 			{/* Right Sign up Module */}
 			<div className="flex relative flex-col flex-1 basis-1/3 w-full h-full max-h-full bg-white text-template-signup-text">
-				{/* Login Navigation */}
-				<div className="flex items-center justify-between px-6 py-2">
-					<span className="flex items-center p-2 border-0 cursor-pointer text-sm">
-						<GlobeIcon className="h-6 w-6" />
-						English
-						<ChevronDownIcon className="h-4 w-4" />
-					</span>
-					<span className="ml-auto pr-2 text-sm">
-						Already have an account?
-					</span>
-					<Link
-						to={PATH_LOGIN}
-						className="text-xs px-2 py-1 border text-template-black border-template-black hover:opacity-80"
-					>
-						Log in
-					</Link>
-				</div>
+				{/* Navigation */}
+				<AuthNavbar
+					helperText="Already have an account?"
+					path={PATH_LOGIN}
+					title="Log in"
+				/>
 				{/* Content Container */}
 				<div className="relative overflow-y-auto w-full h-full mt-6">
 					<div className="box-inherit">
@@ -98,8 +88,6 @@ const Signup = () => {
 										</div>
 										<div className="pb-6 flex flex-col items-center">
 											<button
-												// type={TYPE_SUBMIT}
-												// value="Create my free account"
 												className="w-56 h-10 bg-template-black text-white text-sm rounded cursor-pointer btn hover:opacity-90"
 												onClick={
 													signInWithGoogle
@@ -111,11 +99,7 @@ const Signup = () => {
 										{/* Auth Container */}
 										<div className="w-60">
 											{/* Auth Divder */}
-											<div className="bg-gray-500 h-1px text-center mb-6">
-												<span className="relative px-4 text-sm text-gray-500 bg-white -top-[0.7rem]">
-													OR
-												</span>
-											</div>
+											<AuthDivider />
 											{/* Auth Modules */}
 											<div>
 												<AuthTile
