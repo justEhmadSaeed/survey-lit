@@ -5,7 +5,6 @@ import {
 	GoogleAuthProvider,
 	onAuthStateChanged,
 	signInWithPopup,
-	signInWithRedirect,
 	signOut
 } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use

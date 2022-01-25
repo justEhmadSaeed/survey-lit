@@ -46,7 +46,7 @@ const PublicHero = () => {
 				</div>
 				<div className="flex-1 hidden xl:block"></div>
 				{/* Typeform Video */}
-				<div className="w-full h-auto absolute top-0 md:-top-72 lg:top-0 xl:-top-40 left-0 right-0 bottom-0 -z-10">
+				<div className="w-full h-auto absolute top-0 md:-top-72 lg:-top-24 xl:-top-40 left-0 right-0 bottom-0 -z-10">
 					<video
 						autoPlay
 						muted

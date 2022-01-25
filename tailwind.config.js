@@ -5,9 +5,11 @@ module.exports = {
 			colors: {
 				'template-black': '#262627',
 				'template-home-background': '#F2ECE4',
+				'template-menu-background': '#131313',
 				'template-signup-text': '#4c4c4c',
 				'template-auth-text': '#5e5e5e',
 				'template-auth-border': '#c3c3c3'
+
 			},
 			bottom: {
 				'-20%': '-20%',
