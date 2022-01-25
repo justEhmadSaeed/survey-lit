@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import {
 	PATH_LOGIN,
 	PATH_SIGNUP
-} from 'utils/constants/ROUTING_PATHS.constant';
+} from 'utils/constants/routing-paths.constant';
 const PublicNavbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
 	return (

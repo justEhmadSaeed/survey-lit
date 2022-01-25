@@ -6,11 +6,11 @@ import { signInWithGoogle } from 'services/firebase/firebase';
 import {
 	TYPE_EMAIL,
 	TYPE_PASSWORD
-} from 'utils/constants/INPUT_TYPE.constant';
+} from 'utils/constants/input-types.constant';
 import {
 	PATH_HOME,
 	PATH_SIGNUP
-} from 'utils/constants/ROUTING_PATHS.constant';
+} from 'utils/constants/routing-paths.constant';
 import typeform_logo from 'assets/typeform_logo.svg';
 import google_icon from 'assets/google_icon.svg';
 import microsoft_icon from 'assets/microsoft_icon.svg';

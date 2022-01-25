@@ -11,11 +11,11 @@ import { signInWithGoogle } from 'services/firebase/firebase';
 import {
 	TYPE_EMAIL,
 	TYPE_PASSWORD
-} from 'utils/constants/INPUT_TYPE.constant';
+} from 'utils/constants/input-types.constant';
 import {
 	PATH_HOME,
 	PATH_LOGIN
-} from 'utils/constants/ROUTING_PATHS.constant';
+} from 'utils/constants/routing-paths.constant';
 import AuthNavbar from 'components/Auth/AuthNavbar';
 import AuthDivider from 'components/Auth/AuthDivider';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { PATH_HOME } from 'utils/constants/ROUTING_PATHS.constant';
+import { PATH_HOME } from 'utils/constants/routing-paths.constant';
 
 const NavItem = ({ text, Icon, link }) => {
 	return (

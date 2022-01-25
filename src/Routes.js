@@ -10,7 +10,7 @@ import {
 	PATH_DASHBOARD,
 	PATH_LOGIN,
 	PATH_SIGNUP
-} from 'utils/constants/ROUTING_PATHS.constant';
+} from 'utils/constants/routing-paths.constant';
 import Dashboard from 'views/Dashboard/Dashboard';
 import Home from 'views/Home/Home';
 import Login from 'views/Login/Login';

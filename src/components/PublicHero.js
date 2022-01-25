@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PATH_SIGNUP } from 'utils/constants/ROUTING_PATHS.constant';
+import { PATH_SIGNUP } from 'utils/constants/routing-paths.constant';
 import lg_screen_video from 'assets/homepage-videos/typeform-video-lg.mp4';
 import md_screen_video from 'assets/homepage-videos/typeform-video-md.mp4';
 import sm_screen_video from 'assets/homepage-videos/typeform-video-sm.mp4';

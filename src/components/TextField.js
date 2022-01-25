@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TYPE_TEXT } from 'utils/constants/INPUT_TYPE.constant';
+import { TYPE_TEXT } from 'utils/constants/input-types.constant';
 
 const TextField = ({ type, placeholder }) => {
 	return (
