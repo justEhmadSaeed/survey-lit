@@ -15,26 +15,26 @@ import Dashboard from 'views/Dashboard/Dashboard';
 import Home from 'views/Home/Home';
 import Login from 'views/Login/Login';
 import Signup from 'views/Signup/Signup';
-import { userLogged, userSignout } from 'store/auth/actions.auth';
 import { useDispatch } from 'react-redux';
 import { authChange } from 'services/firebase/firebase';
+import { saveUser } from 'store/slice/auth.slice';
 
 const Routers = () => {
-	const user = useSelector((state) => state.user);
+	const user = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		authChange((user) => {
-			if (user) {
+		authChange((auth) => {
+			if (auth) {
 				dispatch(
-					userLogged({
-						name: user.displayName,
-						id: user.uid,
-						email: user.email
+					saveUser({
+						name: auth.displayName,
+						id: auth.uid,
+						email: auth.email
 					})
 				);
 			} else {
-				dispatch(userSignout());
+				dispatch(saveUser({}));
 			}
 		});
 	}, []);
