@@ -8,8 +8,8 @@ module.exports = {
 				'template-menu-background': '#131313',
 				'template-signup-text': '#4c4c4c',
 				'template-auth-text': '#5e5e5e',
-				'template-auth-border': '#c3c3c3'
-
+				'template-auth-border': '#c3c3c3',
+				'template-green': '#026451'
 			},
 			bottom: {
 				'-20%': '-20%',
