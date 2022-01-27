@@ -94,14 +94,16 @@ const Login = () => {
 													signInWithGoogle
 												}
 											/>
-											<button
-												onClick={
-													signInWithGoogle
-												}
-												className="text-xs text-template-auth-text my-2 underline"
-											>
-												Sign In with SSO
-											</button>
+											<div className="flex justify-center text-xs text-template-auth-text my-5 ">
+												<button
+													onClick={
+														signInWithGoogle
+													}
+													className="underline"
+												>
+													Sign In with SSO
+												</button>
+											</div>
 										</div>
 									</div>
 								</div>

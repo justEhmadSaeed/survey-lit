@@ -43,7 +43,7 @@ const Signup = () => {
 				</div>
 			</div>
 			{/* Right Sign up Module */}
-			<div className="flex relative flex-col flex-1 basis-1/3 w-full h-full max-h-full bg-white text-template-signup-text">
+			<div className="flex relative flex-col flex-1 basis-1/3 w-full h-screen max-h-full bg-white text-template-signup-text">
 				{/* Navigation */}
 				<AuthNavbar
 					helperText="Already have an account?"
