@@ -1,11 +1,11 @@
 import React from 'react';
 import { signoutWithGoogle } from 'services/firebase/firebase';
-import Navbar from './Navbar';
+import DashboardNavbar from './Navbar.Dashboard';
 
 const Dashboard = () => {
 	return (
 		<div>
-			<Navbar />
+			<DashboardNavbar />
 			<button onClick={signoutWithGoogle}>Sign out</button>
 		</div>
 	);

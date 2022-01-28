@@ -4,7 +4,7 @@ import user_icon from 'assets/user_icon.png';
 import { useSelector } from 'react-redux';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 
-const Navbar = () => {
+const DashboardNavbar = () => {
 	const user = useSelector((state) => state.auth);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -90,4 +90,4 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default DashboardNavbar;
