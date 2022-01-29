@@ -3,6 +3,7 @@ import typeform_logo from 'assets/typeform_logo.svg';
 import user_icon from 'assets/user_icon.png';
 import { useSelector } from 'react-redux';
 import { ChevronDownIcon } from '@heroicons/react/solid';
+import { signoutWithGoogle } from 'services/firebase/firebase';
 
 const DashboardNavbar = () => {
 	const user = useSelector((state) => state.auth);
@@ -10,10 +11,6 @@ const DashboardNavbar = () => {
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
-	};
-
-	const hideMenu = () => {
-		setIsMenuOpen(false);
 	};
 
 	return (
@@ -84,6 +81,19 @@ const DashboardNavbar = () => {
 							</div>
 						</div>
 					</header>
+					<section></section>
+					<footer>
+						<div className="py-2">
+							<button
+								onClick={signoutWithGoogle}
+								className="w-full text-left px-2 hover:bg-slate-400"
+							>
+								<span className="text-red-600 text-sm ">
+									Log out
+								</span>
+							</button>
+						</div>
+					</footer>
 				</div>
 			</section>
 		</nav>
