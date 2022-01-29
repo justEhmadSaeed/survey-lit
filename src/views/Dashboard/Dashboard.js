@@ -1,10 +1,12 @@
 import React from 'react';
-import DashboardNavbar from './Navbar.Dashboard';
+import DashboardBody from './DashboardBody';
+import DashboardNavbar from './DashboardNavbar';
 
 const Dashboard = () => {
 	return (
 		<div>
 			<DashboardNavbar />
+			<DashboardBody />
 		</div>
 	);
 };

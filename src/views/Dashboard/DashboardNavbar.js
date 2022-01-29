@@ -25,7 +25,7 @@ const DashboardNavbar = () => {
 				</div>
 			</header>
 			<footer className="flex items-center">
-				<button className="bg-template-green text-sm text-white py-2 px-2 mx-2 rounded">
+				<button className="btn bg-template-green text-white mx-2">
 					View Plans
 				</button>
 				<div className="">
@@ -86,7 +86,7 @@ const DashboardNavbar = () => {
 						<div className="py-2">
 							<button
 								onClick={signoutWithGoogle}
-								className="w-full text-left px-2 hover:bg-slate-400"
+								className="w-full text-left px-2 hover:bg-template-hover-color"
 							>
 								<span className="text-red-600 text-sm ">
 									Log out
