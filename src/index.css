@@ -9,8 +9,11 @@ body {
 		BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 }
 .btn {
-	@apply rounded transition duration-300;
+	@apply rounded transition duration-300 cursor-pointer py-2 px-3 text-sm hover:opacity-80;
 }
 .box-inherit {
 	box-sizing: inherit;
+}
+.dashboard-icon {
+	@apply text-template-auth-text h-5 w-5;
 }

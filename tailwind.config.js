@@ -9,7 +9,9 @@ module.exports = {
 				'template-signup-text': '#4c4c4c',
 				'template-auth-text': '#5e5e5e',
 				'template-auth-border': '#c3c3c3',
-				'template-green': '#026451'
+				'template-green': '#026451',
+				'template-hover-color': '#f0f0f0',
+				'template-dashboard-bg': '#fafafa'
 			},
 			bottom: {
 				'-20%': '-20%',
