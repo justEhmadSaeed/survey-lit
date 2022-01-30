@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { renameForm } from 'utils/form-admin/form-admin';
+import { renameValidationSchema } from 'utils/schemas/yup-schemas';
 import PropTypes from 'prop-types';
+import { useFormik } from 'formik';
 
 const CreateFormPopup = ({ setIsMenuOpen, formId }) => {
-	const [title, setTitle] = useState('My Typeform');
 	const user = useSelector((state) => state.auth);
-
-	const onChangeHandler = (e) => {
-		setTitle(e.target.value);
-	};
-
-	const onClickContinue = async () => {
-		await renameForm(user.id, formId, title);
-		setIsMenuOpen(false);
-	};
+	const { handleSubmit, handleChange, values, errors } = useFormik({
+		initialValues: {
+			name: 'My Typeform'
+		},
+		validationSchema: renameValidationSchema,
+		async onSubmit(values) {
+			await renameForm(user.id, formId, values.name);
+			setIsMenuOpen(false);
+		}
+	});
 
 	return (
 		<div className="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center bg-template-black">
@@ -29,22 +31,30 @@ const CreateFormPopup = ({ setIsMenuOpen, formId }) => {
 							<div className="border text-template-black">
 								<input
 									type="text"
-									className="outline-none border-none px-3 py-1 text-sm w-full"
+									name="name"
+									className={`outline-offset-1 ${
+										errors.name
+											? 'outline-red-700'
+											: ''
+									} border-none px-3 py-1 text-sm w-full`}
 									placeholder="My new typeform"
-									value={title}
-									onChange={onChangeHandler}
+									value={values.name}
+									onChange={handleChange}
 								/>
 							</div>
-							{/* <div className="mt-1">
-                        <span className="text-red-700 text-sm">
-                            Ack!
-                        </span>
-                    </div> */}
+							{errors.name ? (
+								<div className="mt-1">
+									<span className="text-red-700 text-sm">
+										{errors.name}
+									</span>
+								</div>
+							) : null}
 						</div>
 					</div>
 					<div className="p-8 pt-4 flex justify-end shrink-0">
 						<button
-							onClick={onClickContinue}
+							type="submit"
+							onClick={handleSubmit}
 							className="btn bg-template-black text-white"
 						>
 							Continue

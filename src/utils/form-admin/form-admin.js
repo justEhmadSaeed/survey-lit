@@ -7,7 +7,7 @@ export const createNewForm = async (userId, navigate) => {
 		const docRef = await addDoc(
 			collection(db, 'users', userId, 'forms'),
 			{
-				title: 'My Typeform'
+				name: 'My Typeform'
 			}
 		);
 		// console.log('done', docRef.id);
@@ -17,10 +17,10 @@ export const createNewForm = async (userId, navigate) => {
 	}
 };
 
-export const renameForm = async (userId, formId, title) => {
+export const renameForm = async (userId, formId, name) => {
 	try {
 		await setDoc(doc(db, 'users', userId, 'forms', formId), {
-			title
+			name
 		});
 	} catch (e) {
 		console.error('Error renaming form: ', e);
