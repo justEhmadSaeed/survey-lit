@@ -20,9 +20,12 @@ import { useDispatch } from 'react-redux';
 import { authChange } from 'services/firebase/firebase';
 import { saveUser } from 'store/slice/auth.slice';
 import FormAdmin from 'views/FormAdmin/FormAdmin';
+import { toggleLoading } from 'store/slice/loading.slice';
+import Loading from 'views/Loading/Loading';
 
 const Routers = () => {
 	const user = useSelector((state) => state.auth);
+	const loading = useSelector((state) => state.loading);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -35,12 +38,17 @@ const Routers = () => {
 						email: auth.email
 					})
 				);
+				dispatch(toggleLoading(false));
 			} else {
 				dispatch(saveUser({}));
+				dispatch(toggleLoading(false));
 			}
 		});
 	}, []);
-	return (
+
+	return loading ? (
+		<Loading />
+	) : (
 		<BrowserRouter>
 			<Routes>
 				<Route index element={<Home />} />

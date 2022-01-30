@@ -7,10 +7,13 @@ import {
 import { createNewForm } from 'utils/form-admin/form-admin';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toggleLoading } from 'store/slice/loading.slice';
+import { useDispatch } from 'react-redux';
 
 const DashboardFunctions = () => {
 	const user = useSelector((state) => state.auth);
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	return (
 		<div className="mx-8 pb-2 border-b">
@@ -29,7 +32,11 @@ const DashboardFunctions = () => {
 			{/* Create Typeform Button */}
 			<div className="my-2">
 				<button
-					onClick={() => createNewForm(user.id, navigate)}
+					onClick={async () => {
+						dispatch(toggleLoading(true));
+						await createNewForm(user.id, navigate);
+						dispatch(toggleLoading(false));
+					}}
 					className="btn bg-template-black text-white"
 				>
 					+ Create typeform

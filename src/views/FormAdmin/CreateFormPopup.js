@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { renameForm } from 'utils/form-admin/form-admin';
 import { renameValidationSchema } from 'utils/schemas/yup-schemas';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
+import Loading from 'views/Loading/Loading';
 
 const CreateFormPopup = ({ setIsMenuOpen, formId }) => {
+	const [loading, setLoading] = useState(false);
 	const user = useSelector((state) => state.auth);
 	const { handleSubmit, handleChange, values, errors } = useFormik({
 		initialValues: {
@@ -13,12 +15,15 @@ const CreateFormPopup = ({ setIsMenuOpen, formId }) => {
 		},
 		validationSchema: renameValidationSchema,
 		async onSubmit(values) {
+			setLoading(true);
 			await renameForm(user.id, formId, values.name);
 			setIsMenuOpen(false);
 		}
 	});
 
-	return (
+	return loading ? (
+		<Loading />
+	) : (
 		<div className="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center bg-template-black">
 			<div className="flex w-full justify-center mx-4">
 				<div className="flex flex-col w-full rounded-lg relative max-w-md shadow-md bg-white">
