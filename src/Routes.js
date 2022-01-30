@@ -7,6 +7,7 @@ import {
 	Navigate
 } from 'react-router-dom';
 import {
+	PATH_CREATE_FORM_ADMIN,
 	PATH_DASHBOARD,
 	PATH_LOGIN,
 	PATH_SIGNUP
@@ -18,6 +19,7 @@ import Signup from 'views/Signup/Signup';
 import { useDispatch } from 'react-redux';
 import { authChange } from 'services/firebase/firebase';
 import { saveUser } from 'store/slice/auth.slice';
+import FormAdmin from 'views/FormAdmin/FormAdmin';
 
 const Routers = () => {
 	const user = useSelector((state) => state.auth);
@@ -67,6 +69,16 @@ const Routers = () => {
 					element={
 						user.id ? (
 							<Dashboard />
+						) : (
+							<Navigate to={PATH_LOGIN} />
+						)
+					}
+				/>
+				<Route
+					path={`${PATH_CREATE_FORM_ADMIN}/:formId`}
+					element={
+						user.id ? (
+							<FormAdmin create={true} />
 						) : (
 							<Navigate to={PATH_LOGIN} />
 						)

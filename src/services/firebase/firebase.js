@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 import {
 	getAuth,
 	GoogleAuthProvider,
@@ -40,3 +41,5 @@ export const authChange = async (callBack) =>
 // export signout with Google Function
 export const signoutWithGoogle = () =>
 	signOut(auth).catch((error) => console.log(error));
+
+export const db = getFirestore();
