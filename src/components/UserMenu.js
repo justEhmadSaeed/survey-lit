@@ -14,7 +14,7 @@ const UserMenu = () => {
 
 	return (
 		<div>
-			<footer className="flex items-center">
+			<div className="flex items-center">
 				<button className="btn bg-template-green text-white mx-2">
 					View Plans
 				</button>
@@ -43,7 +43,7 @@ const UserMenu = () => {
 						</div>
 					</button>
 				</div>
-			</footer>
+			</div>
 			{/* Menu */}
 			<section
 				className={`${

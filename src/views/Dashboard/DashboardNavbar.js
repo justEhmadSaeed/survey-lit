@@ -15,7 +15,9 @@ const DashboardNavbar = () => {
 					/>
 				</div>
 			</header>
-			<UserMenu />
+			<footer>
+				<UserMenu />
+			</footer>
 		</AdminNavbar>
 	);
 };
