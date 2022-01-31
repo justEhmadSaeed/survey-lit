@@ -4,7 +4,6 @@ import FormThumbnail from './FormThumbnail';
 
 const DashboardFormsCollection = () => {
 	const forms = useSelector((state) => state.forms);
-	console.log(forms);
 	return (
 		<div className="relative ml-8">
 			{/* Collections */}

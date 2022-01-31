@@ -4,7 +4,7 @@ import DashboardFunctions from './DashboardFunctions';
 
 const DashboardBody = () => {
 	return (
-		<main className="flex h-screen flex-nowrap">
+		<main className="flex form-admin-remaining-height flex-nowrap">
 			{/* Left sidebar */}
 			<section className="hidden lg:block text-center h-full w-64 border shrink-0">
 				Workspace
