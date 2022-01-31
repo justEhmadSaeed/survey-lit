@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { renameForm } from 'utils/form-admin/form-admin';
+import { renameForm } from 'utils/form-data/form-admin';
 import { renameValidationSchema } from 'utils/schemas/yup-schemas';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';

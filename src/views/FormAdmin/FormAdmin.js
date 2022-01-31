@@ -4,7 +4,7 @@ import AdminNavbar from 'components/Navigation/AdminNavbar';
 import UserMenu from 'components/UserMenu';
 import { PATH_DASHBOARD } from 'utils/constants/routing-paths.constant';
 import FormBody from './FormBody';
-import { getFormName } from 'utils/form-admin/form-admin';
+import { getFormName } from 'utils/form-data/form-admin';
 import { useSelector } from 'react-redux';
 
 const FormAdmin = () => {

@@ -24,6 +24,8 @@ import FormAdmin from 'views/FormAdmin/FormAdmin';
 import { toggleLoading } from 'store/slice/loading.slice';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
+import { getAllForms } from 'utils/form-data/form-admin';
+import { addForms } from 'store/slice/forms.slice';
 
 const Routers = () => {
 	const user = useSelector((state) => state.auth);
@@ -31,7 +33,7 @@ const Routers = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		authChange((auth) => {
+		authChange(async (auth) => {
 			if (auth) {
 				dispatch(
 					saveUser({
@@ -40,6 +42,8 @@ const Routers = () => {
 						email: auth.email
 					})
 				);
+				const forms = await getAllForms(auth.uid);
+				dispatch(addForms(forms));
 				dispatch(toggleLoading(false));
 			} else {
 				dispatch(saveUser({}));
