@@ -5,9 +5,13 @@ import { renameValidationSchema } from 'utils/schemas/yup-schemas';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import Loading from 'views/Loading/Loading';
+import { useNavigate, useParams } from 'react-router-dom';
+import { PATH_CREATE_FORM_ADMIN } from 'utils/constants/routing-paths.constant';
 
-const CreateFormPopup = ({ setIsMenuOpen, formId }) => {
+const CreateFormPopup = () => {
+	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
+	let { formId } = useParams();
 	const user = useSelector((state) => state.auth);
 	const { handleSubmit, handleChange, values, errors } = useFormik({
 		initialValues: {
@@ -17,7 +21,7 @@ const CreateFormPopup = ({ setIsMenuOpen, formId }) => {
 		async onSubmit(values) {
 			setLoading(true);
 			await renameForm(user.id, formId, values.name);
-			setIsMenuOpen(false);
+			navigate(`${PATH_CREATE_FORM_ADMIN}/${formId}`);
 		}
 	});
 

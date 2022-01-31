@@ -6,7 +6,7 @@ import {
 	setDoc
 } from 'firebase/firestore';
 import { db } from 'services/firebase/firebase';
-import { PATH_CREATE_FORM_ADMIN } from 'utils/constants/routing-paths.constant';
+import { PATH_FORM_POPUP } from 'utils/constants/routing-paths.constant';
 
 export const createNewForm = async (userId, navigate) => {
 	try {
@@ -17,7 +17,7 @@ export const createNewForm = async (userId, navigate) => {
 			}
 		);
 		// console.log('done', docRef.id);
-		navigate(`${PATH_CREATE_FORM_ADMIN}/${docRef.id}`);
+		navigate(`${PATH_FORM_POPUP}/${docRef.id}`);
 	} catch (e) {
 		console.error('Error creating form: ', e);
 	}

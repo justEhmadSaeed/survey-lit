@@ -9,6 +9,7 @@ import {
 import {
 	PATH_CREATE_FORM_ADMIN,
 	PATH_DASHBOARD,
+	PATH_FORM_POPUP,
 	PATH_LOGIN,
 	PATH_SIGNUP
 } from 'utils/constants/routing-paths.constant';
@@ -22,6 +23,7 @@ import { saveUser } from 'store/slice/auth.slice';
 import FormAdmin from 'views/FormAdmin/FormAdmin';
 import { toggleLoading } from 'store/slice/loading.slice';
 import Loading from 'views/Loading/Loading';
+import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 
 const Routers = () => {
 	const user = useSelector((state) => state.auth);
@@ -77,6 +79,16 @@ const Routers = () => {
 					element={
 						user.id ? (
 							<Dashboard />
+						) : (
+							<Navigate to={PATH_LOGIN} />
+						)
+					}
+				/>
+				<Route
+					path={`${PATH_FORM_POPUP}/:formId`}
+					element={
+						user.id ? (
+							<CreateFormPopup />
 						) : (
 							<Navigate to={PATH_LOGIN} />
 						)
