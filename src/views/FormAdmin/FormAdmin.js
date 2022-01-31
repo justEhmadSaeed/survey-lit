@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import CreateFormPopup from './CreateFormPopup';
 import PropTypes from 'prop-types';
@@ -6,11 +6,22 @@ import AdminNavbar from 'components/Navigation/AdminNavbar';
 import UserMenu from 'components/UserMenu';
 import { PATH_DASHBOARD } from 'utils/constants/routing-paths.constant';
 import FormBody from './FormBody';
+import { getFormName } from 'utils/form-admin/form-admin';
+import { useSelector } from 'react-redux';
 
 const FormAdmin = ({ create }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(create);
 	let { formId } = useParams();
 	const [formName, setFormName] = useState('My Typeform');
+	const user = useSelector((state) => state.auth);
+
+	useEffect(() => {
+		const getName = async () => {
+			let name = await getFormName(user.id, formId);
+			if (name) setFormName(name);
+		};
+		getName();
+	}, []);
 
 	return isMenuOpen ? (
 		// Popup card container

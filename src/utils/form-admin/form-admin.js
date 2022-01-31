@@ -1,4 +1,10 @@
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
+import {
+	addDoc,
+	collection,
+	doc,
+	getDoc,
+	setDoc
+} from 'firebase/firestore';
 import { db } from 'services/firebase/firebase';
 import { PATH_CREATE_FORM_ADMIN } from 'utils/constants/routing-paths.constant';
 
@@ -22,6 +28,19 @@ export const renameForm = async (userId, formId, name) => {
 		await setDoc(doc(db, 'users', userId, 'forms', formId), {
 			name
 		});
+	} catch (e) {
+		console.error('Error renaming form: ', e);
+	}
+};
+
+export const getFormName = async (userId, formId) => {
+	try {
+		const docSnap = await getDoc(
+			doc(db, 'users', userId, 'forms', formId)
+		);
+		if (docSnap.exists()) {
+			return docSnap.data().name;
+		}
 	} catch (e) {
 		console.error('Error renaming form: ', e);
 	}
