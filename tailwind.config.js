@@ -11,7 +11,8 @@ module.exports = {
 				'template-auth-border': '#c3c3c3',
 				'template-green': '#026451',
 				'template-hover-color': '#f0f0f0',
-				'template-dashboard-bg': '#fafafa'
+				'template-dashboard-bg': '#fafafa',
+				'template-question-icon': '#d65c99'
 			},
 			bottom: {
 				'-20%': '-20%',

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import CreateFormPopup from './CreateFormPopup';
-import PropTypes from 'prop-types';
 import AdminNavbar from 'components/Navigation/AdminNavbar';
 import UserMenu from 'components/UserMenu';
 import { PATH_DASHBOARD } from 'utils/constants/routing-paths.constant';
@@ -9,8 +7,7 @@ import FormBody from './FormBody';
 import { getFormName } from 'utils/form-admin/form-admin';
 import { useSelector } from 'react-redux';
 
-const FormAdmin = ({ create }) => {
-	const [isMenuOpen, setIsMenuOpen] = useState(create);
+const FormAdmin = () => {
 	let { formId } = useParams();
 	const [formName, setFormName] = useState('My Typeform');
 	const user = useSelector((state) => state.auth);
@@ -23,14 +20,8 @@ const FormAdmin = ({ create }) => {
 		getName();
 	}, []);
 
-	return isMenuOpen ? (
-		// Popup card container
-		<CreateFormPopup
-			setIsMenuOpen={setIsMenuOpen}
-			formId={formId}
-		/>
-	) : (
-		<div>
+	return (
+		<div className="h-full flex flex-col flex-nowrap flex-1">
 			<AdminNavbar>
 				<header>
 					<div>
@@ -61,13 +52,6 @@ const FormAdmin = ({ create }) => {
 			<FormBody />
 		</div>
 	);
-};
-FormAdmin.propTypes = {
-	create: PropTypes.bool
-};
-
-FormAdmin.defaultProps = {
-	create: false
 };
 
 export default FormAdmin;

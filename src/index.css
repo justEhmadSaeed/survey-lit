@@ -17,3 +17,6 @@ body {
 .dashboard-icon {
 	@apply text-template-auth-text h-5 w-5;
 }
+.form-admin-remaining-height {
+	height: calc(100vh - 53px);
+}
