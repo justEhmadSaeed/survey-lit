@@ -54,7 +54,7 @@ export const getAllForms = async (userId) => {
 		const formArray = [];
 		docSnap.forEach((doc) => {
 			formArray.push({
-				name: doc.data(),
+				name: doc.data().name,
 				id: doc.id
 			});
 		});
