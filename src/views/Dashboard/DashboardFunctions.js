@@ -7,11 +7,11 @@ import {
 import { createNewForm } from 'utils/form-data/form-admin';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { toggleLoading } from 'store/slice/loading.slice';
 import { useDispatch } from 'react-redux';
+import { toggleLoading } from 'store/slice/auth.slice';
 
 const DashboardFunctions = () => {
-	const user = useSelector((state) => state.auth);
+	const auth = useSelector((state) => state.auth);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ const DashboardFunctions = () => {
 				<button
 					onClick={async () => {
 						dispatch(toggleLoading(true));
-						await createNewForm(user.id, navigate);
+						await createNewForm(auth.id, navigate);
 						dispatch(toggleLoading(false));
 					}}
 					className="btn bg-template-black text-white"

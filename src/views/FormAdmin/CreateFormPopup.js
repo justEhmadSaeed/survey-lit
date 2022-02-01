@@ -12,7 +12,7 @@ const CreateFormPopup = () => {
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
 	let { formId } = useParams();
-	const user = useSelector((state) => state.auth);
+	const auth = useSelector((state) => state.auth);
 	const { handleSubmit, handleChange, values, errors } = useFormik({
 		initialValues: {
 			name: 'My Typeform'
@@ -20,7 +20,7 @@ const CreateFormPopup = () => {
 		validationSchema: renameValidationSchema,
 		async onSubmit(values) {
 			setLoading(true);
-			await renameForm(user.id, formId, values.name);
+			await renameForm(auth.id, formId, values.name);
 			navigate(`${PATH_CREATE_FORM_ADMIN}/${formId}`);
 		}
 	});

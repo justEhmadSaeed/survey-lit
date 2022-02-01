@@ -16,13 +16,12 @@ const AuthTile = ({ imgSrc, title, onClick }) => {
 AuthTile.propTypes = {
 	imgSrc: PropTypes.string,
 	title: PropTypes.string,
-	onClick: PropTypes.func
+	onClick: PropTypes.func.isRequired
 };
 
 AuthTile.defaultProps = {
 	imgSrc: '',
-	title: '',
-	onClick: undefined
+	title: ''
 };
 
 export default AuthTile;

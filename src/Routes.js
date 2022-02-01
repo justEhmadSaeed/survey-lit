@@ -19,17 +19,15 @@ import Login from 'views/Login/Login';
 import Signup from 'views/Signup/Signup';
 import { useDispatch } from 'react-redux';
 import { authChange } from 'services/firebase/firebase';
-import { saveUser } from 'store/slice/auth.slice';
+import { saveUser, toggleLoading } from 'store/slice/auth.slice';
 import FormAdmin from 'views/FormAdmin/FormAdmin';
-import { toggleLoading } from 'store/slice/loading.slice';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 import { getAllForms } from 'utils/form-data/form-admin';
 import { addForms } from 'store/slice/forms.slice';
 
 const Routers = () => {
-	const user = useSelector((state) => state.auth);
-	const loading = useSelector((state) => state.loading);
+	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -51,8 +49,8 @@ const Routers = () => {
 			}
 		});
 	}, []);
-
-	return loading ? (
+	console.log(auth);
+	return auth.loading ? (
 		<Loading />
 	) : (
 		<BrowserRouter>
@@ -61,7 +59,7 @@ const Routers = () => {
 				<Route
 					path={PATH_LOGIN}
 					element={
-						user.id ? (
+						auth.id ? (
 							<Navigate to={PATH_DASHBOARD} />
 						) : (
 							<Login />
@@ -71,7 +69,7 @@ const Routers = () => {
 				<Route
 					path={PATH_SIGNUP}
 					element={
-						user.id ? (
+						auth.id ? (
 							<Navigate to={PATH_DASHBOARD} />
 						) : (
 							<Signup />
@@ -81,7 +79,7 @@ const Routers = () => {
 				<Route
 					path={PATH_DASHBOARD}
 					element={
-						user.id ? (
+						auth.id ? (
 							<Dashboard />
 						) : (
 							<Navigate to={PATH_LOGIN} />
@@ -91,7 +89,7 @@ const Routers = () => {
 				<Route
 					path={`${PATH_FORM_POPUP}/:formId`}
 					element={
-						user.id ? (
+						auth.id ? (
 							<CreateFormPopup />
 						) : (
 							<Navigate to={PATH_LOGIN} />
@@ -101,7 +99,7 @@ const Routers = () => {
 				<Route
 					path={`${PATH_CREATE_FORM_ADMIN}/:formId`}
 					element={
-						user.id ? (
+						auth.id ? (
 							<FormAdmin create={true} />
 						) : (
 							<Navigate to={PATH_LOGIN} />
