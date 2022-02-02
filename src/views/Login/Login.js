@@ -1,6 +1,6 @@
-import AuthDivider from 'components/Auth/AuthDivider';
-import AuthNavbar from 'components/Auth/AuthNavbar';
-import AuthTile from 'components/Auth/AuthTile';
+import AuthDivider from 'components/AuthDivider';
+import AuthNavbar from 'components/AuthNavbar';
+import AuthTile from 'components/AuthTile';
 import React from 'react';
 import { signInWithGoogle } from 'services/firebase/firebase';
 import {

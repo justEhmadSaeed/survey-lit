@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import AdminNavbar from 'components/Navigation/AdminNavbar';
+import AdminNavbar from 'components/AdminNavbar';
 import UserMenu from 'components/UserMenu';
 import { PATH_DASHBOARD } from 'utils/constants/routing-paths.constant';
 import FormBody from './FormBody';

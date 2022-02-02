@@ -1,4 +1,4 @@
-import PublicNavbar from 'components/Navigation/PublicNavbar';
+import PublicNavbar from 'components/PublicNavbar';
 import PublicHero from 'components/PublicHero';
 import React from 'react';
 

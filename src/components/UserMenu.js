@@ -50,7 +50,7 @@ const UserMenu = () => {
 					isMenuOpen ? 'block' : 'hidden'
 				} absolute right-3 top-12`}
 			>
-				<div className="shadow-md w-64 rounded-lg text-template-black py-2">
+				<div className="shadow-md w-64 rounded-lg text-template-black py-2 bg-white">
 					<header className="border-b pb-2 mb-2">
 						<div className="flex items-center px-4 gap-3">
 							{/* Circle Icon */}

@@ -19,7 +19,11 @@ import Login from 'views/Login/Login';
 import Signup from 'views/Signup/Signup';
 import { useDispatch } from 'react-redux';
 import { authChange } from 'services/firebase/firebase';
-import { saveUser, toggleLoading } from 'store/slice/auth.slice';
+import {
+	logInUser,
+	signOutUser,
+	toggleLoading
+} from 'store/slice/auth.slice';
 import FormAdmin from 'views/FormAdmin/FormAdmin';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
@@ -32,9 +36,10 @@ const Routers = () => {
 
 	useEffect(() => {
 		authChange(async (auth) => {
+			console.log(auth);
 			if (auth) {
 				dispatch(
-					saveUser({
+					logInUser({
 						name: auth.displayName,
 						id: auth.uid,
 						email: auth.email
@@ -44,7 +49,7 @@ const Routers = () => {
 				dispatch(addForms(forms));
 				dispatch(toggleLoading(false));
 			} else {
-				dispatch(saveUser({}));
+				dispatch(signOutUser());
 				dispatch(toggleLoading(false));
 			}
 		});

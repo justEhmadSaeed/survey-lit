@@ -3,7 +3,7 @@ import signupSvg_2 from 'assets/signup_vector_2.svg';
 import typeform_logo from 'assets/typeform_logo.svg';
 import google_icon from 'assets/google_icon.svg';
 import microsoft_icon from 'assets/microsoft_icon.svg';
-import AuthTile from 'components/Auth/AuthTile';
+import AuthTile from 'components/AuthTile';
 import TextField from 'components/TextField';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -16,8 +16,8 @@ import {
 	PATH_HOME,
 	PATH_LOGIN
 } from 'utils/constants/routing-paths.constant';
-import AuthNavbar from 'components/Auth/AuthNavbar';
-import AuthDivider from 'components/Auth/AuthDivider';
+import AuthNavbar from 'components/AuthNavbar';
+import AuthDivider from 'components/AuthDivider';
 
 const Signup = () => {
 	return (

@@ -5,7 +5,7 @@ import {
 	MenuIcon,
 	XIcon
 } from '@heroicons/react/solid';
-import NavItem from 'components/Navigation/NavItem';
+import NavItem from 'components/NavItem';
 import { Link } from 'react-router-dom';
 import {
 	PATH_LOGIN,

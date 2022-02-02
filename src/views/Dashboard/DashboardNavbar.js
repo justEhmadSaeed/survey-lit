@@ -1,7 +1,7 @@
 import React from 'react';
 import typeform_logo from 'assets/typeform_logo.svg';
 import UserMenu from 'components/UserMenu';
-import AdminNavbar from 'components/Navigation/AdminNavbar';
+import AdminNavbar from 'components/AdminNavbar';
 
 const DashboardNavbar = () => {
 	return (
