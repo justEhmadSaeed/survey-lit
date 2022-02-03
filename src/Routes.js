@@ -36,7 +36,6 @@ const Routers = () => {
 
 	useEffect(() => {
 		authChange(async (auth) => {
-			console.log(auth);
 			if (auth) {
 				dispatch(
 					logInUser({
@@ -54,7 +53,7 @@ const Routers = () => {
 			}
 		});
 	}, []);
-	console.log(auth);
+
 	return auth.loading ? (
 		<Loading />
 	) : (
