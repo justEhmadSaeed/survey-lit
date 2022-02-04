@@ -1,31 +1,58 @@
 import { CheckIcon } from '@heroicons/react/solid';
 import { TrashIcon } from '@heroicons/react/outline';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import QuestionContent from './QuestionContent';
-
+import { nanoid } from 'nanoid';
 const FormBody = () => {
 	const [questions, setQuestions] = useState([
 		{
+			id: nanoid(),
 			title: '',
 			desc: '',
 			choices: [
-				'Choice 1',
-				'Choice 2',
+				{ id: nanoid(), text: 'Choice 1' },
+				{ id: nanoid(), text: 'Choice 2' }
 			]
 		}
 	]);
-	const [selectedQuestion, setSelectedQuestion] = useState(0);
+	const [selectedQuestion, setSelectedQuestion] = useState();
 
+	useEffect(() => {
+		if (!selectedQuestion && questions.length > 0) {
+			setSelectedQuestion(questions[0].id);
+		}
+	}, [questions]);
+	// Add new question to the questions array
 	const addQuestionsHandler = () => {
 		const tempQuestions = [...questions];
 		tempQuestions.push({
+			id: nanoid(),
 			title: '',
 			desc: '',
 			choices: []
 		});
 		setQuestions(tempQuestions);
 	};
+	const handleQuestionChange = (question) => {
+		const tempQuestions = [...questions];
+		const index = tempQuestions.findIndex(
+			(ques) => ques.id === question.id
+		);
+		if (index === -1) return;
+		tempQuestions[index] = question;
+		setQuestions(tempQuestions);
+	};
 
+	const addChoice = (index) => {
+		const tempQuestions = [...questions];
+		tempQuestions[index].choices.push({
+			id: nanoid(),
+			text: ''
+		});
+		setQuestions(tempQuestions);
+	};
+
+	// console.log(questions);
 	return (
 		<main className="flex flex-col md:flex-row form-admin-remaining-height justify-around flex-nowrap">
 			<section className="w-64 border">
@@ -43,19 +70,22 @@ const FormBody = () => {
 					{/* Questions List */}
 					<div className="flex-1 h-full overflow-y-auto border-b">
 						<div className="">
-							{questions.map((ques, i) => (
+							{questions.map((question, i) => (
 								<li
 									className={`${
-										selectedQuestion === i
+										selectedQuestion ===
+										question.id
 											? 'bg-template-hover-color'
 											: ''
-									} flex justify-between items-center py-3 pr-1 pl-4 cursor-pointer`}
-									key={i}
+									} w-full flex justify-between items-center py-3 pr-1 pl-4 cursor-pointer`}
+									key={question.id}
 								>
 									<button
-										className="w-full"
+										className="w-full flex items-center"
 										onClick={() => {
-											setSelectedQuestion(i);
+											setSelectedQuestion(
+												question.id
+											);
 										}}
 									>
 										<div className="flex flex-nowrap items-center">
@@ -68,8 +98,8 @@ const FormBody = () => {
 												</div>
 											</div>
 										</div>
-										<div className="ml-3 break-words flex-1 overflow-hidden">
-											{ques.title}
+										<div className="ml-3 w-28 text-left whitespace-nowrap overflow-ellipsis text-xs flex-1 overflow-hidden">
+											{question.title}
 										</div>
 									</button>
 									<button
@@ -88,8 +118,19 @@ const FormBody = () => {
 			</section>
 			{/* Question Content */}
 			<QuestionContent
-				selectedQuestion={selectedQuestion}
-				question={questions[selectedQuestion]}
+				index={questions.findIndex(
+					(question) => question.id === selectedQuestion
+				)}
+				question={
+					questions[
+						questions.findIndex(
+							(question) =>
+								question.id === selectedQuestion
+						)
+					]
+				}
+				handleQuestionChange={handleQuestionChange}
+				addChoice={addChoice}
 			/>
 			<section className="w-64 border">Right Sidebar</section>
 		</main>
