@@ -9,10 +9,7 @@ const FormBody = () => {
 			id: nanoid(),
 			title: '',
 			desc: '',
-			choices: [
-				{ id: nanoid(), text: 'Choice 1' },
-				{ id: nanoid(), text: 'Choice 2' }
-			]
+			choices: [{ id: nanoid(), text: '' }]
 		}
 	]);
 	const [selectedQuestion, setSelectedQuestion] = useState();
@@ -29,7 +26,7 @@ const FormBody = () => {
 			id: nanoid(),
 			title: '',
 			desc: '',
-			choices: []
+			choices: [{ id: nanoid(), text: '' }]
 		});
 		setQuestions(tempQuestions);
 	};
@@ -50,6 +47,19 @@ const FormBody = () => {
 			text: ''
 		});
 		setQuestions(tempQuestions);
+	};
+
+	const deleteQuestion = (id) => {
+		const tempQuestions = [...questions];
+		const index = tempQuestions.findIndex(
+			(ques) => ques.id === id
+		);
+		if (index === -1) return;
+
+		tempQuestions.splice(index, 1);
+		setQuestions(tempQuestions);
+		if (id === selectedQuestion)
+			setSelectedQuestion(tempQuestions.at(-1).id);
 	};
 
 	// console.log(questions);
@@ -102,12 +112,18 @@ const FormBody = () => {
 											{question.title}
 										</div>
 									</button>
-									<button
-										className="p-1 rounded-lg hover:bg-template-hover-color"
-										onClick={() => {}}
-									>
-										<TrashIcon className="h-4 w-4 text-template-auth-text" />
-									</button>
+									{questions.length > 1 && (
+										<button
+											className="p-1 rounded-lg hover:bg-template-hover-color"
+											onClick={() => {
+												deleteQuestion(
+													question.id
+												);
+											}}
+										>
+											<TrashIcon className="h-4 w-4 text-template-auth-text" />
+										</button>
+									)}
 								</li>
 							))}
 						</div>

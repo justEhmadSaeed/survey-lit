@@ -22,10 +22,10 @@ const QuestionContent = ({
 	};
 
 	const handleChoicesChange = (choice) => {
-        const tempQuestion = { ...localQuestion };
+		const tempQuestion = { ...localQuestion };
 		const index = tempQuestion.choices.findIndex(
 			(op) => op.id === choice.id
-        );
+		);
 		if (index === -1) return;
 		tempQuestion.choices[index] = choice;
 		handleQuestionChange(tempQuestion);
@@ -53,6 +53,7 @@ const QuestionContent = ({
 								name="title"
 								placeholder="Your question here ..."
 								className="italic outline-none text-lg"
+								autoComplete="off"
 								value={localQuestion.title}
 								onChange={handleInputChange('title')}
 								onBlur={() =>
@@ -67,6 +68,7 @@ const QuestionContent = ({
 								name="description"
 								placeholder="Description (optional)"
 								className="italic outline-none text-sm mt-1 text-template-auth-text"
+								autoComplete="off"
 								value={localQuestion.desc}
 								onChange={handleInputChange('desc')}
 								onBlur={() =>
