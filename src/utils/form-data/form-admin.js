@@ -4,19 +4,19 @@ import {
 	doc,
 	getDoc,
 	getDocs,
-	setDoc
+	query,
+	updateDoc,
+	where
 } from 'firebase/firestore';
 import { db } from 'services/firebase/firebase';
 import { PATH_FORM_POPUP } from 'utils/constants/routing-paths.constant';
 
 export const createNewForm = async (userId, navigate) => {
 	try {
-		const docRef = await addDoc(
-			collection(db, 'users', userId, 'forms'),
-			{
-				name: 'My Typeform'
-			}
-		);
+		const docRef = await addDoc(collection(db, 'forms'), {
+			name: 'My Typeform',
+			userId
+		});
 		navigate(`${PATH_FORM_POPUP}/${docRef.id}`);
 	} catch (e) {
 		console.error('Error creating form: ', e);
@@ -25,7 +25,7 @@ export const createNewForm = async (userId, navigate) => {
 
 export const renameForm = async (userId, formId, name) => {
 	try {
-		await setDoc(doc(db, 'users', userId, 'forms', formId), {
+		await updateDoc(doc(db, 'forms', formId), {
 			name
 		});
 	} catch (e) {
@@ -36,7 +36,10 @@ export const renameForm = async (userId, formId, name) => {
 export const getFormName = async (userId, formId) => {
 	try {
 		const docSnap = await getDoc(
-			doc(db, 'users', userId, 'forms', formId)
+			query(
+				doc(db, 'forms', formId),
+				where('userId', '==', userId)
+			)
 		);
 		if (docSnap.exists()) {
 			return docSnap.data().name;
@@ -49,7 +52,10 @@ export const getFormName = async (userId, formId) => {
 export const getAllForms = async (userId) => {
 	try {
 		const docSnap = await getDocs(
-			collection(db, 'users', userId, 'forms')
+			query(
+				collection(db, 'forms'),
+				where('userId', '==', userId)
+			)
 		);
 		const formArray = [];
 		docSnap.forEach((doc) => {
@@ -58,6 +64,7 @@ export const getAllForms = async (userId) => {
 				id: doc.id
 			});
 		});
+		console.log(formArray);
 		return formArray;
 	} catch (e) {
 		console.error('Error fetching all forms: ', e);
