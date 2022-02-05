@@ -21,7 +21,7 @@ const QuestionContent = ({
 		setLocalQuestion(tempQuestion);
 	};
 
-	const handleChoicesChange = (choice) => {
+	const handleChoiceChange = (choice) => {
 		const tempQuestion = { ...localQuestion };
 		const index = tempQuestion.choices.findIndex(
 			(op) => op.id === choice.id
@@ -86,8 +86,8 @@ const QuestionContent = ({
 											<QuestionChoice
 												key={choice.id}
 												choice={choice}
-												handleChoicesChange={
-													handleChoicesChange
+												handleChoiceChange={
+													handleChoiceChange
 												}
 												index={i}
 											/>

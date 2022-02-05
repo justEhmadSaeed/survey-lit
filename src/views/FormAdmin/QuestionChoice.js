@@ -2,7 +2,7 @@ import { XCircleIcon } from '@heroicons/react/solid';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const QuestionChoice = ({ choice, handleChoicesChange, index }) => {
+const QuestionChoice = ({ choice, handleChoiceChange, index }) => {
 	const [localChoice, setLocalChoice] = useState(choice);
 
 	const handleInputChange = (event) => {
@@ -21,7 +21,7 @@ const QuestionChoice = ({ choice, handleChoicesChange, index }) => {
 					value={localChoice.text}
 					onChange={handleInputChange}
 					onBlur={() => {
-						handleChoicesChange(localChoice);
+						handleChoiceChange(localChoice);
 					}}
 				/>
 				<button className="-mr-4 opacity-80 hidden group-hover:block">
@@ -34,7 +34,7 @@ const QuestionChoice = ({ choice, handleChoicesChange, index }) => {
 QuestionChoice.propTypes = {
 	choice: PropTypes.object.isRequired,
 	index: PropTypes.number.isRequired,
-	handleChoicesChange: PropTypes.func.isRequired
+	handleChoiceChange: PropTypes.func.isRequired
 };
 
 QuestionChoice.defaultProps = {};
