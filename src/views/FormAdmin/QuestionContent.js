@@ -7,7 +7,8 @@ const QuestionContent = ({
 	question,
 	index,
 	handleQuestionChange,
-	addChoice
+	addChoice,
+	deleteChoice
 }) => {
 	// Initialize empty state
 	const [localQuestion, setLocalQuestion] = useState({
@@ -89,6 +90,14 @@ const QuestionContent = ({
 												handleChoiceChange={
 													handleChoiceChange
 												}
+												deleteChoice={
+													deleteChoice
+												}
+												showDeleteIcon={
+													localQuestion
+														.choices
+														.length > 1
+												}
 												index={i}
 											/>
 										)
@@ -115,7 +124,8 @@ QuestionContent.propTypes = {
 	question: PropTypes.object,
 	index: PropTypes.number.isRequired,
 	handleQuestionChange: PropTypes.func.isRequired,
-	addChoice: PropTypes.func.isRequired
+	addChoice: PropTypes.func.isRequired,
+	deleteChoice: PropTypes.func.isRequired
 };
 
 QuestionContent.defaultProps = {

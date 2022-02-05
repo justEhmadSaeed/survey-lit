@@ -2,7 +2,13 @@ import { XCircleIcon } from '@heroicons/react/solid';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const QuestionChoice = ({ choice, handleChoiceChange, index }) => {
+const QuestionChoice = ({
+	choice,
+	handleChoiceChange,
+	deleteChoice,
+	index,
+	showDeleteIcon
+}) => {
 	const [localChoice, setLocalChoice] = useState(choice);
 
 	const handleInputChange = (event) => {
@@ -24,9 +30,14 @@ const QuestionChoice = ({ choice, handleChoiceChange, index }) => {
 						handleChoiceChange(localChoice);
 					}}
 				/>
-				<button className="-mr-4 opacity-80 hidden group-hover:block">
-					<XCircleIcon className="h-6 w-6 text-template-signup-text" />
-				</button>
+				{showDeleteIcon && (
+					<button
+						className="-mr-4 opacity-80 hidden group-hover:block"
+						onClick={() => deleteChoice(index)}
+					>
+						<XCircleIcon className="h-6 w-6 text-template-signup-text" />
+					</button>
+				)}
 			</div>
 		</li>
 	);
@@ -34,7 +45,9 @@ const QuestionChoice = ({ choice, handleChoiceChange, index }) => {
 QuestionChoice.propTypes = {
 	choice: PropTypes.object.isRequired,
 	index: PropTypes.number.isRequired,
-	handleChoiceChange: PropTypes.func.isRequired
+	handleChoiceChange: PropTypes.func.isRequired,
+	deleteChoice: PropTypes.func.isRequired,
+	showDeleteIcon: PropTypes.bool
 };
 
 QuestionChoice.defaultProps = {};

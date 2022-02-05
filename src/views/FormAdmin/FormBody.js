@@ -61,6 +61,19 @@ const FormBody = () => {
 		setQuestions(tempQuestions);
 	};
 
+	const deleteChoice = (choiceIndex) => {
+		const tempQuestions = [...questions];
+		const index = tempQuestions.findIndex(
+			(ques) => ques.id === selectedQuestion
+		);
+		if (index === -1) return;
+		// Do not delete if there's only one choice left
+		if (tempQuestions[index].choices.length < 2) return;
+
+		tempQuestions[index].choices.splice(choiceIndex, 1);
+		setQuestions(tempQuestions);
+	};
+
 	// console.log(questions);
 	return (
 		<main className="flex flex-col md:flex-row form-admin-remaining-height justify-around flex-nowrap">
@@ -86,6 +99,7 @@ const FormBody = () => {
 				}
 				handleQuestionChange={handleQuestionChange}
 				addChoice={addChoice}
+				deleteChoice={deleteChoice}
 			/>
 			<section className="w-64 border">Right Sidebar</section>
 		</main>
