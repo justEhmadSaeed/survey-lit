@@ -49,6 +49,7 @@ const CreateFormPopup = () => {
 									placeholder="My new typeform"
 									value={values.name}
 									onChange={handleChange}
+									autoComplete="off"
 								/>
 							</div>
 							{errors.name ? (

@@ -2,15 +2,9 @@ import React, { useEffect, useState } from 'react';
 import QuestionContent from './QuestionContent';
 import { nanoid } from 'nanoid';
 import ContentSidebar from './ContentSidebar';
-const FormBody = () => {
-	const [questions, setQuestions] = useState([
-		{
-			id: nanoid(),
-			title: '',
-			desc: '',
-			choices: [{ id: nanoid(), text: '' }]
-		}
-	]);
+import PropTypes from 'prop-types';
+
+const FormBody = ({ questions, setQuestions }) => {
 	const [selectedQuestion, setSelectedQuestion] = useState();
 
 	useEffect(() => {
@@ -104,6 +98,14 @@ const FormBody = () => {
 			<section className="w-64 border">Right Sidebar</section>
 		</main>
 	);
+};
+FormBody.propTypes = {
+	questions: PropTypes.array,
+	setQuestions: PropTypes.func.isRequired
+};
+
+FormBody.defaultProps = {
+	questions: []
 };
 
 export default FormBody;

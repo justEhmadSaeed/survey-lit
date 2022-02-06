@@ -33,19 +33,17 @@ export const renameForm = async (userId, formId, name) => {
 	}
 };
 
-export const getFormName = async (userId, formId) => {
+export const getFormData = async (userId, formId) => {
 	try {
-		const docSnap = await getDoc(
-			query(
-				doc(db, 'forms', formId),
-				where('userId', '==', userId)
-			)
-		);
+		const docSnap = await getDoc(doc(db, 'forms', formId));
 		if (docSnap.exists()) {
-			return docSnap.data().name;
-		}
+			if (docSnap.data().userId === userId)
+				return docSnap.data();
+			else return { error: 'Form data not authorized.' };
+		} else return { error: 'Form data not found.' };
 	} catch (e) {
-		console.error('Error get form name: ', e);
+		console.error('Error getting form data: ', e);
+		return { error: 'Error getting form data: ', e };
 	}
 };
 
@@ -64,9 +62,21 @@ export const getAllForms = async (userId) => {
 				id: doc.id
 			});
 		});
-		console.log(formArray);
 		return formArray;
 	} catch (e) {
 		console.error('Error fetching all forms: ', e);
+		return { error: 'Error fetching all forms: ', e };
+	}
+};
+
+export const storeIntoFirestore = async (formId, questions) => {
+	try {
+		const result = await updateDoc(doc(db, 'forms', formId), {
+			questions
+		});
+		return result;
+	} catch (e) {
+		console.error('Error storing form data: ', e);
+		return { error: 'Error storing form data: ', e };
 	}
 };
