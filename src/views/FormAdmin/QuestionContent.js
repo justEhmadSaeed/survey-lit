@@ -42,7 +42,7 @@ const QuestionContent = ({
 	return (
 		<section className="flex-1 pt-8 px-4 pb-16 h-full bg-template-dashboard-bg">
 			<div className="w-full h-full flex justify-center items-start rounded-lg shadow-md bg-white overflow-hidden">
-				<div className="mt-32 text-left flex justify-start items-start w-3/4">
+				<div className="mt-32 text-left flex justify-start items-start w-3/4 h-80 overflow-auto">
 					<div className="flex items-center mr-2 text-blue-800">
 						<span>{index + 1}</span>
 						<ArrowRightIcon className="h-3 w-3 ml-1" />

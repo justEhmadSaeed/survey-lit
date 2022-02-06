@@ -71,10 +71,10 @@ export const getAllForms = async (userId) => {
 
 export const storeIntoFirestore = async (formId, questions) => {
 	try {
-		const result = await updateDoc(doc(db, 'forms', formId), {
+		await updateDoc(doc(db, 'forms', formId), {
 			questions
 		});
-		return result;
+		return { success: true };
 	} catch (e) {
 		console.error('Error storing form data: ', e);
 		return { error: 'Error storing form data: ', e };

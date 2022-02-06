@@ -11,6 +11,7 @@ import {
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import Loading from 'views/Loading/Loading';
+import PublishButton from './PublishButton';
 
 const FormAdmin = () => {
 	let { formId } = useParams();
@@ -71,14 +72,10 @@ const FormAdmin = () => {
 					</div>
 				</header>
 				<footer className="flex justify-center items-center">
-					<div className="pr-2 border-r">
-						<button
-							onClick={saveDataIntoFirestore}
-							className="btn bg-template-black text-white"
-						>
-							Publish
-						</button>
-					</div>
+					<PublishButton
+						formURL={`${window.location.origin}/to/${formId}`}
+						onClick={saveDataIntoFirestore}
+					/>
 					<UserMenu />
 				</footer>
 			</AdminNavbar>
