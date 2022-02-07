@@ -10,6 +10,7 @@ import {
 	PATH_CREATE_FORM_ADMIN,
 	PATH_DASHBOARD,
 	PATH_FORM_POPUP,
+	PATH_JOIN_FORM,
 	PATH_LOGIN,
 	PATH_SIGNUP
 } from 'utils/constants/routing-paths.constant';
@@ -29,6 +30,7 @@ import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 import { getAllForms } from 'utils/form-data/form-admin';
 import { addForms } from 'store/slice/forms.slice';
+import JoinForm from 'views/JoinForm/JoinForm';
 
 const Routers = () => {
 	const auth = useSelector((state) => state.auth);
@@ -105,6 +107,16 @@ const Routers = () => {
 					element={
 						auth.id ? (
 							<FormAdmin create={true} />
+						) : (
+							<Navigate to={PATH_LOGIN} />
+						)
+					}
+				/>
+				<Route
+					path={`${PATH_JOIN_FORM}/:formId`}
+					element={
+						auth.id ? (
+							<JoinForm />
 						) : (
 							<Navigate to={PATH_LOGIN} />
 						)

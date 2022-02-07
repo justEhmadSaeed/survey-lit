@@ -73,7 +73,7 @@ const FormAdmin = () => {
 				</header>
 				<footer className="flex justify-center items-center">
 					<PublishButton
-						formURL={`${window.location.origin}/to/${formId}`}
+						formURL={`${window.location.origin}/form/to/${formId}`}
 						onClick={saveDataIntoFirestore}
 					/>
 					<UserMenu />
