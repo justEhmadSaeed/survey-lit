@@ -106,7 +106,7 @@ const Routers = () => {
 					path={`${PATH_CREATE_FORM_ADMIN}/:formId`}
 					element={
 						auth.id ? (
-							<FormAdmin create={true} />
+							<FormAdmin />
 						) : (
 							<Navigate to={PATH_LOGIN} />
 						)
