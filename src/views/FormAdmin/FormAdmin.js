@@ -7,7 +7,7 @@ import FormBody from './FormBody';
 import {
 	getFormData,
 	storeIntoFirestore
-} from 'utils/form-data/form-admin';
+} from 'utils/form-data/form-data';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import Loading from 'views/Loading/Loading';
@@ -25,19 +25,21 @@ const FormAdmin = () => {
 		const getData = async () => {
 			let data = await getFormData(userId, formId);
 			if (!data.error) {
-				setFormName(data.name);
-				if (data.questions) {
-					setQuestions(data.questions);
-				} else {
-					setQuestions([
-						{
-							id: nanoid(),
-							title: '',
-							desc: '',
-							choices: [{ id: nanoid(), text: '' }]
-						}
-					]);
-				}
+				if (data.userId === userId) {
+					setFormName(data.name);
+					if (data.questions) {
+						setQuestions(data.questions);
+					} else {
+						setQuestions([
+							{
+								id: nanoid(),
+								title: '',
+								desc: '',
+								choices: [{ id: nanoid(), text: '' }]
+							}
+						]);
+					}
+				} else setError('Edit Form not authorized.');
 			} else setError(data.error);
 			setLoading(false);
 		};
