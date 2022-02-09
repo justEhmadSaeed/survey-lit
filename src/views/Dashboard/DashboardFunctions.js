@@ -4,7 +4,7 @@ import {
 	RefreshIcon,
 	UserAddIcon
 } from '@heroicons/react/solid';
-import { createNewForm } from 'utils/form-data/form-admin';
+import { createNewForm } from 'utils/form-data/form-data';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';

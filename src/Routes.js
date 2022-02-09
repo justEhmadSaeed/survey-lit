@@ -28,7 +28,7 @@ import {
 import FormAdmin from 'views/FormAdmin/FormAdmin';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
-import { getAllForms } from 'utils/form-data/form-admin';
+import { getAllForms } from 'utils/form-data/form-data';
 import { addForms } from 'store/slice/forms.slice';
 import JoinForm from 'views/JoinForm/JoinForm';
 

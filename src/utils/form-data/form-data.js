@@ -33,13 +33,11 @@ export const renameForm = async (userId, formId, name) => {
 	}
 };
 
-export const getFormData = async (userId, formId) => {
+export const getFormData = async (formId) => {
 	try {
 		const docSnap = await getDoc(doc(db, 'forms', formId));
 		if (docSnap.exists()) {
-			if (docSnap.data().userId === userId)
-				return docSnap.data();
-			else return { error: 'Form data not authorized.' };
+			return docSnap.data();
 		} else return { error: 'Form data not found.' };
 	} catch (e) {
 		console.error('Error getting form data: ', e);
