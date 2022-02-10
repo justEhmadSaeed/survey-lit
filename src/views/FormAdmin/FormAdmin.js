@@ -39,7 +39,7 @@ const FormAdmin = () => {
 							}
 						]);
 					}
-				} else setError('Edit Form not authorized.');
+				} else setError('User is not authorized to edit the form.');
 			} else setError(data.error);
 			setLoading(false);
 		};
@@ -50,7 +50,6 @@ const FormAdmin = () => {
 		const results = await storeIntoFirestore(formId, questions);
 		if (results.error) setError(results.error);
 	};
-	console.log('ERROR:', error);
 	return loading ? (
 		<Loading />
 	) : (
@@ -81,11 +80,16 @@ const FormAdmin = () => {
 					<UserMenu />
 				</footer>
 			</AdminNavbar>
-			{/* Form Body */}
-			<FormBody
-				questions={questions}
-				setQuestions={setQuestions}
-			/>
+			{/* Error Body */}
+			{error ? (
+				<div className='mt-20 text-lg w-full flex items-center justify-center'>{error}</div>
+				) : (
+						// Form Body
+				<FormBody
+					questions={questions}
+					setQuestions={setQuestions}
+				/>
+			)}
 		</div>
 	);
 };
