@@ -15,7 +15,7 @@ const UserMenu = () => {
 	return (
 		<div>
 			<div className="flex items-center">
-				<button className="btn bg-template-green text-white mx-2">
+				<button className="hidden sm:block btn bg-template-green text-white mx-2">
 					View Plans
 				</button>
 				<div className="">
@@ -35,7 +35,7 @@ const UserMenu = () => {
 							</span>
 						</div>
 						{/* Name */}
-						<div className="text-sm pl-2">
+						<div className="text-sm pl-2 hidden md:block">
 							{user.name.split(' ')[0]}
 						</div>
 						<div className="h-5 w-5 text-template-auth-text">

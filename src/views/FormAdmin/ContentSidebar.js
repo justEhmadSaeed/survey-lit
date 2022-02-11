@@ -75,7 +75,7 @@ const ContentSidebar = ({
 					</div>
 				</div>
 				{/* Endings */}
-				<div className="h-40">Endings</div>
+				<div className="hidden md:h-40">Endings</div>
 			</div>
 		</section>
 	);

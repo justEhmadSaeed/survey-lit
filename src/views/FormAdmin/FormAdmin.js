@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import Loading from 'views/Loading/Loading';
 import PublishButton from './PublishButton';
+import { ArrowLeftIcon } from '@heroicons/react/solid';
 
 const FormAdmin = () => {
 	let { formId } = useParams();
@@ -59,12 +60,15 @@ const FormAdmin = () => {
 		<div className="h-full flex flex-col flex-nowrap flex-1">
 			<AdminNavbar>
 				<header>
-					<div>
+					<div className="flex">
 						<Link
 							to={PATH_DASHBOARD}
-							className="text-sm text-template-auth-text ml-4 mr-3 hover:text-template-signup-text"
+							className="flex text-sm text-template-auth-text ml-4 mr-3 hover:text-template-signup-text"
 						>
-							My Workspace
+							<ArrowLeftIcon className="md:hidden h-5 w-5" />
+							<span className="hidden md:block">
+								My Workspace
+							</span>
 						</Link>
 						/
 						<input
