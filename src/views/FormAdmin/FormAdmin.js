@@ -39,7 +39,10 @@ const FormAdmin = () => {
 							}
 						]);
 					}
-				} else setError('User is not authorized to edit the form.');
+				} else
+					setError(
+						'User is not authorized to edit the form.'
+					);
 			} else setError(data.error);
 			setLoading(false);
 		};
@@ -82,9 +85,11 @@ const FormAdmin = () => {
 			</AdminNavbar>
 			{/* Error Body */}
 			{error ? (
-				<div className='mt-20 text-lg w-full flex items-center justify-center'>{error}</div>
-				) : (
-						// Form Body
+				<div className="mt-20 text-lg w-full flex items-center justify-center">
+					{error}
+				</div>
+			) : (
+				// Form Body
 				<FormBody
 					questions={questions}
 					setQuestions={setQuestions}
