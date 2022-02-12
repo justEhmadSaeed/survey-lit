@@ -5,6 +5,7 @@ import Loading from 'views/Loading/Loading';
 import CurrentQuestion from 'views/JoinForm/CurrentQuestion';
 import { PATH_HOME } from 'utils/constants/routing-paths.constant';
 import {
+	CheckIcon,
 	ChevronDownIcon,
 	ChevronUpIcon
 } from '@heroicons/react/solid';
@@ -20,8 +21,7 @@ const JoinForm = () => {
 		currentQuestion &&
 		questions.findIndex(
 			(question) => question.id === currentQuestion.id
-        );
-    
+		);
 
 	useEffect(() => {
 		const getData = async () => {
@@ -29,6 +29,12 @@ const JoinForm = () => {
 			if (!data.error) {
 				// setFormName(data.name);
 				if (data.questions) {
+					data.questions = data.questions.map(
+						(question) => {
+							question.choices[0].selected = true;
+							return question;
+						}
+					);
 					setQuestions(data.questions);
 					setCurrentQuestion(data.questions[0]);
 				} else {
@@ -39,12 +45,30 @@ const JoinForm = () => {
 		};
 		getData();
 	}, []);
+
 	const onNextQuestionClick = () => {
 		setCurrentQuestion(questions[currentQuestionIndex + 1]);
 	};
 	const onPreviousQuestionClick = () => {
 		setCurrentQuestion(questions[currentQuestionIndex - 1]);
 	};
+
+	const onOptionClick = (questionIndex, choiceIndex) => {
+		const tempQuestions = [...questions];
+		tempQuestions[questionIndex].choices.forEach(
+			(choice) => (choice.selected = false)
+		);
+
+		tempQuestions[questionIndex].choices[
+			choiceIndex
+		].selected = true;
+		setQuestions(tempQuestions);
+	};
+
+    const onSubmitForm = () => {
+        
+	};
+
 	return loading ? (
 		<Loading />
 	) : error ? (
@@ -56,10 +80,39 @@ const JoinForm = () => {
 			<div className="flex flex-col justify-center">
 				{/* Content Wrapper */}
 				<div className="px-10 text-left">
-					<CurrentQuestion
-						question={currentQuestion}
-						index={currentQuestionIndex}
-					/>
+					<section className="flex-1 pt-8 px-4 pb-16 h-full">
+						<div className="w-full h-full flex flex-col justify-start items-center bg-white">
+							<CurrentQuestion
+								question={currentQuestion}
+								index={currentQuestionIndex}
+								onOptionClick={onOptionClick}
+							/>
+							<div className="w-3/4">
+								<button
+									className="btn bg-blue-800 text-white mt-2 ml-7 font-bold shadow-md"
+									onClick={() => {
+										if (
+											currentQuestionIndex <
+											questions.length - 1
+										)
+											onNextQuestionClick();
+									}}
+								>
+									<span className="flex items-center text-lg gap-1">
+										<span>
+											{currentQuestionIndex ===
+											questions.length - 1
+												? 'Submit'
+												: 'OK'}
+										</span>
+										<span>
+											<CheckIcon className="h-6 w-6" />
+										</span>
+									</span>
+								</button>
+							</div>
+						</div>
+					</section>
 				</div>
 			</div>
 			{/* Form Navigation Footer */}
