@@ -27,7 +27,7 @@ const FormThumbnail = ({ title, id, responses }) => {
 							to="#"
 							className="text-xs p-1 rounded group-hover:bg-template-auth-border"
 						>
-							{responses} Responses
+							{responses} responses
 						</Link>
 						<button className="hover:bg-template-auth-border h-full px-1 rounded">
 							<DotsHorizontalIcon className="h-5 w-5 text-template-auth-text" />
