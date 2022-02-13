@@ -16,7 +16,7 @@ const CurrentQuestion = ({ question, index, onOptionClick }) => {
 						{question.title ? question.title : '...'}
 					</div>
 					{/* Question Description */}
-					<div className="outline-none mt-1 text-template-auth-text">
+					<div className="outline-none mt-1 text-template-auth-text dark:text-template-auth-border">
 						{question.desc}
 					</div>
 				</div>

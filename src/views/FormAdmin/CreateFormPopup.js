@@ -30,7 +30,7 @@ const CreateFormPopup = () => {
 	) : (
 		<div className="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center bg-template-black">
 			<div className="flex w-full justify-center mx-4">
-				<div className="flex flex-col w-full rounded-lg relative max-w-md shadow-md bg-white">
+				<div className="flex flex-col w-full rounded-lg relative max-w-md shadow-md bg-white dark:bg-template-signup-text">
 					<h2 className="p-8 pb-4 text-xl font-light">
 						Bring your new typeform to life
 					</h2>

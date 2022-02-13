@@ -50,7 +50,7 @@ const UserMenu = () => {
 					isMenuOpen ? 'block' : 'hidden'
 				} absolute right-3 top-12`}
 			>
-				<div className="shadow-md w-64 rounded-lg text-template-black py-2 bg-white">
+				<div className="shadow-md w-64 rounded-lg text-template-black py-2 bg-white dark:bg-template-signup-text dark:text-white">
 					<header className="border-b pb-2 mb-2">
 						<div className="flex items-center px-4 gap-3">
 							{/* Circle Icon */}
@@ -76,7 +76,7 @@ const UserMenu = () => {
 						<div className="py-2">
 							<button
 								onClick={signoutWithGoogle}
-								className="w-full text-left px-2 hover:bg-template-hover-color"
+								className="w-full text-left px-2 hover:bg-template-hover-color dark:hover:bg-template-black"
 							>
 								<span className="text-red-600 text-sm ">
 									Log out

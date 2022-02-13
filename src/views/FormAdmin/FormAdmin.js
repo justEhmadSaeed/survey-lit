@@ -57,23 +57,23 @@ const FormAdmin = () => {
 	return loading ? (
 		<Loading />
 	) : (
-		<div className="h-full flex flex-col flex-nowrap flex-1">
+		<div className="dark:bg-template-signup-text dark:text-white h-full flex flex-col flex-nowrap flex-1">
 			<AdminNavbar>
 				<header>
-					<div className="flex">
+					<div className="flex w-full">
 						<Link
 							to={PATH_DASHBOARD}
-							className="flex text-sm text-template-auth-text ml-4 mr-3 hover:text-template-signup-text"
+							className="flex text-sm text-template-auth-text ml-4 mr-3 hover:text-template-signup-text dark:text-template-auth-border dark:hover:text-template-hover-color"
 						>
 							<ArrowLeftIcon className="md:hidden h-5 w-5" />
 							<span className="hidden md:block">
-								My Workspace
+								Workspace
 							</span>
 						</Link>
 						/
 						<input
 							value={formName}
-							className="ml-3"
+							className="ml-3 pl-3 w-28 sm:w-full"
 							placeholder="Default form title"
 							disabled
 						/>

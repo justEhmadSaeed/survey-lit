@@ -35,6 +35,7 @@ const Routers = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		// document.documentElement.classList.add('dark');
 		authChange(async (auth) => {
 			if (auth) {
 				dispatch(

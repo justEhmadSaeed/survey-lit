@@ -25,7 +25,7 @@ const FormThumbnail = ({ title, id, responses }) => {
 					<div className="flex justify-between items-center">
 						<Link
 							to="#"
-							className="text-xs p-1 rounded group-hover:bg-template-auth-border"
+							className="text-xs p-1 rounded group-hover:bg-template-auth-border dark:group-hover:bg-template-auth-text"
 						>
 							{responses} responses
 						</Link>

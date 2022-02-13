@@ -101,7 +101,7 @@ const JoinForm = () => {
 				{/* Content Wrapper */}
 				<div className="px-10 text-left">
 					<section className="flex-1 pt-8 px-4 pb-16 h-full">
-						<div className="w-full h-full flex flex-col justify-start items-center bg-white">
+						<div className="w-full h-full flex flex-col justify-start items-center">
 							<CurrentQuestion
 								question={currentQuestion}
 								index={currentQuestionIndex}

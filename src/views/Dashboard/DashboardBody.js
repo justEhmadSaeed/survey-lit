@@ -18,13 +18,13 @@ const DashboardBody = () => {
 	}, []);
 
 	return (
-		<main className="flex form-admin-remaining-height flex-nowrap">
+		<main className="flex form-admin-remaining-height flex-nowrap dark:bg-template-signup-text dark:text-white">
 			{/* Left sidebar */}
 			<section className="hidden lg:block text-center h-full w-64 border shrink-0">
 				Workspace
 			</section>
 			{/* Main Section */}
-			<section className="flex-1 bg-template-dashboard-bg">
+			<section className="flex-1 bg-template-dashboard-bg dark:bg-template-signup-text dark:text-white">
 				{/* Workspace Functions */}
 				<DashboardFunctions />
 				<DashboardFormsCollection />
