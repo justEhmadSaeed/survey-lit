@@ -23,19 +23,20 @@ import { authChange } from 'services/firebase/firebase';
 import {
 	logInUser,
 	signOutUser,
+	toggleDarkMode,
 	toggleLoading
 } from 'store/slice/auth.slice';
 import FormAdmin from 'views/FormAdmin/FormAdmin';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 import JoinForm from 'views/JoinForm/JoinForm';
+import { getInitialTheme } from 'utils/theme-handler';
 
 const Routers = () => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		// document.documentElement.classList.add('dark');
 		authChange(async (auth) => {
 			if (auth) {
 				dispatch(
@@ -51,6 +52,8 @@ const Routers = () => {
 				dispatch(toggleLoading(false));
 			}
 		});
+		let darkMode = getInitialTheme();
+		dispatch(toggleDarkMode(darkMode));
 	}, []);
 
 	return auth.loading ? (

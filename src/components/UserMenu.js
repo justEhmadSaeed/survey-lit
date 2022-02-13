@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import user_icon from 'assets/user_icon.png';
-import { ChevronDownIcon } from '@heroicons/react/solid';
+import {
+	ChevronDownIcon,
+	MoonIcon,
+	SunIcon
+} from '@heroicons/react/solid';
 import { signoutWithGoogle } from 'services/firebase/firebase';
 import { useSelector } from 'react-redux';
+import { toggleDarkMode } from 'store/slice/auth.slice';
+import { useDispatch } from 'react-redux';
 
 const UserMenu = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const user = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
@@ -74,6 +81,24 @@ const UserMenu = () => {
 					<section></section>
 					<footer>
 						<div className="py-2">
+							<button
+								onClick={() => {
+									console.log('toggle');
+									dispatch(
+										toggleDarkMode(!user.darkMode)
+									);
+								}}
+								className="flex justify-between w-full text-left px-2 hover:bg-template-hover-color dark:hover:bg-template-black"
+							>
+								<span className="text-sm ">
+									Dark Mode
+								</span>
+								{user.darkMode ? (
+									<MoonIcon className="h-5 w-5" />
+								) : (
+									<SunIcon className="h-5 w-5" />
+								)}
+							</button>
 							<button
 								onClick={signoutWithGoogle}
 								className="w-full text-left px-2 hover:bg-template-hover-color dark:hover:bg-template-black"
