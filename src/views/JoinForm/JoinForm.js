@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { getFormData } from 'utils/form-data/form-data';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import {
+	getFormData,
+	storeFormResponse
+} from 'utils/form-data/form-data';
 import Loading from 'views/Loading/Loading';
 import CurrentQuestion from 'views/JoinForm/CurrentQuestion';
-import { PATH_HOME } from 'utils/constants/routing-paths.constant';
+import {
+	PATH_DASHBOARD,
+	PATH_HOME
+} from 'utils/constants/routing-paths.constant';
 import {
 	CheckIcon,
 	ChevronDownIcon,
 	ChevronUpIcon
 } from '@heroicons/react/solid';
+import { useSelector } from 'react-redux';
 
 // Starting Point of Join Form
 const JoinForm = () => {
 	let { formId } = useParams();
+	const navigate = useNavigate();
+	const userId = useSelector((state) => state.auth.id);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState();
 	const [questions, setQuestions] = useState([]);
@@ -65,8 +74,19 @@ const JoinForm = () => {
 		setQuestions(tempQuestions);
 	};
 
-    const onSubmitForm = () => {
-        
+	const onSubmitForm = async () => {
+		const response = questions.map((question) => {
+			let responseQuestion = {
+				title: question.title,
+				choice: question.choices.filter(
+					(choice) => choice.selected
+				)[0].text
+			};
+			return responseQuestion;
+		});
+		setLoading(true);
+		await storeFormResponse(formId, userId, response);
+		navigate(`${PATH_DASHBOARD}`);
 	};
 
 	return loading ? (
@@ -96,6 +116,7 @@ const JoinForm = () => {
 											questions.length - 1
 										)
 											onNextQuestionClick();
+										else onSubmitForm();
 									}}
 								>
 									<span className="flex items-center text-lg gap-1">

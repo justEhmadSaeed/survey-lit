@@ -5,6 +5,7 @@ import {
 	getDoc,
 	getDocs,
 	query,
+	Timestamp,
 	updateDoc,
 	where
 } from 'firebase/firestore';
@@ -76,5 +77,24 @@ export const storeIntoFirestore = async (formId, questions) => {
 	} catch (e) {
 		console.error('Error storing form data: ', e);
 		return { error: 'Error storing form data: ', e };
+	}
+};
+
+export const storeFormResponse = async (
+	formId,
+	userId,
+	responseData
+) => {
+	try {
+		await addDoc(collection(db, 'responses'), {
+			formId,
+			userId,
+			responseData,
+			created: Timestamp.now()
+		});
+		return { success: true };
+	} catch (e) {
+		console.error('Error storing form response: ', e);
+		return { error: 'Error storing form response: ', e };
 	}
 };
