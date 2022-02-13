@@ -28,8 +28,6 @@ import {
 import FormAdmin from 'views/FormAdmin/FormAdmin';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
-import { getAllForms } from 'utils/form-data/form-data';
-import { addForms } from 'store/slice/forms.slice';
 import JoinForm from 'views/JoinForm/JoinForm';
 
 const Routers = () => {
@@ -46,8 +44,6 @@ const Routers = () => {
 						email: auth.email
 					})
 				);
-				const forms = await getAllForms(auth.uid);
-				dispatch(addForms(forms));
 				dispatch(toggleLoading(false));
 			} else {
 				dispatch(signOutUser());

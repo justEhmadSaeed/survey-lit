@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addForms } from 'store/slice/forms.slice';
+import { getAllForms } from 'utils/form-data/form-data';
 import DashboardFormsCollection from './DashboardFormsCollection';
 import DashboardFunctions from './DashboardFunctions';
 
 const DashboardBody = () => {
+	const dispatch = useDispatch();
+	const userId = useSelector((state) => state.auth.id);
+
+	useEffect(() => {
+		const getFormsData = async () => {
+			const forms = await getAllForms(userId);
+			dispatch(addForms(forms));
+		};
+		getFormsData();
+	}, []);
+
 	return (
 		<main className="flex form-admin-remaining-height flex-nowrap">
 			{/* Left sidebar */}
