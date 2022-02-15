@@ -4,7 +4,7 @@ import DashboardNavbar from './DashboardNavbar';
 
 const Dashboard = () => {
 	return (
-		<div>
+		<div className="dark:bg-template-signup-text dark:text-white">
 			<DashboardNavbar />
 			<DashboardBody />
 		</div>

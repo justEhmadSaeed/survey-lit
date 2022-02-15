@@ -29,9 +29,9 @@ const PublishButton = ({ formURL, onClick }) => {
 			{/* URL Card */}
 			{attributes.success && (
 				<div className="z-20 absolute">
-					<div className="p-4 bg-white shadow mt-3 max-w-xs rounded-lg">
+					<div className="p-4 bg-white dark:bg-template-auth-text shadow mt-3 max-w-xs rounded-lg">
 						<div className="flex justify-between">
-							<span className="text-template-black text-sm font-semibold">
+							<span className="text-template-black dark:text-white text-sm font-semibold">
 								Get the link
 							</span>
 							<button
@@ -42,13 +42,13 @@ const PublishButton = ({ formURL, onClick }) => {
 									})
 								}
 							>
-								<XIcon className="h-4 w-4 text-template-auth-text" />
+								<XIcon className="h-4 w-4 text-template-auth-text dark:text-white" />
 							</button>
 						</div>
 						<div className="flex flex-nowrap mt-3">
 							<input
 								value={formURL}
-								className="flex-1 rounded border px-2 py-1 text-sm overflow-auto"
+								className="flex-1 rounded border px-2 py-1 text-sm overflow-auto dark:text-template-signup-text"
 								readOnly
 							/>
 							<CopyToClipboard text={formURL}>

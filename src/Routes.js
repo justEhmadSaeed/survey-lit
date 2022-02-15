@@ -23,14 +23,14 @@ import { authChange } from 'services/firebase/firebase';
 import {
 	logInUser,
 	signOutUser,
+	toggleDarkMode,
 	toggleLoading
 } from 'store/slice/auth.slice';
 import FormAdmin from 'views/FormAdmin/FormAdmin';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
-import { getAllForms } from 'utils/form-data/form-data';
-import { addForms } from 'store/slice/forms.slice';
 import JoinForm from 'views/JoinForm/JoinForm';
+import { getInitialTheme } from 'utils/theme-handler';
 
 const Routers = () => {
 	const auth = useSelector((state) => state.auth);
@@ -46,14 +46,14 @@ const Routers = () => {
 						email: auth.email
 					})
 				);
-				const forms = await getAllForms(auth.uid);
-				dispatch(addForms(forms));
 				dispatch(toggleLoading(false));
 			} else {
 				dispatch(signOutUser());
 				dispatch(toggleLoading(false));
 			}
 		});
+		let darkMode = getInitialTheme();
+		dispatch(toggleDarkMode(darkMode));
 	}, []);
 
 	return auth.loading ? (

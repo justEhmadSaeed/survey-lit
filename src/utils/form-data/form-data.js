@@ -5,6 +5,7 @@ import {
 	getDoc,
 	getDocs,
 	query,
+	Timestamp,
 	updateDoc,
 	where
 } from 'firebase/firestore';
@@ -47,19 +48,43 @@ export const getFormData = async (formId) => {
 
 export const getAllForms = async (userId) => {
 	try {
-		const docSnap = await getDocs(
+		const formData = await getDocs(
 			query(
 				collection(db, 'forms'),
 				where('userId', '==', userId)
 			)
 		);
 		const formArray = [];
-		docSnap.forEach((doc) => {
+		formData.forEach((doc) => {
 			formArray.push({
 				name: doc.data().name,
-				id: doc.id
+				id: doc.id,
+				responses: []
 			});
 		});
+		const responseData = await getDocs(
+			query(
+				collection(db, 'responses'),
+				where(
+					'formId',
+					'in',
+					formArray.map((form) => form.id)
+				)
+			)
+		);
+		responseData.forEach((doc) => {
+			let formIndex = formArray.findIndex(
+				(form) => form.id === doc.data().formId
+			);
+			if (formIndex !== -1) {
+				formArray[formIndex].responses.push(doc.data());
+				formArray[formIndex].responses.at(-1).createdAt = doc
+					.data()
+					.createdAt.toDate()
+					.toString();
+			}
+		});
+
 		return formArray;
 	} catch (e) {
 		console.error('Error fetching all forms: ', e);
@@ -76,5 +101,24 @@ export const storeIntoFirestore = async (formId, questions) => {
 	} catch (e) {
 		console.error('Error storing form data: ', e);
 		return { error: 'Error storing form data: ', e };
+	}
+};
+
+export const storeFormResponse = async (
+	formId,
+	userId,
+	responseData
+) => {
+	try {
+		await addDoc(collection(db, 'responses'), {
+			formId,
+			userId,
+			responseData,
+			createdAt: Timestamp.now()
+		});
+		return { success: true };
+	} catch (e) {
+		console.error('Error storing form response: ', e);
+		return { error: 'Error storing form response: ', e };
 	}
 };

@@ -31,7 +31,7 @@ const ContentSidebar = ({
 							<li
 								className={`${
 									selectedQuestion === question.id
-										? 'bg-template-hover-color'
+										? 'bg-template-hover-color dark:text-template-signup-text'
 										: ''
 								} w-full flex justify-between items-center py-3 pr-1 pl-4 cursor-pointer`}
 								key={question.id}
@@ -74,8 +74,6 @@ const ContentSidebar = ({
 						))}
 					</div>
 				</div>
-				{/* Endings */}
-				<div className="h-40">Endings</div>
 			</div>
 		</section>
 	);

@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import Loading from 'views/Loading/Loading';
 import PublishButton from './PublishButton';
+import { ArrowLeftIcon } from '@heroicons/react/solid';
 
 const FormAdmin = () => {
 	let { formId } = useParams();
@@ -39,7 +40,10 @@ const FormAdmin = () => {
 							}
 						]);
 					}
-				} else setError('Edit Form not authorized.');
+				} else
+					setError(
+						'User is not authorized to edit the form.'
+					);
 			} else setError(data.error);
 			setLoading(false);
 		};
@@ -50,24 +54,26 @@ const FormAdmin = () => {
 		const results = await storeIntoFirestore(formId, questions);
 		if (results.error) setError(results.error);
 	};
-	console.log('ERROR:', error);
 	return loading ? (
 		<Loading />
 	) : (
-		<div className="h-full flex flex-col flex-nowrap flex-1">
+		<div className="dark:bg-template-signup-text dark:text-white h-full flex flex-col flex-nowrap flex-1">
 			<AdminNavbar>
 				<header>
-					<div>
+					<div className="flex w-full">
 						<Link
 							to={PATH_DASHBOARD}
-							className="text-sm text-template-auth-text ml-4 mr-3 hover:text-template-signup-text"
+							className="flex text-sm text-template-auth-text ml-4 mr-3 hover:text-template-signup-text dark:text-template-auth-border dark:hover:text-template-hover-color"
 						>
-							My Workspace
+							<ArrowLeftIcon className="md:hidden h-5 w-5" />
+							<span className="hidden md:block">
+								Workspace
+							</span>
 						</Link>
 						/
 						<input
 							value={formName}
-							className="ml-3"
+							className="ml-3 pl-3 w-28 sm:w-full"
 							placeholder="Default form title"
 							disabled
 						/>
@@ -81,11 +87,18 @@ const FormAdmin = () => {
 					<UserMenu />
 				</footer>
 			</AdminNavbar>
-			{/* Form Body */}
-			<FormBody
-				questions={questions}
-				setQuestions={setQuestions}
-			/>
+			{/* Error Body */}
+			{error ? (
+				<div className="mt-20 text-lg w-full flex items-center justify-center">
+					{error}
+				</div>
+			) : (
+				// Form Body
+				<FormBody
+					questions={questions}
+					setQuestions={setQuestions}
+				/>
+			)}
 		</div>
 	);
 };

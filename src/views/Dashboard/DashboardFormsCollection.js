@@ -13,7 +13,7 @@ const DashboardFormsCollection = () => {
 						key={key}
 						id={form.id}
 						title={form.name}
-						responses={0}
+						responses={form.responses.length}
 					/>
 				))}
 			</div>
