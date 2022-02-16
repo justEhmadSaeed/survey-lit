@@ -1,10 +1,10 @@
 import React from 'react';
-import Routers from 'Routes';
+import UserRoutes from 'user.routes';
 
 const App = () => {
 	return (
-		<div className="min-h-screen dark:bg-template-signup-text dark:text-white">
-			<Routers />
+		<div>
+			<UserRoutes />
 		</div>
 	);
 };

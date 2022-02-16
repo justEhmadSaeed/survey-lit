@@ -32,7 +32,7 @@ import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 import JoinForm from 'views/JoinForm/JoinForm';
 import { getInitialTheme } from 'utils/theme-handler';
 
-const Routers = () => {
+const UserRoutes = () => {
 	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
@@ -126,4 +126,4 @@ const Routers = () => {
 		</BrowserRouter>
 	);
 };
-export default Routers;
+export default UserRoutes;
