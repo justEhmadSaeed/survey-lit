@@ -96,7 +96,7 @@ const JoinForm = () => {
 			{error}
 		</div>
 	) : (
-		<div className="w-full h-screen overflow-auto">
+		<div className="w-full h-screen overflow-auto dark:bg-template-signup-text dark:text-white">
 			<div className="flex flex-col justify-center">
 				{/* Content Wrapper */}
 				<div className="px-10 text-left">

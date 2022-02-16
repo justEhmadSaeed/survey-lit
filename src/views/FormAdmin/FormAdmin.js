@@ -57,7 +57,7 @@ const FormAdmin = () => {
 	return loading ? (
 		<Loading />
 	) : (
-		<div className="dark:bg-template-signup-text dark:text-white h-full flex flex-col flex-nowrap flex-1">
+		<div className=" dark:bg-template-signup-text dark:text-white h-screen flex flex-col flex-nowrap flex-1">
 			<AdminNavbar>
 				<header>
 					<div className="flex w-full">
