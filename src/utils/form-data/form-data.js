@@ -10,7 +10,7 @@ import {
 	where
 } from 'firebase/firestore';
 import { db } from 'services/firebase/firebase';
-import { PATH_FORM_POPUP } from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 
 export const createNewForm = async (userId, navigate) => {
 	try {
@@ -18,7 +18,7 @@ export const createNewForm = async (userId, navigate) => {
 			name: 'My Typeform',
 			userId
 		});
-		navigate(`${PATH_FORM_POPUP}/${docRef.id}`);
+		navigate(`${PATH.FORM_POPUP}/${docRef.id}`);
 	} catch (e) {
 		console.error('Error creating form: ', e);
 	}

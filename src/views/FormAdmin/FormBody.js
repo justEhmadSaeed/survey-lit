@@ -70,7 +70,7 @@ const FormBody = ({ questions, setQuestions }) => {
 
 	// console.log(questions);
 	return (
-		<main className="flex flex-col md:flex-row md:form-admin h-full justify-around flex-nowrap">
+		<main className="flex flex-col md:flex-row md:form-admin md:form-admin-remaining-height justify-around flex-nowrap">
 			<ContentSidebar
 				questions={questions}
 				addQuestionsHandler={addQuestionsHandler}

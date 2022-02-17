@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import Loading from 'views/Loading/Loading';
 import { useNavigate, useParams } from 'react-router-dom';
-import { PATH_CREATE_FORM_ADMIN } from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 
 const CreateFormPopup = () => {
 	const navigate = useNavigate();
@@ -21,7 +21,7 @@ const CreateFormPopup = () => {
 		async onSubmit(values) {
 			setLoading(true);
 			await renameForm(auth.id, formId, values.name);
-			navigate(`${PATH_CREATE_FORM_ADMIN}/${formId}`);
+			navigate(`${PATH.CREATE_FORM_ADMIN}/${formId}`);
 		}
 	});
 

@@ -12,10 +12,7 @@ import {
 	TYPE_EMAIL,
 	TYPE_PASSWORD
 } from 'utils/constants/input-types.constant';
-import {
-	PATH_HOME,
-	PATH_LOGIN
-} from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 import AuthNavbar from 'components/AuthNavbar';
 import AuthDivider from 'components/AuthDivider';
 
@@ -47,7 +44,7 @@ const Signup = () => {
 				{/* Navigation */}
 				<AuthNavbar
 					helperText="Already have an account?"
-					path={PATH_LOGIN}
+					path={PATH.LOGIN}
 					title="Log in"
 				/>
 				{/* Content Container */}
@@ -55,7 +52,7 @@ const Signup = () => {
 					<div className="box-inherit">
 						{/* Logo */}
 						<div className="flex items-center justify-center mt-20 h-20">
-							<Link to={PATH_HOME}>
+							<Link to={PATH.HOME}>
 								<img src={typeform_logo} alt="Logo" />
 							</Link>
 						</div>

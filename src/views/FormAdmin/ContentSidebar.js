@@ -12,7 +12,7 @@ const ContentSidebar = ({
 	deleteQuestion
 }) => {
 	return (
-		<section className="w-64 border">
+		<section className="w-64 md:border self-center md:self-start h-full">
 			<div className="flex flex-col justify-between h-full">
 				{/* Add Questions */}
 				<div className="flex p-4 justify-between items-center">

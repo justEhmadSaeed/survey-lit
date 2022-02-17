@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PATH_SIGNUP } from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 import lg_screen_video from 'assets/homepage-videos/typeform-video-lg.mp4';
 import md_screen_video from 'assets/homepage-videos/typeform-video-md.mp4';
 import sm_screen_video from 'assets/homepage-videos/typeform-video-sm.mp4';
@@ -22,7 +22,7 @@ const PublicHero = () => {
 							everyone happy.
 						</p>
 						<div className="flex justify-center flex-wrap gap-6 mb-6">
-							<Link to={PATH_SIGNUP}>
+							<Link to={PATH.SIGNUP}>
 								<div className="btn px-6 py-3 bg-template-black text-white hover:opacity-80">
 									Get started - it&apos;s free
 								</div>

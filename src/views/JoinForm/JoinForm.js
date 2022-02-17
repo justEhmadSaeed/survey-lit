@@ -6,10 +6,7 @@ import {
 } from 'utils/form-data/form-data';
 import Loading from 'views/Loading/Loading';
 import CurrentQuestion from 'views/JoinForm/CurrentQuestion';
-import {
-	PATH_DASHBOARD,
-	PATH_HOME
-} from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 import {
 	CheckIcon,
 	ChevronDownIcon,
@@ -86,7 +83,7 @@ const JoinForm = () => {
 		});
 		setLoading(true);
 		await storeFormResponse(formId, userId, response);
-		navigate(`${PATH_DASHBOARD}`);
+		navigate(`${PATH.DASHBOARD}`);
 	};
 
 	return loading ? (
@@ -169,7 +166,7 @@ const JoinForm = () => {
 						</button>
 					</nav>
 					<Link
-						to={PATH_HOME}
+						to={PATH.HOME}
 						className="btn bg-blue-800 text-white"
 					>
 						Powered by Typeform

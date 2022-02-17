@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AdminNavbar from 'components/AdminNavbar';
 import UserMenu from 'components/UserMenu';
-import { PATH_DASHBOARD } from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 import FormBody from './FormBody';
 import {
 	getFormData,
@@ -62,7 +62,7 @@ const FormAdmin = () => {
 				<header>
 					<div className="flex w-full">
 						<Link
-							to={PATH_DASHBOARD}
+							to={PATH.DASHBOARD}
 							className="flex text-sm text-template-auth-text ml-4 mr-3 hover:text-template-signup-text dark:text-template-auth-border dark:hover:text-template-hover-color"
 						>
 							<ArrowLeftIcon className="md:hidden h-5 w-5" />
