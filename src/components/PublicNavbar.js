@@ -49,7 +49,7 @@ const PublicNavbar = () => {
 			{/* For tablet and mobile view */}
 			<section
 				className={`left-0 top-0 fixed flex flex-col justify-between w-screen ${
-					showMenu ? 'h-screen' : 'h-0'
+					showMenu ? 'h-full' : 'h-0'
 				} transition-all ease-in-out duration-500 bg-template-menu-background z-10`}
 			>
 				<header className="lg:hidden w-full h-20 flex justify-end">

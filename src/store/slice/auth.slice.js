@@ -13,13 +13,17 @@ export const authSlice = createSlice({
 	initialState,
 	reducers: {
 		logInUser: (state, action) => {
-			return { ...state, ...action.payload };
+			state.id = action.payload.id;
+			state.name = action.payload.name;
+			state.email = action.payload.email;
 		},
 		signOutUser: (state) => {
-			return { ...state, id: '', name: '', email: '' };
+			state.id = '';
+			state.name = '';
+			state.email = '';
 		},
 		toggleLoading: (state, action) => {
-			return { ...state, loading: action.payload };
+			state.loading = action.payload;
 		},
 		toggleDarkMode: (state, action) => {
 			if (action.payload)
@@ -27,7 +31,7 @@ export const authSlice = createSlice({
 			else document.documentElement.classList.remove('dark');
 
 			toggleLocalTheme(action.payload);
-			return { ...state, darkMode: action.payload };
+			state.darkMode = action.payload;
 		}
 	}
 });
