@@ -85,14 +85,17 @@ const JoinForm = () => {
 		await storeFormResponse(formId, userId, response);
 		navigate(`${PATH.DASHBOARD}`);
 	};
-
-	return loading ? (
-		<Loading />
-	) : error ? (
-		<div className="mt-20 text-lg w-full flex items-center justify-center">
-			{error}
-		</div>
-	) : (
+	// Display Loading Screen
+	if (loading) return <Loading />;
+	// Display Errors if any exists
+	if (error)
+		return (
+			<div className="w-full h-screen flex items-center justify-center dark:bg-template-signup-text dark:text-white">
+				<span className='text-xl font-semibold'>{error}</span>
+			</div>
+		);
+	// Otherwise render the JoinForm Screen
+	return (
 		<div className="w-full h-screen overflow-auto dark:bg-template-signup-text dark:text-white">
 			<div className="flex flex-col justify-center">
 				{/* Content Wrapper */}

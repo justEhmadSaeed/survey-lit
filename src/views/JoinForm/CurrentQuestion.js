@@ -9,7 +9,7 @@ const CurrentQuestion = ({ question, index, onOptionClick }) => {
 				<span>{index + 1}</span>
 				<ArrowRightIcon className="h-3 w-3 ml-1" />
 			</div>
-			<div className="">
+			<div>
 				<div className="flex flex-col max-w-xl">
 					{/* Question Title */}
 					<div className="outline-none text-2xl break-words">
@@ -51,10 +51,8 @@ const CurrentQuestion = ({ question, index, onOptionClick }) => {
 												? choice.text
 												: 'Choice ' + (i + 1)}
 										</span>
-										{choice.selected ? (
+										{choice.selected && (
 											<CheckIcon className="h-7 w-7" />
-										) : (
-											<></>
 										)}
 									</div>
 								</button>
