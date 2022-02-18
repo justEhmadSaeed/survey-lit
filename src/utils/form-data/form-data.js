@@ -60,6 +60,8 @@ export const getAllForms = async (userId) => {
 				where(FIRESTORE_CONSTS.USER_ID, '==', userId)
 			)
 		);
+		// Return empty array in case of no forms data 
+		if (formData.empty) return [];
 		const formArray = [];
 		formData.forEach((doc) => {
 			formArray.push({
