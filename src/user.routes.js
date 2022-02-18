@@ -23,7 +23,7 @@ import FormAdmin from 'views/FormAdmin/FormAdmin';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 import JoinForm from 'views/JoinForm/JoinForm';
-import { getInitialTheme } from 'utils/theme-handler';
+import { getInitialTheme } from 'utils/theme.handler';
 
 const UserRoutes = () => {
 	const { id: userId, loading } = useSelector(
@@ -47,8 +47,9 @@ const UserRoutes = () => {
 				dispatch(toggleLoading(false));
 			}
 		});
-		const darkMode = getInitialTheme();
-		dispatch(toggleDarkMode(darkMode));
+		getInitialTheme((darkMode) =>
+			dispatch(toggleDarkMode(darkMode))
+		);
 	}, []);
 
 	return loading ? (

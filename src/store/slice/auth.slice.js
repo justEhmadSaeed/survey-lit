@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { toggleLocalTheme } from 'utils/theme-handler';
 
 const initialState = {
 	loading: true,
@@ -26,11 +25,6 @@ export const authSlice = createSlice({
 			state.loading = action.payload;
 		},
 		toggleDarkMode: (state, action) => {
-			if (action.payload)
-				document.documentElement.classList.add('dark');
-			else document.documentElement.classList.remove('dark');
-
-			toggleLocalTheme(action.payload);
 			state.darkMode = action.payload;
 		}
 	}

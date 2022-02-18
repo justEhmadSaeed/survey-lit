@@ -9,6 +9,7 @@ import { signoutWithGoogle } from 'services/firebase/firebase';
 import { useSelector } from 'react-redux';
 import { toggleDarkMode } from 'store/slice/auth.slice';
 import { useDispatch } from 'react-redux';
+import { toggleTheme } from 'utils/theme.handler';
 
 const UserMenu = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,8 +84,14 @@ const UserMenu = () => {
 						<div className="py-2">
 							<button
 								onClick={() => {
-									dispatch(
-										toggleDarkMode(!darkMode)
+									toggleTheme(
+										!darkMode,
+										(darkMode) =>
+											dispatch(
+												toggleDarkMode(
+													darkMode
+												)
+											)
 									);
 								}}
 								className="flex justify-between w-full text-left px-2 hover:bg-template-hover-color dark:hover:bg-template-black"
