@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 
 const UserMenu = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const user = useSelector((state) => state.auth);
+	const { name, darkMode } = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
 	const toggleMenu = () => {
@@ -34,16 +34,16 @@ const UserMenu = () => {
 						<div className="relative">
 							<img
 								src={user_icon}
-								alt={`${user.name} Icon`}
+								alt={`${name} Icon`}
 								className="h-8 w-8"
 							/>
 							<span className="absolute top-1 left-3 text-white font-semibold">
-								{user.name[0]}
+								{name[0]}
 							</span>
 						</div>
 						{/* Name */}
 						<div className="text-sm pl-2 hidden md:block">
-							{user.name.split(' ')[0]}
+							{name.split(' ')[0]}
 						</div>
 						<div className="h-5 w-5 text-template-auth-text">
 							<ChevronDownIcon />
@@ -64,16 +64,16 @@ const UserMenu = () => {
 							<div className="relative">
 								<img
 									src={user_icon}
-									alt={`${user.name} Icon`}
+									alt={`${name} Icon`}
 									className="h-8 w-8"
 								/>
 								<span className="absolute top-1 left-3 text-white font-semibold">
-									{user.name[0]}
+									{name[0]}
 								</span>
 							</div>
 							{/* Name */}
 							<div className="flex flex-col items-start text-sm">
-								<span>{user.name.split(' ')[0]}</span>
+								<span>{name.split(' ')[0]}</span>
 								<span>Settings</span>
 							</div>
 						</div>
@@ -83,9 +83,8 @@ const UserMenu = () => {
 						<div className="py-2">
 							<button
 								onClick={() => {
-									console.log('toggle');
 									dispatch(
-										toggleDarkMode(!user.darkMode)
+										toggleDarkMode(!darkMode)
 									);
 								}}
 								className="flex justify-between w-full text-left px-2 hover:bg-template-hover-color dark:hover:bg-template-black"
@@ -93,7 +92,7 @@ const UserMenu = () => {
 								<span className="text-sm ">
 									Dark Mode
 								</span>
-								{user.darkMode ? (
+								{darkMode ? (
 									<MoonIcon className="h-5 w-5" />
 								) : (
 									<SunIcon className="h-5 w-5" />

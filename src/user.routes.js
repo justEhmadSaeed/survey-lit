@@ -26,7 +26,9 @@ import JoinForm from 'views/JoinForm/JoinForm';
 import { getInitialTheme } from 'utils/theme-handler';
 
 const UserRoutes = () => {
-	const auth = useSelector((state) => state.auth);
+	const { id: userId, loading } = useSelector(
+		(state) => state.auth
+	);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -45,11 +47,11 @@ const UserRoutes = () => {
 				dispatch(toggleLoading(false));
 			}
 		});
-		let darkMode = getInitialTheme();
+		const darkMode = getInitialTheme();
 		dispatch(toggleDarkMode(darkMode));
 	}, []);
 
-	return auth.loading ? (
+	return loading ? (
 		<Loading />
 	) : (
 		<BrowserRouter>
@@ -58,7 +60,7 @@ const UserRoutes = () => {
 				<Route
 					path={PATH.LOGIN}
 					element={
-						auth.id ? (
+						userId ? (
 							<Navigate to={PATH.DASHBOARD} />
 						) : (
 							<Login />
@@ -68,7 +70,7 @@ const UserRoutes = () => {
 				<Route
 					path={PATH.SIGNUP}
 					element={
-						auth.id ? (
+						userId ? (
 							<Navigate to={PATH.DASHBOARD} />
 						) : (
 							<Signup />
@@ -78,7 +80,7 @@ const UserRoutes = () => {
 				<Route
 					path={PATH.DASHBOARD}
 					element={
-						auth.id ? (
+						userId ? (
 							<Dashboard />
 						) : (
 							<Navigate to={PATH.LOGIN} />
@@ -88,7 +90,7 @@ const UserRoutes = () => {
 				<Route
 					path={`${PATH.FORM_POPUP}/:formId`}
 					element={
-						auth.id ? (
+						userId ? (
 							<CreateFormPopup />
 						) : (
 							<Navigate to={PATH.LOGIN} />
@@ -98,7 +100,7 @@ const UserRoutes = () => {
 				<Route
 					path={`${PATH.CREATE_FORM_ADMIN}/:formId`}
 					element={
-						auth.id ? (
+						userId ? (
 							<FormAdmin />
 						) : (
 							<Navigate to={PATH.LOGIN} />
@@ -108,7 +110,7 @@ const UserRoutes = () => {
 				<Route
 					path={`${PATH.JOIN_FORM}/:formId`}
 					element={
-						auth.id ? (
+						userId ? (
 							<JoinForm />
 						) : (
 							<Navigate to={PATH.LOGIN} />
