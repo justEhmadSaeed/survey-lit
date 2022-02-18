@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { renameForm } from 'utils/form-data/form-data';
 import { renameValidationSchema } from 'utils/schemas/yup-schemas';
 import PropTypes from 'prop-types';
@@ -12,7 +11,6 @@ const CreateFormPopup = () => {
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
 	let { formId } = useParams();
-	const userId = useSelector((state) => state.auth.id);
 	const { handleSubmit, handleChange, values, errors } = useFormik({
 		initialValues: {
 			name: 'My Typeform'
@@ -20,7 +18,7 @@ const CreateFormPopup = () => {
 		validationSchema: renameValidationSchema,
 		async onSubmit(values) {
 			setLoading(true);
-			await renameForm(userId, formId, values.name);
+			await renameForm(formId, values.name);
 			navigate(`${PATH.CREATE_FORM_ADMIN}/${formId}`);
 		}
 	});
