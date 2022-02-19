@@ -13,6 +13,7 @@ import {
 	ChevronUpIcon
 } from '@heroicons/react/solid';
 import { useSelector } from 'react-redux';
+import { useFormik } from 'formik';
 
 // Starting Point of Join Form
 const JoinForm = () => {
@@ -28,7 +29,25 @@ const JoinForm = () => {
 		questions.findIndex(
 			(question) => question.id === currentQuestion.id
 		);
-
+	const { handleSubmit } = useFormik({
+		initialValues: {
+			questions
+		},
+		async onSubmit() {
+			const response = questions.map((question) => {
+				let responseQuestion = {
+					title: question.title,
+					choice: question.choices.filter(
+						(choice) => choice.selected
+					)[0].text
+				};
+				return responseQuestion;
+			});
+			setLoading(true);
+			await storeFormResponse(formId, userId, response);
+			navigate(`${PATH.DASHBOARD}`);
+		}
+	});
 	useEffect(() => {
 		const getData = async () => {
 			let data = await getFormData(formId);
@@ -71,27 +90,13 @@ const JoinForm = () => {
 		setQuestions(tempQuestions);
 	};
 
-	const onSubmitForm = async () => {
-		const response = questions.map((question) => {
-			let responseQuestion = {
-				title: question.title,
-				choice: question.choices.filter(
-					(choice) => choice.selected
-				)[0].text
-			};
-			return responseQuestion;
-		});
-		setLoading(true);
-		await storeFormResponse(formId, userId, response);
-		navigate(`${PATH.DASHBOARD}`);
-	};
 	// Display Loading Screen
 	if (loading) return <Loading />;
 	// Display Errors if any exists
 	if (error)
 		return (
 			<div className="w-full h-screen flex items-center justify-center dark:bg-template-signup-text dark:text-white">
-				<span className='text-xl font-semibold'>{error}</span>
+				<span className="text-xl font-semibold">{error}</span>
 			</div>
 		);
 	// Otherwise render the JoinForm Screen
@@ -116,7 +121,7 @@ const JoinForm = () => {
 											questions.length - 1
 										)
 											onNextQuestionClick();
-										else onSubmitForm();
+										else handleSubmit();
 									}}
 								>
 									<span className="flex items-center text-lg gap-1">
