@@ -1,6 +1,7 @@
 import { ArrowRightIcon, CheckIcon } from '@heroicons/react/solid';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { questionPropType } from 'utils/constants/prop-types.constant';
 
 const CurrentQuestion = ({ question, index, onOptionClick }) => {
 	return (
@@ -64,12 +65,17 @@ const CurrentQuestion = ({ question, index, onOptionClick }) => {
 	);
 };
 CurrentQuestion.propTypes = {
-	question: PropTypes.object,
+	question: questionPropType,
 	index: PropTypes.number.isRequired,
 	onOptionClick: PropTypes.func.isRequired
 };
 
 CurrentQuestion.defaultProps = {
-	question: {}
+	question: {
+		id: '',
+		title: '',
+		desc: '',
+		choices: [{ id: '', text: '' }]
+	}
 };
 export default CurrentQuestion;
