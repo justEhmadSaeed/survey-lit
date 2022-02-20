@@ -114,6 +114,7 @@ const JoinForm = () => {
 							/>
 							<div className="w-3/4">
 								<button
+									type='button'
 									className="btn bg-blue-800 text-white mt-2 ml-7 font-bold shadow-md"
 									onClick={() => {
 										if (
