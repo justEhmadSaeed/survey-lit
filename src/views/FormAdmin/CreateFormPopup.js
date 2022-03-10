@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { renameForm } from 'utils/form-data/form-data';
 import { renameValidationSchema } from 'utils/schemas/yup-schemas';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import Loading from 'views/Loading/Loading';
 import { useNavigate, useParams } from 'react-router-dom';
-import { PATH_CREATE_FORM_ADMIN } from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 
 const CreateFormPopup = () => {
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
 	let { formId } = useParams();
-	const auth = useSelector((state) => state.auth);
 	const { handleSubmit, handleChange, values, errors } = useFormik({
 		initialValues: {
 			name: 'My Typeform'
@@ -20,8 +18,8 @@ const CreateFormPopup = () => {
 		validationSchema: renameValidationSchema,
 		async onSubmit(values) {
 			setLoading(true);
-			await renameForm(auth.id, formId, values.name);
-			navigate(`${PATH_CREATE_FORM_ADMIN}/${formId}`);
+			await renameForm(formId, values.name);
+			navigate(`${PATH.CREATE_FORM_ADMIN}/${formId}`);
 		}
 	});
 

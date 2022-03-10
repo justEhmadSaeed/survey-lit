@@ -2,7 +2,7 @@ import { DotsHorizontalIcon } from '@heroicons/react/solid';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { PATH_CREATE_FORM_ADMIN } from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 
 const FormThumbnail = ({ title, id, responses }) => {
 	return (
@@ -11,7 +11,7 @@ const FormThumbnail = ({ title, id, responses }) => {
 				{/* Thumbnail */}
 				<div className="flex-1">
 					<Link
-						to={`${PATH_CREATE_FORM_ADMIN}/${id}`}
+						to={`${PATH.CREATE_FORM_ADMIN}/${id}`}
 						className="w-full h-full flex-1 relative"
 					>
 						<div className=" h-full p-4 bg-template-green rounded-t-lg">

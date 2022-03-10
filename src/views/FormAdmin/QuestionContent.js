@@ -2,6 +2,7 @@ import { ArrowRightIcon } from '@heroicons/react/solid';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import QuestionChoice from './QuestionChoice';
+import { questionPropType } from 'utils/constants/prop-types.constant';
 
 const QuestionContent = ({
 	question,
@@ -120,8 +121,9 @@ const QuestionContent = ({
 		</section>
 	);
 };
+
 QuestionContent.propTypes = {
-	question: PropTypes.object,
+	question: questionPropType,
 	index: PropTypes.number.isRequired,
 	handleQuestionChange: PropTypes.func.isRequired,
 	addChoice: PropTypes.func.isRequired,
@@ -129,6 +131,11 @@ QuestionContent.propTypes = {
 };
 
 QuestionContent.defaultProps = {
-	question: {}
+	question: {
+		id: '',
+		title: '',
+		desc: '',
+		choices: [{ id: '', text: '' }]
+	}
 };
 export default QuestionContent;

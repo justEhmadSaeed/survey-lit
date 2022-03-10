@@ -7,10 +7,7 @@ import {
 } from '@heroicons/react/solid';
 import NavItem from 'components/NavItem';
 import { Link } from 'react-router-dom';
-import {
-	PATH_LOGIN,
-	PATH_SIGNUP
-} from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 const PublicNavbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
 	return (
@@ -42,17 +39,17 @@ const PublicNavbar = () => {
 				</ul>
 				<div className="hidden lg:flex gap-3">
 					<button className=" btn px-4 py-2 rounded border-2 text-template-black border-template-black hover:opacity-80">
-						<Link to={PATH_LOGIN}>Log in</Link>
+						<Link to={PATH.LOGIN}>Log in</Link>
 					</button>
 					<button className="btn px-4 py-2 rounded bg-template-black text-white hover:opacity-80">
-						<Link to={PATH_SIGNUP}>Sign up</Link>
+						<Link to={PATH.SIGNUP}>Sign up</Link>
 					</button>
 				</div>
 			</header>
 			{/* For tablet and mobile view */}
 			<section
 				className={`left-0 top-0 fixed flex flex-col justify-between w-screen ${
-					showMenu ? 'h-screen' : 'h-0'
+					showMenu ? 'h-full' : 'h-0'
 				} transition-all ease-in-out duration-500 bg-template-menu-background z-10`}
 			>
 				<header className="lg:hidden w-full h-20 flex justify-end">
@@ -74,10 +71,10 @@ const PublicNavbar = () => {
 					} justify-center items-center h-24 bg-black transition-all ease-in-out duration-500`}
 				>
 					<button className="btn px-4 py-2 mr-2 rounded border-2 text-white border-white hover:opacity-80">
-						<Link to={PATH_LOGIN}>Log in</Link>
+						<Link to={PATH.LOGIN}>Log in</Link>
 					</button>
 					<button className="btn px-4 py-2 ml-2 rounded bg-white text-template-black hover:opacity-80">
-						<Link to={PATH_SIGNUP}>Sign up</Link>
+						<Link to={PATH.SIGNUP}>Sign up</Link>
 					</button>
 				</footer>
 			</section>

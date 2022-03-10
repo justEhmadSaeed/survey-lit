@@ -1,6 +1,7 @@
 import { XCircleIcon } from '@heroicons/react/solid';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { choicePropType } from 'utils/constants/prop-types.constant';
 
 const QuestionChoice = ({
 	choice,
@@ -43,7 +44,7 @@ const QuestionChoice = ({
 	);
 };
 QuestionChoice.propTypes = {
-	choice: PropTypes.object.isRequired,
+	choice: choicePropType.isRequired,
 	index: PropTypes.number.isRequired,
 	handleChoiceChange: PropTypes.func.isRequired,
 	deleteChoice: PropTypes.func.isRequired,

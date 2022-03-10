@@ -7,10 +7,7 @@ import {
 	TYPE_EMAIL,
 	TYPE_PASSWORD
 } from 'utils/constants/input-types.constant';
-import {
-	PATH_HOME,
-	PATH_SIGNUP
-} from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 import typeform_logo from 'assets/typeform_logo.svg';
 import google_icon from 'assets/google_icon.svg';
 import microsoft_icon from 'assets/microsoft_icon.svg';
@@ -23,7 +20,7 @@ const Login = () => {
 			{/* Navigation */}
 			<AuthNavbar
 				helperText="Don't have an account yet?"
-				path={PATH_SIGNUP}
+				path={PATH.SIGNUP}
 				title="Sign up"
 			/>
 			{/* Content Container */}
@@ -31,7 +28,7 @@ const Login = () => {
 				<div className="box-inherit">
 					{/* Logo */}
 					<div className="flex items-center justify-center h-20">
-						<Link to={PATH_HOME}>
+						<Link to={PATH.HOME}>
 							<img src={typeform_logo} alt="Logo" />
 						</Link>
 					</div>
@@ -59,7 +56,7 @@ const Login = () => {
 											/>
 										</div>
 										<Link
-											to={PATH_HOME}
+											to={PATH.HOME}
 											className="text-sm text-template-auth-text underline mb-4"
 										>
 											Forgot Password?

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { PATH_HOME } from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 
 const NavItem = ({ text, Icon, link }) => {
 	return (
@@ -26,6 +26,6 @@ NavItem.propTypes = {
 NavItem.defaultProps = {
 	text: '',
 	Icon: undefined,
-	link: PATH_HOME
+	link: PATH.HOME
 };
 export default NavItem;

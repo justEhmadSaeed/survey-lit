@@ -6,16 +6,14 @@ import {
 } from 'utils/form-data/form-data';
 import Loading from 'views/Loading/Loading';
 import CurrentQuestion from 'views/JoinForm/CurrentQuestion';
-import {
-	PATH_DASHBOARD,
-	PATH_HOME
-} from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 import {
 	CheckIcon,
 	ChevronDownIcon,
 	ChevronUpIcon
 } from '@heroicons/react/solid';
 import { useSelector } from 'react-redux';
+import { useFormik } from 'formik';
 
 // Starting Point of Join Form
 const JoinForm = () => {
@@ -31,7 +29,25 @@ const JoinForm = () => {
 		questions.findIndex(
 			(question) => question.id === currentQuestion.id
 		);
-
+	const { handleSubmit } = useFormik({
+		initialValues: {
+			questions
+		},
+		async onSubmit() {
+			const response = questions.map((question) => {
+				let responseQuestion = {
+					title: question.title,
+					choice: question.choices.filter(
+						(choice) => choice.selected
+					)[0].text
+				};
+				return responseQuestion;
+			});
+			setLoading(true);
+			await storeFormResponse(formId, userId, response);
+			navigate(`${PATH.DASHBOARD}`);
+		}
+	});
 	useEffect(() => {
 		const getData = async () => {
 			let data = await getFormData(formId);
@@ -74,29 +90,18 @@ const JoinForm = () => {
 		setQuestions(tempQuestions);
 	};
 
-	const onSubmitForm = async () => {
-		const response = questions.map((question) => {
-			let responseQuestion = {
-				title: question.title,
-				choice: question.choices.filter(
-					(choice) => choice.selected
-				)[0].text
-			};
-			return responseQuestion;
-		});
-		setLoading(true);
-		await storeFormResponse(formId, userId, response);
-		navigate(`${PATH_DASHBOARD}`);
-	};
-
-	return loading ? (
-		<Loading />
-	) : error ? (
-		<div className="mt-20 text-lg w-full flex items-center justify-center">
-			{error}
-		</div>
-	) : (
-		<div className="w-full h-screen overflow-auto">
+	// Display Loading Screen
+	if (loading) return <Loading />;
+	// Display Errors if any exists
+	if (error)
+		return (
+			<div className="w-full h-screen flex items-center justify-center dark:bg-template-signup-text dark:text-white">
+				<span className="text-xl font-semibold">{error}</span>
+			</div>
+		);
+	// Otherwise render the JoinForm Screen
+	return (
+		<div className="w-full h-screen overflow-auto dark:bg-template-signup-text dark:text-white">
 			<div className="flex flex-col justify-center">
 				{/* Content Wrapper */}
 				<div className="px-10 text-left">
@@ -109,6 +114,7 @@ const JoinForm = () => {
 							/>
 							<div className="w-3/4">
 								<button
+									type='button'
 									className="btn bg-blue-800 text-white mt-2 ml-7 font-bold shadow-md"
 									onClick={() => {
 										if (
@@ -116,7 +122,7 @@ const JoinForm = () => {
 											questions.length - 1
 										)
 											onNextQuestionClick();
-										else onSubmitForm();
+										else handleSubmit();
 									}}
 								>
 									<span className="flex items-center text-lg gap-1">
@@ -169,7 +175,7 @@ const JoinForm = () => {
 						</button>
 					</nav>
 					<Link
-						to={PATH_HOME}
+						to={PATH.HOME}
 						className="btn bg-blue-800 text-white"
 					>
 						Powered by Typeform

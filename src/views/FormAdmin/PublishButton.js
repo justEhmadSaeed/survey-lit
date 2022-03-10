@@ -28,7 +28,7 @@ const PublishButton = ({ formURL, onClick }) => {
 			</button>
 			{/* URL Card */}
 			{attributes.success && (
-				<div className="z-20 absolute">
+				<div className="z-20 absolute right-0">
 					<div className="p-4 bg-white dark:bg-template-auth-text shadow mt-3 max-w-xs rounded-lg">
 						<div className="flex justify-between">
 							<span className="text-template-black dark:text-white text-sm font-semibold">

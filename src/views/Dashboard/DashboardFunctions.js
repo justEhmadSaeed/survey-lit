@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { toggleLoading } from 'store/slice/auth.slice';
 
 const DashboardFunctions = () => {
-	const auth = useSelector((state) => state.auth);
+	const userId = useSelector((state) => state.auth.id);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ const DashboardFunctions = () => {
 				<button
 					onClick={async () => {
 						dispatch(toggleLoading(true));
-						await createNewForm(auth.id, navigate);
+						await createNewForm(userId, navigate);
 						dispatch(toggleLoading(false));
 					}}
 					className="btn bg-template-black text-white"

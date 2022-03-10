@@ -6,14 +6,7 @@ import {
 	Route,
 	Navigate
 } from 'react-router-dom';
-import {
-	PATH_CREATE_FORM_ADMIN,
-	PATH_DASHBOARD,
-	PATH_FORM_POPUP,
-	PATH_JOIN_FORM,
-	PATH_LOGIN,
-	PATH_SIGNUP
-} from 'utils/constants/routing-paths.constant';
+import PATH from 'utils/constants/routing-paths.constant';
 import Dashboard from 'views/Dashboard/Dashboard';
 import Home from 'views/Home/Home';
 import Login from 'views/Login/Login';
@@ -30,10 +23,12 @@ import FormAdmin from 'views/FormAdmin/FormAdmin';
 import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 import JoinForm from 'views/JoinForm/JoinForm';
-import { getInitialTheme } from 'utils/theme-handler';
+import { getInitialTheme } from 'utils/theme.handler';
 
-const Routers = () => {
-	const auth = useSelector((state) => state.auth);
+const UserRoutes = () => {
+	const { id: userId, loading } = useSelector(
+		(state) => state.auth
+	);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -52,73 +47,74 @@ const Routers = () => {
 				dispatch(toggleLoading(false));
 			}
 		});
-		let darkMode = getInitialTheme();
-		dispatch(toggleDarkMode(darkMode));
+		getInitialTheme((darkMode) =>
+			dispatch(toggleDarkMode(darkMode))
+		);
 	}, []);
 
-	return auth.loading ? (
+	return loading ? (
 		<Loading />
 	) : (
 		<BrowserRouter>
 			<Routes>
 				<Route index element={<Home />} />
 				<Route
-					path={PATH_LOGIN}
+					path={PATH.LOGIN}
 					element={
-						auth.id ? (
-							<Navigate to={PATH_DASHBOARD} />
+						userId ? (
+							<Navigate to={PATH.DASHBOARD} />
 						) : (
 							<Login />
 						)
 					}
 				/>
 				<Route
-					path={PATH_SIGNUP}
+					path={PATH.SIGNUP}
 					element={
-						auth.id ? (
-							<Navigate to={PATH_DASHBOARD} />
+						userId ? (
+							<Navigate to={PATH.DASHBOARD} />
 						) : (
 							<Signup />
 						)
 					}
 				/>
 				<Route
-					path={PATH_DASHBOARD}
+					path={PATH.DASHBOARD}
 					element={
-						auth.id ? (
+						userId ? (
 							<Dashboard />
 						) : (
-							<Navigate to={PATH_LOGIN} />
+							<Navigate to={PATH.LOGIN} />
 						)
 					}
 				/>
 				<Route
-					path={`${PATH_FORM_POPUP}/:formId`}
+					path={`${PATH.FORM_POPUP}/:formId`}
 					element={
-						auth.id ? (
+						userId ? (
 							<CreateFormPopup />
 						) : (
-							<Navigate to={PATH_LOGIN} />
+							<Navigate to={PATH.LOGIN} />
 						)
 					}
 				/>
 				<Route
-					path={`${PATH_CREATE_FORM_ADMIN}/:formId`}
+					path={`${PATH.CREATE_FORM_ADMIN}/:formId`}
 					element={
-						auth.id ? (
+						userId ? (
 							<FormAdmin />
 						) : (
-							<Navigate to={PATH_LOGIN} />
+							<Navigate to={PATH.LOGIN} />
 						)
 					}
 				/>
 				<Route
-					path={`${PATH_JOIN_FORM}/:formId`}
+					path={`${PATH.JOIN_FORM}/:formId`}
 					element={
-						auth.id ? (
+						userId ? (
 							<JoinForm />
 						) : (
-							<Navigate to={PATH_LOGIN} />
+							<Navigate to={PATH.LOGIN} />
 						)
 					}
 				/>
@@ -126,4 +122,4 @@ const Routers = () => {
 		</BrowserRouter>
 	);
 };
-export default Routers;
+export default UserRoutes;

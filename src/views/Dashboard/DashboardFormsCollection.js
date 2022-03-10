@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import FormThumbnail from './FormThumbnail';
 
 const DashboardFormsCollection = () => {
-	const forms = useSelector((state) => state.forms);
+	const forms = useSelector((state) => state.forms.forms);
 	return (
 		<div className="relative ml-8">
 			{/* Collections */}
