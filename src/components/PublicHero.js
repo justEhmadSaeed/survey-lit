@@ -12,8 +12,13 @@ const PublicHero = () => {
 				{/* Content */}
 				<div className="p-12 xl:p-10 text-template-black flex flex-col xl:flex-row justify-end flex-1 ">
 					<div className="flex flex-col items-center xl:items-start">
-						<h1 className="my-3 lg:my-6 font-light text-3xl md:text-5xl lg:text-6xl md:max-w-sm lg:max-w-lg tracking-wide xl:tracking-tight leading-tight">
-							There&apos;s a better way to ask
+						<h1 className="my-3 lg:my-6 lg:ml-0 font-light text-3xl md:text-5xl lg:text-6xl md:max-w-sm lg:max-w-lg tracking-wide xl:tracking-tight leading-tight">
+							There&apos;s a{' '}
+							<span className="bg-split-white-mustard font-semibold text-grey px-4 py-0">
+								better
+							</span>
+							way to <br />
+							ask
 						</h1>
 						<p className="max-w-md md:text-2xl text-lg text-template-black leading-8 font-light mb-5 lg:mb-10">
 							You don&apos;t want to make a boring form.

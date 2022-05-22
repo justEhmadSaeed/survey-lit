@@ -3,6 +3,10 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			backgroundImage: {
+				'split-white-mustard':
+					'linear-gradient(to bottom, transparent 40% , #F3EBE5 40%);'
+			},
 			colors: {
 				'template-black': '#262627',
 				'template-home-background': '#F2ECE4',
@@ -13,7 +17,10 @@ module.exports = {
 				'template-green': '#026451',
 				'template-hover-color': '#f0f0f0',
 				'template-dashboard-bg': '#fafafa',
-				'template-question-icon': '#d65c99'
+				'template-question-icon': '#d65c99',
+				'template-mustard': '#F7931E',
+				'template-light-grey': '#F8F5F3',
+				'template-grey': '#3B3B3B'
 			},
 			bottom: {
 				'-20%': '-20%',

@@ -1,6 +1,6 @@
 import signupSvg_1 from 'assets/signup_vector_1.svg';
 import signupSvg_2 from 'assets/signup_vector_2.svg';
-import typeform_logo from 'assets/typeform_logo.svg';
+import surveyit_logo from 'assets/logo.png';
 import google_icon from 'assets/google_icon.svg';
 import microsoft_icon from 'assets/microsoft_icon.svg';
 import AuthTile from 'components/AuthTile';
@@ -53,7 +53,7 @@ const Signup = () => {
 						{/* Logo */}
 						<div className="flex items-center justify-center mt-20 h-20">
 							<Link to={PATH.HOME}>
-								<img src={typeform_logo} alt="Logo" />
+								<img src={surveyit_logo} alt="Logo" />
 							</Link>
 						</div>
 						{/* Signup Module */}

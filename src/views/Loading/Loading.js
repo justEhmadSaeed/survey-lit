@@ -1,10 +1,10 @@
 import React from 'react';
-import typeform_logo from 'assets/typeform_logo.svg';
+import surveyit_logo from 'assets/logo.png';
 
 const Loading = () => {
 	return (
 		<div className="dark:bg-template-signup-text w-full h-screen flex justify-center items-center">
-			<img className="h-8" src={typeform_logo} alt="Logo" />
+			<img className="h-8" src={surveyit_logo} alt="Logo" />
 		</div>
 	);
 };
