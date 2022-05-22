@@ -23,7 +23,7 @@ const PublicHero = () => {
 						<p className="max-w-md md:text-2xl text-lg text-template-black leading-8 font-light mb-5 lg:mb-10">
 							You don&apos;t want to make a boring form.
 							And your audience won&apos;t answer one.
-							Create a typeform instead—and make
+							Create a Lit Survey instead—and make
 							everyone happy.
 						</p>
 						<div className="flex justify-center flex-wrap gap-6 mb-6">
@@ -46,7 +46,7 @@ const PublicHero = () => {
 					</div>
 				</div>
 				<div className="flex-1 hidden xl:block"></div>
-				{/* Typeform Video */}
+				{/* Lit Survey Video */}
 				<div className="w-full h-auto absolute top-0 md:-top-72 lg:-top-24 xl:-top-40 left-0 right-0 bottom-0 -z-10">
 					<video
 						autoPlay

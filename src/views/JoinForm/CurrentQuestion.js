@@ -5,8 +5,8 @@ import { questionPropType } from 'utils/constants/prop-types.constant';
 
 const CurrentQuestion = ({ question, index, onOptionClick }) => {
 	return (
-		<div className="mt-32 text-left flex justify-start items-start w-3/4">
-			<div className="flex items-center mr-2 text-blue-800">
+		<div className="mt-32 text-left flex justify-start items-start w-3/4 md:w-2/3 bg-white rounded shadow-lg p-12">
+			<div className="flex items-center mr-2 text-template-dark-green">
 				<span>{index + 1}</span>
 				<ArrowRightIcon className="h-3 w-3 ml-1" />
 			</div>
@@ -35,19 +35,19 @@ const CurrentQuestion = ({ question, index, onOptionClick }) => {
 										choice.selected
 											? 'border-2'
 											: 'border'
-									} group w-full mb-2 flex items-center  border-blue-800 rounded bg-blue-100 hover:bg-blue-300 text-blue-800 p-1 cursor-pointer`}
+									} group w-full mb-2 flex items-center  border-template-dark-green rounded bg-template-green/10 hover:bg-template-green/30 text-template-dark-green p-1 cursor-pointer`}
 								>
 									<div
 										className={`${
 											choice.selected
-												? 'bg-blue-800 text-white'
+												? 'bg-template-dark-green text-white'
 												: 'bg-white '
-										} flex justify-center items-center self-start my-1 mr-2 ml-1 w-6 h-6 rounded text-sm border border-blue-500`}
+										} flex justify-center items-center self-start my-1 mr-2 ml-1 w-6 h-6 rounded text-sm border border-template-green`}
 									>
 										{String.fromCharCode(65 + i)}
 									</div>
 									<div className="w-full flex items-center">
-										<span className="bg-transparent w-full px-2">
+										<span className="bg-transparent w-full px-2 flex">
 											{choice.text
 												? choice.text
 												: 'Choice ' + (i + 1)}

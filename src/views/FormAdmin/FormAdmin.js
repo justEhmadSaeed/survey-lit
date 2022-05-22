@@ -13,10 +13,11 @@ import { nanoid } from 'nanoid';
 import Loading from 'views/Loading/Loading';
 import PublishButton from './PublishButton';
 import { ArrowLeftIcon } from '@heroicons/react/solid';
+import SideNavConst from 'utils/constants/sideNav.constants';
 
 const FormAdmin = () => {
 	let { formId } = useParams();
-	const [formName, setFormName] = useState('My Typeform');
+	const [formName, setFormName] = useState('My Lit Survey');
 	const userId = useSelector((state) => state.auth.id);
 	const [questions, setQuestions] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -57,7 +58,7 @@ const FormAdmin = () => {
 	return loading ? (
 		<Loading />
 	) : (
-		<div className=" dark:bg-template-dark-green dark:text-white h-screen flex flex-col flex-nowrap flex-1">
+		<div className=" dark:bg-template-dark-green dark:text-white h-screen flex flex-col flex-nowrap flex-1 pt-16">
 			<AdminNavbar>
 				<header className="py-4">
 					<div className="flex w-full">

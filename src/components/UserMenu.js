@@ -43,10 +43,10 @@ const UserMenu = () => {
 							</span>
 						</div>
 						{/* Name */}
-						<div className="text-sm pl-2 hidden md:block">
+						<div className="text-sm pl-2 hidden md:block dark:text-template-light-grey">
 							{name.split(' ')[0]}
 						</div>
-						<div className="h-5 w-5 text-template-auth-text">
+						<div className="h-5 w-5 text-template-auth-text dark:text-template-light-grey">
 							<ChevronDownIcon />
 						</div>
 					</button>
@@ -56,9 +56,9 @@ const UserMenu = () => {
 			<section
 				className={`${
 					isMenuOpen ? 'block' : 'hidden'
-				} absolute right-3 top-12 z-20`}
+				} absolute right-3 top-20 z-20`}
 			>
-				<div className="shadow-md w-64 rounded-lg text-template-black py-2 bg-white dark:bg-template-dark-green dark:text-white">
+				<div className="shadow-lg dark:shadow-2xl w-64 rounded-lg text-template-black py-2 bg-white dark:bg-template-dark-green dark:text-white">
 					<header className="border-b dark:border-template-signup-text pb-2 mb-2">
 						<div className="flex items-center px-4 gap-3">
 							{/* Circle Icon */}

@@ -72,7 +72,7 @@ const Login = () => {
 											className="my-6 w-full h-10 bg-template-maroon text-white text-sm rounded cursor-pointer btn hover:opacity-90"
 											onClick={signInWithGoogle}
 										>
-											Log in to Typeform
+											Log in to Lit Survey
 										</button>
 									</div>
 									{/* <div className=" flex flex-col items-center"></div> */}

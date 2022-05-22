@@ -95,9 +95,9 @@ const FormBody = ({ questions, setQuestions }) => {
 				addChoice={addChoice}
 				deleteChoice={deleteChoice}
 			/>
-			<section className="w-64 border-l py-8 px-2 dark:border-template-signup-text h-full">
+			{/* <section className="w-64 border-l py-8 px-2 dark:border-template-signup-text h-full">
 				Right Sidebar
-			</section>
+			</section> */}
 		</main>
 	);
 };

@@ -13,7 +13,7 @@ const CreateFormPopup = () => {
 	let { formId } = useParams();
 	const { handleSubmit, handleChange, values, errors } = useFormik({
 		initialValues: {
-			name: 'My Typeform'
+			name: 'My Lit Survey'
 		},
 		validationSchema: renameValidationSchema,
 		async onSubmit(values) {
@@ -30,7 +30,7 @@ const CreateFormPopup = () => {
 			<div className="flex w-full justify-center mx-4">
 				<div className="flex flex-col w-full rounded-lg relative max-w-md shadow-md bg-white dark:bg-template-very-dark-green">
 					<h2 className="p-8 pb-4 text-xl font-light dark:text-template-light-grey">
-						Bring your new typeform to life
+						Bring your new Lit Survey to life
 					</h2>
 					<div className="px-8 pb-4">
 						<p className="mb-1 text-sm dark:text-template-light-grey">
@@ -46,7 +46,7 @@ const CreateFormPopup = () => {
 											? 'border-red-700 border dark:border-red-300'
 											: ''
 									} px-3 py-3 text-sm w-full dark:bg-template-dark-green dark:text-template-light-grey active:shadow-sm`}
-									placeholder="My new typeform"
+									placeholder="My new Lit Survey"
 									value={values.name}
 									onChange={handleChange}
 									autoComplete="off"
