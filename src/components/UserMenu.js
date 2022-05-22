@@ -26,7 +26,7 @@ const UserMenu = () => {
 				<button className="hidden sm:block btn bg-template-green text-white mx-2">
 					View Plans
 				</button>
-				<div className="">
+				<div>
 					<button
 						className="cursor-pointer flex items-center"
 						onClick={toggleMenu}
@@ -56,7 +56,7 @@ const UserMenu = () => {
 			<section
 				className={`${
 					isMenuOpen ? 'block' : 'hidden'
-				} absolute right-3 top-12`}
+				} absolute right-3 top-12 z-20`}
 			>
 				<div className="shadow-md w-64 rounded-lg text-template-black py-2 bg-white dark:bg-template-signup-text dark:text-white">
 					<header className="border-b pb-2 mb-2">
