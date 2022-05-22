@@ -8,8 +8,13 @@ import {
 import NavItem from 'components/NavItem';
 import { Link } from 'react-router-dom';
 import PATH from 'utils/constants/routing-paths.constant';
+import { useSelector } from 'react-redux';
+import UserMenu from './UserMenu';
+import { signoutWithGoogle } from 'services/firebase/firebase';
+
 const PublicNavbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
+	const userId = useSelector((state) => state.auth.id);
 	return (
 		<nav className="">
 			{/* For large screens */}
@@ -37,14 +42,20 @@ const PublicNavbar = () => {
 					<NavItem text="Pricing" link="/" />
 					<NavItem text="Enterprise" link="/" />
 				</ul>
-				<div className="hidden lg:flex gap-3">
-					<button className=" btn px-4 py-2 rounded border-2 text-template-black border-template-black hover:opacity-80">
-						<Link to={PATH.LOGIN}>Log in</Link>
-					</button>
-					<button className="btn px-4 py-2 rounded bg-template-black text-white hover:opacity-80">
-						<Link to={PATH.SIGNUP}>Sign up</Link>
-					</button>
-				</div>
+				{userId ? (
+					<div className="hidden lg:block">
+						<UserMenu />
+					</div>
+				) : (
+					<div className="hidden lg:flex gap-3">
+						<button className=" btn px-4 py-2 rounded border-2 text-template-black border-template-black hover:opacity-80">
+							<Link to={PATH.LOGIN}>Log in</Link>
+						</button>
+						<button className="btn px-4 py-2 rounded bg-template-black text-white hover:opacity-80">
+							<Link to={PATH.SIGNUP}>Sign up</Link>
+						</button>
+					</div>
+				)}
 			</header>
 			{/* For tablet and mobile view */}
 			<section
@@ -70,12 +81,23 @@ const PublicNavbar = () => {
 						showMenu ? 'flex' : 'hidden'
 					} justify-center items-center h-24 bg-black transition-all ease-in-out duration-500`}
 				>
-					<button className="btn px-4 py-2 mr-2 rounded border-2 text-white border-white hover:opacity-80">
-						<Link to={PATH.LOGIN}>Log in</Link>
-					</button>
-					<button className="btn px-4 py-2 ml-2 rounded bg-white text-template-black hover:opacity-80">
-						<Link to={PATH.SIGNUP}>Sign up</Link>
-					</button>
+					{userId ? (
+						<button
+							onClick={signoutWithGoogle}
+							className="btn px-4 py-2 mr-2 rounded border-2 text-white border-white hover:opacity-80"
+						>
+							Log Out
+						</button>
+					) : (
+						<div>
+							<button className="btn px-4 py-2 mr-2 rounded border-2 text-white border-white hover:opacity-80">
+								<Link to={PATH.LOGIN}>Log in</Link>
+							</button>
+							<button className="btn px-4 py-2 ml-2 rounded bg-white text-template-black hover:opacity-80">
+								<Link to={PATH.SIGNUP}>Sign up</Link>
+							</button>
+						</div>
+					)}
 				</footer>
 			</section>
 		</nav>
