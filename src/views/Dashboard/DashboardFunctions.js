@@ -37,7 +37,7 @@ const DashboardFunctions = () => {
 						await createNewForm(userId, navigate);
 						dispatch(toggleLoading(false));
 					}}
-					className="btn bg-template-black text-white"
+					className="btn bg-template-very-dark-green text-white"
 				>
 					+ Create typeform
 				</button>

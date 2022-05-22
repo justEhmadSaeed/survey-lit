@@ -16,8 +16,8 @@ const QuestionChoice = ({
 		setLocalChoice({ ...localChoice, text: event.target.value });
 	};
 	return (
-		<li className="group w-full mb-2 flex items-center border border-blue-500 rounded shadow bg-blue-100 text-blue-800 p-1 cursor-pointer">
-			<div className="flex justify-center items-center self-start my-1 mr-2 ml-1 w-6 h-6 rounded text-sm border bg-white border-blue-500">
+		<li className="group w-full mb-2 flex items-center border  border-template-maroon dark:border-template-border-green rounded shadow text-template-very-dark-green bg-template-light-grey dark:bg-template-green p-1 cursor-pointer">
+			<div className="flex justify-center items-center self-start my-1 mr-2 ml-1 w-6 h-6 rounded text-sm border bg-template-maroon  border-template-maroon dark:border-template-border-green dark:bg-template-very-dark-green text-template-light-grey">
 				{String.fromCharCode(65 + index)}
 			</div>
 			<div className="w-full flex">
@@ -36,7 +36,7 @@ const QuestionChoice = ({
 						className="-mr-4 opacity-80 hidden group-hover:block"
 						onClick={() => deleteChoice(index)}
 					>
-						<XCircleIcon className="h-6 w-6 text-template-signup-text" />
+						<XCircleIcon className="h-6 w-6 text-template-maroon dark:text-template-light-grey" />
 					</button>
 				)}
 			</div>

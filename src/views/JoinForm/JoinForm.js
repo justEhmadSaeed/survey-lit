@@ -95,13 +95,13 @@ const JoinForm = () => {
 	// Display Errors if any exists
 	if (error)
 		return (
-			<div className="w-full h-screen flex items-center justify-center dark:bg-template-signup-text dark:text-white">
+			<div className="w-full h-screen flex items-center justify-center dark:bg-template-dark-green dark:text-white">
 				<span className="text-xl font-semibold">{error}</span>
 			</div>
 		);
 	// Otherwise render the JoinForm Screen
 	return (
-		<div className="w-full h-screen overflow-auto dark:bg-template-signup-text dark:text-white">
+		<div className="w-full h-screen overflow-auto dark:bg-template-dark-green dark:text-white">
 			<div className="flex flex-col justify-center">
 				{/* Content Wrapper */}
 				<div className="px-10 text-left">
@@ -114,7 +114,7 @@ const JoinForm = () => {
 							/>
 							<div className="w-3/4">
 								<button
-									type='button'
+									type="button"
 									className="btn bg-blue-800 text-white mt-2 ml-7 font-bold shadow-md"
 									onClick={() => {
 										if (

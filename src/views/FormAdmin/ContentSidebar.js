@@ -12,16 +12,16 @@ const ContentSidebar = ({
 	deleteQuestion
 }) => {
 	return (
-		<section className="w-64 md:border self-center md:self-start h-full">
+		<section className="w-64 md:border-r dark:border-template-signup-text self-center md:self-start h-full">
 			<div className="flex flex-col justify-between h-full">
 				{/* Add Questions */}
 				<div className="flex p-4 justify-between items-center">
 					<span className="text-sm">Content</span>
 					<button
-						className="btn bg-template-auth-border"
+						className="btn bg-template-auth-border dark:bg-template-green dark:text-template-very-dark-green font-extrabold"
 						onClick={addQuestionsHandler}
 					>
-						<span className="text-lg px-1">+</span>
+						<span className="text-2xl px-1">+</span>
 					</button>
 				</div>
 				{/* Questions List */}
@@ -31,7 +31,7 @@ const ContentSidebar = ({
 							<li
 								className={`${
 									selectedQuestion === question.id
-										? 'bg-template-hover-color dark:text-template-signup-text'
+										? 'bg-template-hover-color  dark:bg-template-very-dark-green'
 										: ''
 								} w-full flex justify-between items-center py-3 pr-1 pl-4 cursor-pointer`}
 								key={question.id}

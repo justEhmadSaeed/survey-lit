@@ -70,7 +70,7 @@ const FormBody = ({ questions, setQuestions }) => {
 
 	// console.log(questions);
 	return (
-		<main className="flex flex-col md:flex-row md:form-admin md:form-admin-remaining-height justify-around flex-nowrap">
+		<main className="flex flex-col md:flex-row md:form-admin md:form-admin-remaining-height h-full justify-around flex-nowrap">
 			<ContentSidebar
 				questions={questions}
 				addQuestionsHandler={addQuestionsHandler}
@@ -95,7 +95,9 @@ const FormBody = ({ questions, setQuestions }) => {
 				addChoice={addChoice}
 				deleteChoice={deleteChoice}
 			/>
-			<section className="w-64 border">Right Sidebar</section>
+			<section className="w-64 border-l py-8 px-2 dark:border-template-signup-text h-full">
+				Right Sidebar
+			</section>
 		</main>
 	);
 };

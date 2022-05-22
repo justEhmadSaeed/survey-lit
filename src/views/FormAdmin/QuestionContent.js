@@ -41,10 +41,10 @@ const QuestionContent = ({
 	}, [question]);
 
 	return (
-		<section className="flex-1 pt-8 md:px-4 pb-16 h-full bg-template-dashboard-bg dark:bg-template-signup-text dark:text-white">
-			<div className="w-full h-full flex justify-center items-start rounded-lg shadow-md bg-white dark:bg-template-auth-text overflow-hidden">
+		<section className="flex-1 pt-8 md:px-4 pb-16 h-full bg-template-dashboard-bg dark:bg-template-dark-green dark:text-white">
+			<div className="w-full h-full flex justify-center items-start rounded-lg shadow-md bg-white dark:bg-template-very-dark-green overflow-hidden">
 				<div className="mt-32 text-left flex justify-start items-start w-3/4 h-80 overflow-auto">
-					<div className="flex items-center mr-2 text-blue-800">
+					<div className="flex items-center mr-2 text-template-maroon dark:text-template-green">
 						<span>{index + 1}</span>
 						<ArrowRightIcon className="h-3 w-3 ml-1" />
 					</div>
@@ -105,7 +105,7 @@ const QuestionContent = ({
 									)}
 								<li className="w-full mb-2">
 									<button
-										className="text-blue-800 mt-2 underline"
+										className="text-template-maroon mt-2 underline dark:text-template-green"
 										onClick={() =>
 											addChoice(index)
 										}

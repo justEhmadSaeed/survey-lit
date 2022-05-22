@@ -57,9 +57,9 @@ const FormAdmin = () => {
 	return loading ? (
 		<Loading />
 	) : (
-		<div className=" dark:bg-template-signup-text dark:text-white h-screen flex flex-col flex-nowrap flex-1">
+		<div className=" dark:bg-template-dark-green dark:text-white h-screen flex flex-col flex-nowrap flex-1">
 			<AdminNavbar>
-				<header>
+				<header className="py-4">
 					<div className="flex w-full">
 						<Link
 							to={PATH.DASHBOARD}

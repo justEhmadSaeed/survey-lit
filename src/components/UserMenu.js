@@ -23,7 +23,7 @@ const UserMenu = () => {
 	return (
 		<div>
 			<div className="flex items-center">
-				<button className="hidden sm:block btn bg-template-green text-white mx-2">
+				<button className="hidden sm:block btn bg-template-maroon text-white mx-2">
 					View Plans
 				</button>
 				<div>
@@ -58,8 +58,8 @@ const UserMenu = () => {
 					isMenuOpen ? 'block' : 'hidden'
 				} absolute right-3 top-12 z-20`}
 			>
-				<div className="shadow-md w-64 rounded-lg text-template-black py-2 bg-white dark:bg-template-signup-text dark:text-white">
-					<header className="border-b pb-2 mb-2">
+				<div className="shadow-md w-64 rounded-lg text-template-black py-2 bg-white dark:bg-template-dark-green dark:text-white">
+					<header className="border-b dark:border-template-signup-text pb-2 mb-2">
 						<div className="flex items-center px-4 gap-3">
 							{/* Circle Icon */}
 							<div className="relative">
@@ -81,7 +81,7 @@ const UserMenu = () => {
 					</header>
 					<section></section>
 					<footer>
-						<div className="py-2">
+						<div className="">
 							<button
 								onClick={() => {
 									toggleTheme(
@@ -94,11 +94,17 @@ const UserMenu = () => {
 											)
 									);
 								}}
-								className="flex justify-between w-full text-left px-2 hover:bg-template-hover-color dark:hover:bg-template-black"
+								className="flex justify-between w-full text-left p-2 hover:bg-template-hover-color dark:hover:bg-template-black border-b dark:border-template-signup-text"
 							>
-								<span className="text-sm ">
-									Dark Mode
-								</span>
+								{darkMode ? (
+									<span className="text-sm ">
+										Light Mode
+									</span>
+								) : (
+									<span className="text-sm ">
+										Dark Mode
+									</span>
+								)}
 								{darkMode ? (
 									<MoonIcon className="h-5 w-5" />
 								) : (
@@ -107,9 +113,15 @@ const UserMenu = () => {
 							</button>
 							<button
 								onClick={signoutWithGoogle}
-								className="w-full text-left px-2 hover:bg-template-hover-color dark:hover:bg-template-black"
+								className="w-full text-left p-2 hover:bg-template-hover-color dark:hover:bg-template-black"
 							>
-								<span className="text-red-600 text-sm ">
+								<span
+									className={`text-sm ${
+										darkMode
+											? 'text-red-300'
+											: 'text-red-600'
+									}`}
+								>
 									Log out
 								</span>
 							</button>
