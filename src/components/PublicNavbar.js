@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import typeform_logo from 'assets/typeform_logo.svg';
+import surveyit_logo from 'assets/logo.png';
 import {
 	ChevronDownIcon,
 	MenuIcon,
@@ -15,7 +15,7 @@ const PublicNavbar = () => {
 			{/* For large screens */}
 			<header className="flex items-center bg-white lg:bg-transparent justify-between flex-wrap p-6">
 				<div className="py-1 w-32">
-					<img src={typeform_logo} alt="Logo" />
+					<img src={surveyit_logo} alt="Logo" />
 				</div>
 				<ul className="hidden lg:flex flex-1 justify-center items-center gap-5 text-template-black text-s">
 					<NavItem

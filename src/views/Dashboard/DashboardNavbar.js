@@ -1,5 +1,5 @@
 import React from 'react';
-import typeform_logo from 'assets/typeform_logo.svg';
+import surveyit_logo from 'assets/logo.png';
 import UserMenu from 'components/UserMenu';
 import AdminNavbar from 'components/AdminNavbar';
 
@@ -10,7 +10,7 @@ const DashboardNavbar = () => {
 				<div className="p-2">
 					<img
 						className="h-4"
-						src={typeform_logo}
+						src={surveyit_logo}
 						alt="Logo"
 					/>
 				</div>
