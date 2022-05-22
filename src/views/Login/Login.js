@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
 	return (
-		<div className="flex relative flex-col flex-1 basis-1/3 w-full h-full max-h-full bg-white text-template-signup-text">
+		<div className="flex relative flex-col flex-1 basis-1/3 w-full h-screen max-h-full bg-template-light-grey text-template-signup-text">
 			{/* Navigation */}
 			<AuthNavbar
 				helperText="Don't have an account yet?"
@@ -24,12 +24,19 @@ const Login = () => {
 				title="Sign up"
 			/>
 			{/* Content Container */}
-			<div className="relative overflow-y-auto w-full h-full">
-				<div className="box-inherit">
+			<div className="relative overflow-y-auto  w-full h-full flex justify-center items-center">
+				<div className="box-inherit bg-white h-fit shadow-lg rounded-lg">
 					{/* Logo */}
-					<div className="flex items-center justify-center h-20">
-						<Link to={PATH.HOME}>
-							<img src={surveyit_logo} alt="Logo" />
+					<div className="flex items-center justify-center h-20 w-full">
+						<Link
+							to={PATH.HOME}
+							className="flex items-center w-1/2 mt-8"
+						>
+							<img
+								className=""
+								src={surveyit_logo}
+								alt="Logo"
+							/>
 						</Link>
 					</div>
 					{/* Login Module */}
@@ -62,7 +69,7 @@ const Login = () => {
 											Forgot Password?
 										</Link>
 										<button
-											className="my-6 w-full h-10 bg-template-black text-white text-sm rounded cursor-pointer btn hover:opacity-90"
+											className="my-6 w-full h-10 bg-template-maroon text-white text-sm rounded cursor-pointer btn hover:opacity-90"
 											onClick={signInWithGoogle}
 										>
 											Log in to Typeform

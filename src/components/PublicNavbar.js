@@ -48,10 +48,10 @@ const PublicNavbar = () => {
 					</div>
 				) : (
 					<div className="hidden lg:flex gap-3">
-						<button className=" btn px-4 py-2 rounded border-2 text-template-black border-template-black hover:opacity-80">
+						<button className=" btn px-4 py-2 rounded border-2 border-template-green text-template-green border-template-black hover:opacity-80">
 							<Link to={PATH.LOGIN}>Log in</Link>
 						</button>
-						<button className="btn px-4 py-2 rounded bg-template-black text-white hover:opacity-80">
+						<button className="btn px-4 py-2 rounded bg-template-green text-white hover:opacity-80">
 							<Link to={PATH.SIGNUP}>Sign up</Link>
 						</button>
 					</div>

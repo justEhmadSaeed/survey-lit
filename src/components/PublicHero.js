@@ -10,11 +10,11 @@ const PublicHero = () => {
 		<section className="relative text-center xl:text-left">
 			<div className="flex flex-col lg:flex-row gap-12 items-center justify-center w-full">
 				{/* Content */}
-				<div className="p-12 xl:p-10 text-template-black flex flex-col xl:flex-row justify-end flex-1 ">
+				<div className="p-12 xl:p-10 xl:pl-0 text-template-black flex flex-col xl:flex-row justify-end flex-1 ">
 					<div className="flex flex-col items-center xl:items-start">
 						<h1 className="my-3 lg:my-6 lg:ml-0 font-light text-3xl md:text-5xl lg:text-6xl md:max-w-sm lg:max-w-lg tracking-wide xl:tracking-tight leading-tight">
 							There&apos;s a{' '}
-							<span className="bg-split-white-mustard font-semibold text-grey px-4 py-0">
+							<span className="bg-split-white-mustard font-semibold text-template-green px-4 py-0">
 								better
 							</span>
 							way to <br />
@@ -28,7 +28,7 @@ const PublicHero = () => {
 						</p>
 						<div className="flex justify-center flex-wrap gap-6 mb-6">
 							<Link to={PATH.SIGNUP}>
-								<div className="btn px-6 py-3 bg-template-black text-white hover:opacity-80">
+								<div className="btn px-6 py-3 bg-template-maroon text-white hover:opacity-80">
 									Get started - it&apos;s free
 								</div>
 							</Link>
