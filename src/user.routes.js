@@ -24,6 +24,7 @@ import Loading from 'views/Loading/Loading';
 import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 import JoinForm from 'views/JoinForm/JoinForm';
 import { getInitialTheme } from 'utils/theme.handler';
+import Responses from 'views/Responses/Responses';
 
 const UserRoutes = () => {
 	const { id: userId, loading } = useSelector(
@@ -75,6 +76,16 @@ const UserRoutes = () => {
 							<Navigate to={PATH.DASHBOARD} />
 						) : (
 							<Signup />
+						)
+					}
+				/>
+				<Route
+					path={`${PATH.RESPONSES}/:formId`}
+					element={
+						userId ? (
+							<Responses />
+						) : (
+							<Navigate to={PATH.LOGIN} />
 						)
 					}
 				/>

@@ -5,7 +5,9 @@ const PATH = {
 	DASHBOARD: '/dashboard',
 	FORM_POPUP: '/form/popup',
 	CREATE_FORM_ADMIN: '/form/create',
-	JOIN_FORM: '/form/to'
+	JOIN_FORM: '/form/to',
+	RESPONSES: '/responses'
+
 };
 
 export default PATH;
