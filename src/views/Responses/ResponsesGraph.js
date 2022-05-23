@@ -1,16 +1,36 @@
 import { ChartBarIcon, ChartPieIcon } from '@heroicons/react/solid';
 import BarChart from 'components/BarChart';
 import React, { useEffect, useState } from 'react';
-import { RadialChart } from 'react-vis/dist';
+import { DiscreteColorLegend, RadialChart } from 'react-vis/dist';
 import { CHART } from 'utils/constants/chartConstants';
 const ResponsesGraph = ({ title, options, type }) => {
+	const colors = [
+		'#79C7E3',
+		'#12939A',
+		'#1A3177',
+		'#FF9833',
+		'#EF5D28'
+	];
 	const data = [];
+	const legendItems = [];
+
+	let i = 0;
 	for (let ops in options) {
 		data.push({
 			angle: options[ops],
 			label: ops
 		});
+		legendItems.push({
+			title: ops,
+			color: colors[i]
+		});
+		i++;
+		if (i > colors.length) i = 0;
 	}
+	// const legendItems = opt.map((d, i)=>({
+	// 	title: ,
+	// 	color: colors[i]
+	// }))
 	const barData = [];
 	for (let op in options) {
 		barData.push({ x: op, y: options[op] });
@@ -50,11 +70,22 @@ const ResponsesGraph = ({ title, options, type }) => {
 			<hr />
 			<div className="py-5">
 				{chartType === CHART.PIE ? (
-					<RadialChart
-						data={data}
-						width={300}
-						height={300}
-					/>
+					<div className="flex justify-between items-end">
+						<RadialChart
+							data={data}
+							width={300}
+							height={300}
+						/>
+						<DiscreteColorLegend
+							style={{
+								width: '50%',
+								'justify-content': 'space-evenely',
+								margin: '10px'
+							}}
+							orientation="vertical"
+							items={legendItems}
+						/>
+					</div>
 				) : (
 					<BarChart data={barData} />
 				)}

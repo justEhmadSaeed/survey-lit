@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import {
 	XYPlot,
@@ -7,7 +7,6 @@ import {
 	VerticalGridLines,
 	HorizontalGridLines,
 	VerticalBarSeries,
-	VerticalBarSeriesCanvas,
 	DiscreteColorLegend
 } from 'react-vis';
 
@@ -23,24 +22,6 @@ const BarChart = ({ data }) => {
 				width={700}
 				height={300}
 			>
-				<DiscreteColorLegend
-					style={{
-						position: 'absolute',
-						left: '50px',
-						top: '10px'
-					}}
-					orientation="horizontal"
-					items={[
-						{
-							title: 'Apples',
-							color: '#12939A'
-						},
-						{
-							title: 'Oranges',
-							color: '#79C7E3'
-						}
-					]}
-				/>
 				<VerticalGridLines />
 				<HorizontalGridLines />
 				<XAxis />
