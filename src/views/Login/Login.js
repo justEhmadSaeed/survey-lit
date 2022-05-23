@@ -10,7 +10,6 @@ import {
 import PATH from 'utils/constants/routing-paths.constant';
 import surveyit_logo from 'assets/logo.png';
 import google_icon from 'assets/google_icon.svg';
-import microsoft_icon from 'assets/microsoft_icon.svg';
 import TextField from 'components/TextField';
 import { Link } from 'react-router-dom';
 
@@ -89,25 +88,6 @@ const Login = () => {
 													signInWithGoogle
 												}
 											/>
-											<AuthTile
-												title="Sign in with Microsoft"
-												imgSrc={
-													microsoft_icon
-												}
-												onClick={
-													signInWithGoogle
-												}
-											/>
-											<div className="flex justify-center text-xs text-template-auth-text my-5 ">
-												<button
-													onClick={
-														signInWithGoogle
-													}
-													className="underline"
-												>
-													Sign In with SSO
-												</button>
-											</div>
 										</div>
 									</div>
 								</div>

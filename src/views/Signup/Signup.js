@@ -2,7 +2,6 @@ import signupSvg_1 from 'assets/signup_vector_1.svg';
 import signupSvg_2 from 'assets/signup_vector_2.svg';
 import surveyit_logo from 'assets/logo.png';
 import google_icon from 'assets/google_icon.svg';
-import microsoft_icon from 'assets/microsoft_icon.svg';
 import AuthTile from 'components/AuthTile';
 import TextField from 'components/TextField';
 import React from 'react';
@@ -110,15 +109,6 @@ const Signup = () => {
 													title="Sign up with Google"
 													imgSrc={
 														google_icon
-													}
-													onClick={
-														signInWithGoogle
-													}
-												/>
-												<AuthTile
-													title="Sign up with Microsoft"
-													imgSrc={
-														microsoft_icon
 													}
 													onClick={
 														signInWithGoogle
