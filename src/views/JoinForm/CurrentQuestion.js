@@ -5,8 +5,8 @@ import { questionPropType } from 'utils/constants/prop-types.constant';
 
 const CurrentQuestion = ({ question, index, onOptionClick }) => {
 	return (
-		<div className="mt-32 text-left flex justify-start items-start w-3/4 md:w-2/3 bg-white rounded shadow-lg p-12">
-			<div className="flex items-center mr-2 text-template-dark-green">
+		<div className="mt-32 text-left flex justify-start items-start w-3/4 md:w-2/3 bg-white dark:bg-template-very-dark-green rounded shadow-lg p-12">
+			<div className="flex items-center mr-2 text-template-dark-green dark:text-template-light-grey">
 				<span>{index + 1}</span>
 				<ArrowRightIcon className="h-3 w-3 ml-1" />
 			</div>
@@ -35,7 +35,7 @@ const CurrentQuestion = ({ question, index, onOptionClick }) => {
 										choice.selected
 											? 'border-2'
 											: 'border'
-									} group w-full mb-2 flex items-center  border-template-dark-green rounded bg-template-green/10 hover:bg-template-green/30 text-template-dark-green p-1 cursor-pointer`}
+									} group w-full mb-2 flex items-center  border-template-dark-green rounded bg-template-green/10 hover:bg-template-green/30 text-template-dark-green dark:text-template-light-grey p-1 cursor-pointer`}
 								>
 									<div
 										className={`${

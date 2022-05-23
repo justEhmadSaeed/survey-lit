@@ -15,6 +15,9 @@ const DashboardFunctions = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
+	const reloadWindow = () => {
+		window.location.reload();
+	};
 	return (
 		<div className="mx-8 pb-2 border-b">
 			{/* Workspace */}
@@ -25,7 +28,10 @@ const DashboardFunctions = () => {
 				{/* Functions */}
 				<div className="flex pl-9 items-center flex-nowrap gap-4">
 					<UserAddIcon className="dashboard-icon" />
-					<RefreshIcon className="dashboard-icon" />
+					<RefreshIcon
+						className="dashboard-icon"
+						onClick={reloadWindow}
+					/>
 					<DotsHorizontalIcon className="dashboard-icon" />
 				</div>
 			</div>

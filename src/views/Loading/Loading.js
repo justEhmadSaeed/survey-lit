@@ -6,13 +6,13 @@ const Loading = () => {
 	return (
 		<div className="dark:bg-template-dark-green w-full h-screen flex justify-center items-center">
 			<img
-				className="dark:hidden"
+				className="dark:hidden animate-bounce"
 				src={surveyit_logo}
 				alt="Logo"
 			/>
 			<img
-				className="hidden dark:visible"
-				src={surveyit_logo}
+				className="hidden dark:block animate-bounce"
+				src={darkLogo}
 				alt="Logo"
 			/>
 		</div>
