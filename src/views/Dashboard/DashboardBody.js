@@ -12,7 +12,7 @@ const DashboardBody = () => {
 				{SideNavConst.map((n, id) => (
 					<Link to={n.link} key={id}>
 						<div
-							className={`py-4 px-6 hover:bg-template-hover-color flex justify-start items-center ${
+							className={`py-4 px-6 hover:bg-template-hover-color dark:hover:bg-template-very-dark-green/50 flex justify-start items-center ${
 								n.active
 									? 'border-l-4 border-template-maroon bg-template-maroon/10 text-template-maroon dark:text-white dark:bg-template-very-dark-green'
 									: ''
