@@ -1,10 +1,12 @@
 /* eslint-disable linebreak-style */
-// import AdminNavbar from 'components/AdminNavbar';
+
 import ResponseCard from 'components/ResponseCard';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import DashboardNavbar from 'views/Dashboard/DashboardNavbar';
+import ResponseRespresentation from './ResponseRepresentation';
+import ResponsesGraph from './ResponsesGraph';
 
 const Responses = () => {
 	const { formId } = useParams();
@@ -12,7 +14,9 @@ const Responses = () => {
 		(state) =>
 			state.forms.forms.filter((form) => form.id === formId)[0]
 	);
+	const myData = [{ angle: 1 }, { angle: 5 }, { angle: 2 }];
 
+	console.log(responses);
 	const formTitle = name;
 	return (
 		<div>
@@ -32,6 +36,7 @@ const Responses = () => {
 						<ResponseCard response={resp} id={id} />
 					</div>
 				))}
+				<ResponseRespresentation responses={responses} />
 			</div>
 		</div>
 	);
