@@ -15,8 +15,9 @@ body {
 	box-sizing: inherit;
 }
 .dashboard-icon {
-	@apply text-template-auth-text h-5 w-5 dark:text-template-auth-border;
+	@apply text-template-auth-text h-5 w-5 dark:text-template-auth-border hover:cursor-pointer;
 }
+
 .form-admin-remaining-height {
 	height: calc(100% - 53px);
 }
