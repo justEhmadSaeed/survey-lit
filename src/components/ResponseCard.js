@@ -12,11 +12,11 @@ const ResponseCard = ({ response, id }) => {
 						Respondant&apos;s Name:{' '}
 					</span>
 					<span className="p-1 px-4 bg-template-hover-color dark:bg-template-dark-green">
-						{response.respName}
+						{response.userName}
 					</span>
 				</div>
 			</div>
-			{response.responses.map((r, id) => (
+			{response.responseData.map((r, id) => (
 				<div
 					className="py-4 border-b dark:border-template-signup-text"
 					key={id}

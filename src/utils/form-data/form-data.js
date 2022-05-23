@@ -115,12 +115,14 @@ export const storeIntoFirestore = async (formId, questions) => {
 export const storeFormResponse = async (
 	formId,
 	userId,
+	name,
 	responseData
 ) => {
 	try {
 		await addDoc(collection(db, FIRESTORE_CONSTS.RESPONSES), {
 			formId,
 			userId,
+			userName: name,
 			responseData,
 			createdAt: Timestamp.now()
 		});
