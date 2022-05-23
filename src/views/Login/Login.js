@@ -1,17 +1,10 @@
-import AuthDivider from 'components/AuthDivider';
 import AuthNavbar from 'components/AuthNavbar';
-import AuthTile from 'components/AuthTile';
 import React from 'react';
-import { signInWithGoogle } from 'services/firebase/firebase';
-import {
-	TYPE_EMAIL,
-	TYPE_PASSWORD
-} from 'utils/constants/input-types.constant';
+import { authObj, loginConfigUI } from 'services/firebase/firebase';
 import PATH from 'utils/constants/routing-paths.constant';
 import surveyit_logo from 'assets/logo.png';
-import google_icon from 'assets/google_icon.svg';
-import TextField from 'components/TextField';
 import { Link } from 'react-router-dom';
+import { StyledFirebaseAuth } from 'react-firebaseui';
 
 const Login = () => {
 	return (
@@ -49,47 +42,11 @@ const Login = () => {
 											Hello, who&apos;s this?
 										</h2>
 										{/* Login Fields */}
-										<div>
-											<p>Email</p>
-											<TextField
-												type={TYPE_EMAIL}
-												placeholder="bruce@wayne.com"
-											/>
-											<p>Password</p>
-											<TextField
-												type={TYPE_PASSWORD}
-												placeholder="At least 8 characters"
-											/>
-										</div>
-										<Link
-											to={PATH.HOME}
-											className="text-sm text-template-auth-text underline mb-4"
-										>
-											Forgot Password?
-										</Link>
-										<button
-											className="my-6 w-full h-10 bg-template-maroon text-white text-sm rounded cursor-pointer btn hover:opacity-90"
-											onClick={signInWithGoogle}
-										>
-											Log in to Survey Lit
-										</button>
 									</div>
-									{/* <div className=" flex flex-col items-center"></div> */}
-									{/* Auth Container */}
-									<div className="w-full">
-										{/* Auth Divder */}
-										<AuthDivider />
-										{/* Auth Modules */}
-										<div className="flex flex-col justify-center">
-											<AuthTile
-												title="Sign in with Google"
-												imgSrc={google_icon}
-												onClick={
-													signInWithGoogle
-												}
-											/>
-										</div>
-									</div>
+									<StyledFirebaseAuth
+										uiConfig={loginConfigUI}
+										firebaseAuth={authObj}
+									/>
 								</div>
 							</div>
 						</main>
