@@ -27,10 +27,6 @@ const ResponsesGraph = ({ title, options, type }) => {
 		i++;
 		if (i > colors.length) i = 0;
 	}
-	// const legendItems = opt.map((d, i)=>({
-	// 	title: ,
-	// 	color: colors[i]
-	// }))
 	const barData = [];
 	for (let op in options) {
 		barData.push({ x: op, y: options[op] });
@@ -70,7 +66,7 @@ const ResponsesGraph = ({ title, options, type }) => {
 			<hr />
 			<div className="py-5">
 				{chartType === CHART.PIE ? (
-					<div className="flex justify-between items-end">
+					<div className="flex flex-col md:flex-row justify-between items-end">
 						<RadialChart
 							data={data}
 							width={300}

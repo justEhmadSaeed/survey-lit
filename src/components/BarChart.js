@@ -6,32 +6,39 @@ import {
 	YAxis,
 	VerticalGridLines,
 	HorizontalGridLines,
-	VerticalBarSeries,
-	DiscreteColorLegend
+	VerticalBarSeries
 } from 'react-vis';
 
 const BarChart = ({ data }) => {
 	const BarSeries = VerticalBarSeries;
-
+	const colors = [
+		'#79C7E3',
+		'#12939A',
+		'#1A3177',
+		'#FF9833',
+		'#EF5D28'
+	];
 	return (
 		<div>
 			<XYPlot
-				className="clustered-stacked-bar-chart-example"
 				xType="ordinal"
 				stackBy="y"
-				width={700}
+				width={300}
 				height={300}
+				className="clustered-stacked-bar-chart-example w-300 lg:wd-900"
 			>
 				<VerticalGridLines />
 				<HorizontalGridLines />
 				<XAxis />
 				<YAxis />
-				<BarSeries
-					animation="gentle"
-					cluster="2015"
-					color="#12939A"
-					data={data}
-				/>
+				{data.map((d, i) => (
+					<BarSeries
+						key={i}
+						color={colors[i]}
+						animation="gentle"
+						data={[d]}
+					/>
+				))}
 			</XYPlot>
 		</div>
 	);
