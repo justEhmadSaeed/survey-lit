@@ -30,7 +30,7 @@ const Responses = () => {
 	return (
 		<div>
 			<DashboardNavbar />
-			<div className="px-56 py-24 bg-template-dashboard-bg dark:text-template-auth-border dark:bg-template-dark-green min-h-screen">
+			<div className="px-4 lg:px-56 py-24 bg-template-dashboard-bg dark:text-template-auth-border dark:bg-template-dark-green min-h-screen">
 				<div className="flex justify-between items-start">
 					<div>
 						<h1 className="text-4xl font-extrabold dark:text-white">
@@ -50,16 +50,16 @@ const Responses = () => {
 						{representationType ===
 						REPRESENTATION.TEXTUAL ? (
 							<div className="flex justify-end items-center">
-								<PresentationChartLineIcon className="w-6 mr-2" />
+								<PresentationChartLineIcon className="w-6 lg:mr-2" />
 								{'  '}
-								<p className="text-sm">
+								<p className="text-sm w-min px-2">
 									Graphical Summary
 								</p>
 							</div>
 						) : (
 							<div className="flex justify-end items-center">
-								<DocumentTextIcon className="w-6 mr-2" />
-								<p className="text-sm">
+								<DocumentTextIcon className="w-6 lg:mr-2" />
+								<p className="text-sm w-min px-2">
 									Textual Summary
 								</p>
 							</div>
