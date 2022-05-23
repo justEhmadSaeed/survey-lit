@@ -19,7 +19,7 @@ import { useFormik } from 'formik';
 const JoinForm = () => {
 	let { formId } = useParams();
 	const navigate = useNavigate();
-	const userId = useSelector((state) => state.auth.id);
+	const user = useSelector((state) => state.auth);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState();
 	const [questions, setQuestions] = useState([]);
@@ -44,7 +44,12 @@ const JoinForm = () => {
 				return responseQuestion;
 			});
 			setLoading(true);
-			await storeFormResponse(formId, userId, response);
+			await storeFormResponse(
+				formId,
+				user.id,
+				user.name,
+				response
+			);
 			navigate(`${PATH.DASHBOARD}`);
 		}
 	});

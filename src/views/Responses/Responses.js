@@ -8,26 +8,12 @@ import DashboardNavbar from 'views/Dashboard/DashboardNavbar';
 
 const Responses = () => {
 	const { formId } = useParams();
-	const responses = useSelector((state) =>
-		state.forms.forms.filter((form) => form.id === formId)[0].responses
+	const { name, responses } = useSelector(
+		(state) =>
+			state.forms.forms.filter((form) => form.id === formId)[0]
 	);
-	console.log(responses);
-	const formResp = [
-		{
-			respName: 'Zaeema Anwar',
-			responses: [
-				{
-					choice: 'Definitiely Yes',
-					title: 'Hey, are you a lit person?'
-				},
-				{
-					choice: 'Often',
-					title: 'Do you like to walk?'
-				}
-			]
-		}
-	];
-	const formTitle = 'Personal Choices';
+
+	const formTitle = name;
 	return (
 		<div>
 			<DashboardNavbar />
@@ -41,7 +27,7 @@ const Responses = () => {
 						{formTitle}
 					</span>
 				</h3>
-				{formResp.map((resp, id) => (
+				{responses.map((resp, id) => (
 					<div key={id}>
 						<ResponseCard response={resp} id={id} />
 					</div>
