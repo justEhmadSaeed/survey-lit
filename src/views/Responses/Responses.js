@@ -3,7 +3,7 @@
 import ResponseCard from 'components/ResponseCard';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import DashboardNavbar from 'views/Dashboard/DashboardNavbar';
 
 const Responses = () => {

@@ -1,4 +1,6 @@
 import React from 'react';
+import { responsePropType } from 'utils/constants/prop-types.constant';
+import PropTypes from 'prop-types';
 
 const ResponseCard = ({ response, id }) => {
 	return (
@@ -34,3 +36,13 @@ const ResponseCard = ({ response, id }) => {
 };
 
 export default ResponseCard;
+
+ResponseCard.propTypes = {
+	response: responsePropType,
+	id: PropTypes.string
+};
+
+ResponseCard.defaultProps = {
+	response: [],
+	id: ''
+};

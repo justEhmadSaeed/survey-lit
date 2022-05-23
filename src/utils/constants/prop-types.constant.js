@@ -10,3 +10,8 @@ export const questionPropType = PropTypes.shape({
 	desc: PropTypes.string,
 	choices: PropTypes.arrayOf(choicePropType)
 });
+
+export const responsePropType = PropTypes.shape({
+	userName: PropTypes.string,
+	responseData: PropTypes.array
+});
