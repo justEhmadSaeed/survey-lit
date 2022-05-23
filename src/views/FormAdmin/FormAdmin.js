@@ -13,7 +13,6 @@ import { nanoid } from 'nanoid';
 import Loading from 'views/Loading/Loading';
 import PublishButton from './PublishButton';
 import { ArrowLeftIcon } from '@heroicons/react/solid';
-import SideNavConst from 'utils/constants/sideNav.constants';
 
 const FormAdmin = () => {
 	let { formId } = useParams();
