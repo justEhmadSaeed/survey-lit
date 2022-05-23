@@ -95,13 +95,13 @@ const JoinForm = () => {
 	// Display Errors if any exists
 	if (error)
 		return (
-			<div className="w-full h-screen flex items-center justify-center dark:bg-template-signup-text dark:text-white">
+			<div className="w-full h-screen flex items-center justify-center dark:bg-template-dark-green dark:text-white">
 				<span className="text-xl font-semibold">{error}</span>
 			</div>
 		);
 	// Otherwise render the JoinForm Screen
 	return (
-		<div className="w-full h-screen overflow-auto dark:bg-template-signup-text dark:text-white">
+		<div className="w-full h-screen overflow-auto dark:bg-template-dark-green dark:text-white">
 			<div className="flex flex-col justify-center">
 				{/* Content Wrapper */}
 				<div className="px-10 text-left">
@@ -112,10 +112,10 @@ const JoinForm = () => {
 								index={currentQuestionIndex}
 								onOptionClick={onOptionClick}
 							/>
-							<div className="w-3/4">
+							<div className="w-3/4 md:w-2/3">
 								<button
-									type='button'
-									className="btn bg-blue-800 text-white mt-2 ml-7 font-bold shadow-md"
+									type="button"
+									className="btn bg-template-green text-white mt-2 font-bold shadow-md"
 									onClick={() => {
 										if (
 											currentQuestionIndex <
@@ -154,7 +154,7 @@ const JoinForm = () => {
 								currentQuestionIndex < 1
 									? 'text-gray-400'
 									: ''
-							} border-r border-white py-1 px-2 rounded-l transition duration-300 cursor-pointer bg-blue-800 hover:opacity-80`}
+							} border-r border-white py-1 px-2 rounded-l transition duration-300 cursor-pointer bg-template-maroon hover:opacity-80`}
 						>
 							<ChevronUpIcon className="h-6 w-6" />
 						</button>
@@ -169,16 +169,16 @@ const JoinForm = () => {
 								questions.length - 1
 									? 'text-gray-400'
 									: ''
-							} py-1 px-2 rounded-r transition duration-300 cursor-pointer bg-blue-800 hover:opacity-80`}
+							} py-1 px-2 rounded-r transition duration-300 cursor-pointer bg-template-maroon hover:opacity-80`}
 						>
 							<ChevronDownIcon className="h-6 w-6" />
 						</button>
 					</nav>
 					<Link
 						to={PATH.HOME}
-						className="btn bg-blue-800 text-white"
+						className="btn bg-template-maroon text-white"
 					>
-						Powered by Typeform
+						Powered by Lit Survey
 					</Link>
 				</div>
 			</div>

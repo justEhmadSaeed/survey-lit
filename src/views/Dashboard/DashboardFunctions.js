@@ -29,7 +29,7 @@ const DashboardFunctions = () => {
 					<DotsHorizontalIcon className="dashboard-icon" />
 				</div>
 			</div>
-			{/* Create Typeform Button */}
+			{/* Create Lit Survey Button */}
 			<div className="my-2">
 				<button
 					onClick={async () => {
@@ -37,9 +37,9 @@ const DashboardFunctions = () => {
 						await createNewForm(userId, navigate);
 						dispatch(toggleLoading(false));
 					}}
-					className="btn bg-template-black text-white"
+					className="btn bg-template-maroon dark:bg-template-very-dark-green text-white"
 				>
-					+ Create typeform
+					+ Create Lit Survey
 				</button>
 			</div>
 		</div>

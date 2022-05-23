@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import surveyit_logo from 'assets/logo.png';
+import darkLogo from 'assets/logo-dark.png';
 import {
 	ChevronDownIcon,
 	MenuIcon,
@@ -18,11 +19,26 @@ const PublicNavbar = () => {
 	return (
 		<nav className="">
 			{/* For large screens */}
-			<header className="flex items-center bg-white lg:bg-transparent justify-between flex-wrap p-6">
-				<div className="py-1 w-32">
-					<img src={surveyit_logo} alt="Logo" />
+			<header className="flex items-center bg-white dark:bg-template-dark-green lg:bg-transparent justify-between flex-wrap p-6">
+				<div>
+					<div className="py-1 w-full dark:hidden ">
+						<img
+							src={surveyit_logo}
+							alt="Logo"
+							className="h-8"
+						/>
+					</div>
+
+					<div className="py-1 hidden w-full dark:block">
+						<img
+							src={darkLogo}
+							alt="Logo"
+							className="h-8"
+						/>
+					</div>
 				</div>
-				<ul className="hidden lg:flex flex-1 justify-center items-center gap-5 text-template-black text-s">
+
+				<ul className="hidden lg:flex flex-1 justify-center items-center gap-5 text-template-black dark:text-template-light-grey text-s">
 					<NavItem
 						text="Solutions"
 						Icon={<ChevronDownIcon className="h-4 w-4" />}
@@ -48,10 +64,10 @@ const PublicNavbar = () => {
 					</div>
 				) : (
 					<div className="hidden lg:flex gap-3">
-						<button className=" btn px-4 py-2 rounded border-2 text-template-black border-template-black hover:opacity-80">
+						<button className=" btn px-4 py-2 rounded border-2 border-template-green text-template-green hover:opacity-80">
 							<Link to={PATH.LOGIN}>Log in</Link>
 						</button>
-						<button className="btn px-4 py-2 rounded bg-template-black text-white hover:opacity-80">
+						<button className="btn px-4 py-2 rounded bg-template-green text-white hover:opacity-80">
 							<Link to={PATH.SIGNUP}>Sign up</Link>
 						</button>
 					</div>

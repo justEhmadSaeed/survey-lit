@@ -14,7 +14,7 @@ const FormThumbnail = ({ title, id, responses }) => {
 						to={`${PATH.CREATE_FORM_ADMIN}/${id}`}
 						className="w-full h-full flex-1 relative"
 					>
-						<div className=" h-full p-4 bg-template-green rounded-t-lg">
+						<div className=" h-full p-4 bg-template-green dark:bg-template-very-dark-green rounded-t-lg">
 							<span className="flex flex-col items-center justify-center h-full overflow-hidden break-words text-center text-white">
 								{title}
 							</span>

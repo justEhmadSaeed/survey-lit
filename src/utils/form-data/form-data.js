@@ -18,7 +18,7 @@ export const createNewForm = async (userId, navigate) => {
 		const docRef = await addDoc(
 			collection(db, FIRESTORE_CONSTS.FORMS),
 			{
-				name: 'My Typeform',
+				name: 'My Lit Survey',
 				userId
 			}
 		);
@@ -60,7 +60,7 @@ export const getAllForms = async (userId) => {
 				where(FIRESTORE_CONSTS.USER_ID, '==', userId)
 			)
 		);
-		// Return empty array in case of no forms data 
+		// Return empty array in case of no forms data
 		if (formData.empty) return [];
 		const formArray = [];
 		formData.forEach((doc) => {

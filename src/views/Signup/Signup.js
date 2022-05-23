@@ -52,8 +52,15 @@ const Signup = () => {
 					<div className="box-inherit">
 						{/* Logo */}
 						<div className="flex items-center justify-center mt-20 h-20">
-							<Link to={PATH.HOME}>
-								<img src={surveyit_logo} alt="Logo" />
+							<Link
+								to={PATH.HOME}
+								className="flex items-center w-1/4"
+							>
+								<img
+									src={surveyit_logo}
+									alt="Logo"
+									className=""
+								/>
 							</Link>
 						</div>
 						{/* Signup Module */}
@@ -85,7 +92,7 @@ const Signup = () => {
 										</div>
 										<div className="pb-6 flex flex-col items-center">
 											<button
-												className="w-56 h-10 bg-template-black text-white text-sm rounded cursor-pointer btn hover:opacity-90"
+												className="w-56 h-10 bg-template-green text-white text-sm rounded cursor-pointer btn hover:opacity-90"
 												onClick={
 													signInWithGoogle
 												}

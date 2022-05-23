@@ -14,13 +14,17 @@ module.exports = {
 				'template-signup-text': '#4c4c4c',
 				'template-auth-text': '#5e5e5e',
 				'template-auth-border': '#c3c3c3',
-				'template-green': '#026451',
+				'template-green': '#697D5E',
+				'template-very-dark-green': '#1e211d',
+				'template-dark-green': '#2a2e29',
+				'template-border-green': '#171a16',
 				'template-hover-color': '#f0f0f0',
 				'template-dashboard-bg': '#fafafa',
 				'template-question-icon': '#d65c99',
 				'template-mustard': '#F7931E',
 				'template-light-grey': '#F8F5F3',
-				'template-grey': '#3B3B3B'
+				'template-grey': '#3B3B3B',
+				'template-maroon': '#AD5545'
 			},
 			bottom: {
 				'-20%': '-20%',

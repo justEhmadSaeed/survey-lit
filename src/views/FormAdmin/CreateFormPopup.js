@@ -13,7 +13,7 @@ const CreateFormPopup = () => {
 	let { formId } = useParams();
 	const { handleSubmit, handleChange, values, errors } = useFormik({
 		initialValues: {
-			name: 'My Typeform'
+			name: 'My Lit Survey'
 		},
 		validationSchema: renameValidationSchema,
 		async onSubmit(values) {
@@ -26,25 +26,27 @@ const CreateFormPopup = () => {
 	return loading ? (
 		<Loading />
 	) : (
-		<div className="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center bg-template-black">
+		<div className="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center bg-template-dark-green">
 			<div className="flex w-full justify-center mx-4">
-				<div className="flex flex-col w-full rounded-lg relative max-w-md shadow-md bg-white dark:bg-template-signup-text">
-					<h2 className="p-8 pb-4 text-xl font-light">
-						Bring your new typeform to life
+				<div className="flex flex-col w-full rounded-lg relative max-w-md shadow-md bg-white dark:bg-template-very-dark-green">
+					<h2 className="p-8 pb-4 text-xl font-light dark:text-template-light-grey">
+						Bring your new Lit Survey to life
 					</h2>
 					<div className="px-8 pb-4">
-						<p className="mb-1 text-sm">Give it a name</p>
+						<p className="mb-1 text-sm dark:text-template-light-grey">
+							Give it a name
+						</p>
 						<div className="w-full">
-							<div className="border text-template-black">
+							<div className=" text-template-black">
 								<input
 									type="text"
 									name="name"
-									className={`outline-offset-1 ${
+									className={`outline-none ${
 										errors.name
-											? 'outline-red-700'
+											? 'border-red-700 border dark:border-red-300'
 											: ''
-									} border-none px-3 py-1 text-sm w-full`}
-									placeholder="My new typeform"
+									} px-3 py-3 text-sm w-full dark:bg-template-dark-green dark:text-template-light-grey active:shadow-sm`}
+									placeholder="My new Lit Survey"
 									value={values.name}
 									onChange={handleChange}
 									autoComplete="off"
@@ -52,7 +54,7 @@ const CreateFormPopup = () => {
 							</div>
 							{errors.name ? (
 								<div className="mt-1">
-									<span className="text-red-700 text-sm">
+									<span className="text-red-700 text-sm dark:text-red-300">
 										{errors.name}
 									</span>
 								</div>
@@ -63,7 +65,7 @@ const CreateFormPopup = () => {
 						<button
 							type="submit"
 							onClick={handleSubmit}
-							className="btn bg-template-black text-white"
+							className="btn bg-template-very-dark-green dark:bg-template-dark-green text-white "
 						>
 							Continue
 						</button>
