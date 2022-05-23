@@ -1,13 +1,12 @@
 import signupSvg_1 from 'assets/signup_vector_1.svg';
 import signupSvg_2 from 'assets/signup_vector_2.svg';
 import surveyit_logo from 'assets/logo.png';
-import google_icon from 'assets/google_icon.svg';
-import microsoft_icon from 'assets/microsoft_icon.svg';
-import AuthTile from 'components/AuthTile';
-import TextField from 'components/TextField';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signInWithGoogle } from 'services/firebase/firebase';
+import {
+	authObj,
+	signupConfigUI
+} from 'services/firebase/firebase';
 import {
 	TYPE_EMAIL,
 	TYPE_PASSWORD
@@ -15,6 +14,7 @@ import {
 import PATH from 'utils/constants/routing-paths.constant';
 import AuthNavbar from 'components/AuthNavbar';
 import AuthDivider from 'components/AuthDivider';
+import { StyledFirebaseAuth } from 'react-firebaseui';
 
 const Signup = () => {
 	return (
@@ -69,62 +69,19 @@ const Signup = () => {
 								{/* Auth Content */}
 								<div className="px-2 py-5">
 									<div className="relative flex flex-col items-center">
-										<div>
-											<h2 className="text-left font-extralight text-xl text-template-signup-text mb-6">
-												Get better data with
-												conversational forms,
-												surveys, quizzes &
-												more.
-											</h2>
-											{/* Signup Fields */}
-											<div>
-												<TextField
-													type={TYPE_EMAIL}
-													placeholder="Email"
-												/>
-												<TextField
-													type={
-														TYPE_PASSWORD
-													}
-													placeholder="Password"
-												/>
-											</div>
-										</div>
-										<div className="pb-6 flex flex-col items-center">
-											<button
-												className="w-56 h-10 bg-template-green text-white text-sm rounded cursor-pointer btn hover:opacity-90"
-												onClick={
-													signInWithGoogle
+										<h2 className="text-left font-extralight text-xl text-template-signup-text mb-6">
+											Get better data with
+											conversational forms,
+											surveys, quizzes & more.
+										</h2>
+										<div className="w-full pb-6 flex flex-col items-center">
+											<StyledFirebaseAuth
+												className='w-full'
+												uiConfig={
+													signupConfigUI
 												}
-											>
-												Create my free account
-											</button>
-										</div>
-										{/* Auth Container */}
-										<div className="w-60">
-											{/* Auth Divder */}
-											<AuthDivider />
-											{/* Auth Modules */}
-											<div>
-												<AuthTile
-													title="Sign up with Google"
-													imgSrc={
-														google_icon
-													}
-													onClick={
-														signInWithGoogle
-													}
-												/>
-												<AuthTile
-													title="Sign up with Microsoft"
-													imgSrc={
-														microsoft_icon
-													}
-													onClick={
-														signInWithGoogle
-													}
-												/>
-											</div>
+												firebaseAuth={authObj}
+											/>
 										</div>
 									</div>
 								</div>

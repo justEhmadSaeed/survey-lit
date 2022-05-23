@@ -2,10 +2,10 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import {
+	EmailAuthProvider,
 	getAuth,
 	GoogleAuthProvider,
 	onAuthStateChanged,
-	signInWithPopup,
 	signOut
 } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,14 +26,6 @@ export const firebaseApp = initializeApp(firebaseConfig);
 // export auth object
 export const authObj = getAuth();
 
-const googleProvider = new GoogleAuthProvider();
-
-// export signInWith Google Function
-export const signInWithGoogle = () =>
-	signInWithPopup(authObj, googleProvider).catch((error) =>
-		console.log(error)
-	);
-
 // export Auth Change Function
 export const authChange = async (callBack) =>
 	onAuthStateChanged(authObj, callBack);
@@ -43,3 +35,31 @@ export const signoutWithGoogle = () =>
 	signOut(authObj).catch((error) => console.log(error));
 
 export const db = getFirestore();
+
+export const signupConfigUI = {
+	signInflow: 'popup',
+	signInOptions: [
+		{
+			provider: EmailAuthProvider.PROVIDER_ID,
+			fullLabel: 'Sign Up with Email'
+		},
+		{
+			provider: GoogleAuthProvider.PROVIDER_ID,
+			fullLabel: 'Sign Up with Google'
+		}
+	]
+};
+
+export const loginConfigUI = {
+	signInflow: 'popup',
+	signInOptions: [
+		{
+			provider: EmailAuthProvider.PROVIDER_ID,
+			fullLabel: 'Login with Email'
+		},
+		{
+			provider: GoogleAuthProvider.PROVIDER_ID,
+			fullLabel: 'Login with Google'
+		}
+	]
+};
