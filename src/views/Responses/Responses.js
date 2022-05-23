@@ -1,13 +1,17 @@
 /* eslint-disable linebreak-style */
-import AdminNavbar from 'components/AdminNavbar';
+// import AdminNavbar from 'components/AdminNavbar';
 import ResponseCard from 'components/ResponseCard';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import DashboardNavbar from 'views/Dashboard/DashboardNavbar';
 
-const Responses = ({ form }) => {
-	const navigate = useNavigate();
+const Responses = () => {
 	const { formId } = useParams();
+	const responses = useSelector((state) =>
+		state.forms.forms.filter((form) => form.id === formId)[0].responses
+	);
+	console.log(responses);
 	const formResp = [
 		{
 			respName: 'Zaeema Anwar',

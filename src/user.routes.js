@@ -25,6 +25,8 @@ import CreateFormPopup from 'views/FormAdmin/CreateFormPopup';
 import JoinForm from 'views/JoinForm/JoinForm';
 import { getInitialTheme } from 'utils/theme.handler';
 import Responses from 'views/Responses/Responses';
+import { getAllForms } from 'utils/form-data/form-data';
+import { addForms } from 'store/slice/forms.slice';
 
 const UserRoutes = () => {
 	const { id: userId, loading } = useSelector(
@@ -33,24 +35,30 @@ const UserRoutes = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		authChange(async (auth) => {
-			if (auth) {
-				dispatch(
-					logInUser({
-						name: auth.displayName,
-						id: auth.uid,
-						email: auth.email
-					})
-				);
-				dispatch(toggleLoading(false));
-			} else {
-				dispatch(signOutUser());
-				dispatch(toggleLoading(false));
-			}
-		});
-		getInitialTheme((darkMode) =>
-			dispatch(toggleDarkMode(darkMode))
-		);
+		try {
+			authChange(async (auth) => {
+				if (auth) {
+					dispatch(
+						logInUser({
+							name: auth.displayName,
+							id: auth.uid,
+							email: auth.email
+						})
+					);
+					const forms = await getAllForms(auth.uid);
+					dispatch(addForms(forms));
+					dispatch(toggleLoading(false));
+				} else {
+					dispatch(signOutUser());
+					dispatch(toggleLoading(false));
+				}
+			});
+			getInitialTheme((darkMode) =>
+				dispatch(toggleDarkMode(darkMode))
+			);
+		} catch (error) {
+			console.log('Auth Error', error);
+		}
 	}, []);
 
 	return loading ? (

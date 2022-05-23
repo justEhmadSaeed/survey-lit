@@ -1,24 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { addForms } from 'store/slice/forms.slice';
 import SideNavConst from 'utils/constants/sideNav.constants';
-import { getAllForms } from 'utils/form-data/form-data';
 import DashboardFormsCollection from './DashboardFormsCollection';
 import DashboardFunctions from './DashboardFunctions';
 
 const DashboardBody = () => {
-	const dispatch = useDispatch();
-	const userId = useSelector((state) => state.auth.id);
-
-	useEffect(() => {
-		const getFormsData = async () => {
-			const forms = await getAllForms(userId);
-			dispatch(addForms(forms));
-		};
-		getFormsData();
-	}, []);
-
 	return (
 		<main className="flex  h-screen flex-nowrap dark:bg-template-dark-green dark:text-white pt-16">
 			{/* Left sidebar */}

@@ -178,7 +178,7 @@ const JoinForm = () => {
 						to={PATH.HOME}
 						className="btn bg-template-maroon text-white"
 					>
-						Powered by Lit Survey
+						Powered by Survey Lit
 					</Link>
 				</div>
 			</div>

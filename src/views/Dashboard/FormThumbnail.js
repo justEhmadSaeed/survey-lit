@@ -24,7 +24,7 @@ const FormThumbnail = ({ title, id, responses }) => {
 				<div className="shrink-0 p-4">
 					<div className="flex justify-between items-center">
 						<Link
-							to="#"
+							to={`${PATH.RESPONSES}/${id}`}
 							className="text-xs p-1 rounded group-hover:bg-template-auth-border dark:group-hover:bg-template-auth-text"
 						>
 							{responses} responses

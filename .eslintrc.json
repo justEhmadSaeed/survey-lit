@@ -13,10 +13,7 @@
 	"rules": {
 		"react/prop-types": 1,
 		"indent": "off",
-		"linebreak-style": [
-			"warn",
-			"unix"
-		],
+		"linebreak-style": 0,
 		"quotes": [
 			"warn",
 			"single"

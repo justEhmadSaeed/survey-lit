@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 import { toggleDarkMode } from 'store/slice/auth.slice';
 import { useDispatch } from 'react-redux';
 import { toggleTheme } from 'utils/theme.handler';
+import { Link } from 'react-router-dom';
+import PATH from 'utils/constants/routing-paths.constant';
 
 const UserMenu = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,38 +81,39 @@ const UserMenu = () => {
 							</div>
 						</div>
 					</header>
-					<section></section>
+					<section>
+						<Link
+							to={PATH.DASHBOARD}
+							className="flex justify-between w-full text-left p-2 hover:bg-template-hover-color dark:hover:bg-template-black border-b dark:border-template-signup-text"
+						>
+							Dashboard
+						</Link>
+						<button
+							onClick={() => {
+								toggleTheme(!darkMode, (darkMode) =>
+									dispatch(toggleDarkMode(darkMode))
+								);
+							}}
+							className="flex justify-between w-full text-left p-2 hover:bg-template-hover-color dark:hover:bg-template-black border-b dark:border-template-signup-text"
+						>
+							{darkMode ? (
+								<span className="text-sm ">
+									Light Mode
+								</span>
+							) : (
+								<span className="text-sm ">
+									Dark Mode
+								</span>
+							)}
+							{darkMode ? (
+								<MoonIcon className="h-5 w-5" />
+							) : (
+								<SunIcon className="h-5 w-5" />
+							)}
+						</button>
+					</section>
 					<footer>
 						<div className="">
-							<button
-								onClick={() => {
-									toggleTheme(
-										!darkMode,
-										(darkMode) =>
-											dispatch(
-												toggleDarkMode(
-													darkMode
-												)
-											)
-									);
-								}}
-								className="flex justify-between w-full text-left p-2 hover:bg-template-hover-color dark:hover:bg-template-black border-b dark:border-template-signup-text"
-							>
-								{darkMode ? (
-									<span className="text-sm ">
-										Light Mode
-									</span>
-								) : (
-									<span className="text-sm ">
-										Dark Mode
-									</span>
-								)}
-								{darkMode ? (
-									<MoonIcon className="h-5 w-5" />
-								) : (
-									<SunIcon className="h-5 w-5" />
-								)}
-							</button>
 							<button
 								onClick={signoutWithGoogle}
 								className="w-full text-left p-2 hover:bg-template-hover-color dark:hover:bg-template-black"

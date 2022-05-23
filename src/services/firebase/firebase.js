@@ -24,22 +24,22 @@ const firebaseConfig = {
 export const firebaseApp = initializeApp(firebaseConfig);
 
 // export auth object
-export const auth = getAuth();
+export const authObj = getAuth();
 
 const googleProvider = new GoogleAuthProvider();
 
 // export signInWith Google Function
 export const signInWithGoogle = () =>
-	signInWithPopup(auth, googleProvider).catch((error) =>
+	signInWithPopup(authObj, googleProvider).catch((error) =>
 		console.log(error)
 	);
 
 // export Auth Change Function
 export const authChange = async (callBack) =>
-	onAuthStateChanged(auth, callBack);
+	onAuthStateChanged(authObj, callBack);
 
 // export signout with Google Function
 export const signoutWithGoogle = () =>
-	signOut(auth).catch((error) => console.log(error));
+	signOut(authObj).catch((error) => console.log(error));
 
 export const db = getFirestore();
