@@ -1,4 +1,9 @@
+import { ChartBarIcon, ChartPieIcon } from '@heroicons/react/solid';
 import React, { useEffect, useState } from 'react';
+import {
+	CHART,
+	REPRESENTATION
+} from 'utils/constants/chartConstants';
 import ResponsesGraph from './ResponsesGraph';
 
 const responseTemplate = (title, options) => {
@@ -6,6 +11,7 @@ const responseTemplate = (title, options) => {
 };
 const ResponseRespresentation = ({ responses }) => {
 	const [ques, setQues] = useState([]);
+	const [chartType, setChartType] = useState(CHART.PIE);
 	useEffect(() => {
 		// Create template first
 		const q = [];
@@ -36,11 +42,10 @@ const ResponseRespresentation = ({ responses }) => {
 					key={id}
 					title={q.title}
 					options={q.options}
+					type={chartType}
 				/>
 			))}
 		</div>
 	);
 };
 export default ResponseRespresentation;
-
-// s
