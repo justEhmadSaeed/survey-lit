@@ -44,6 +44,7 @@ const Responses = () => {
 						</h3>
 					</div>
 					<button
+						disabled={responses.length < 1}
 						onClick={toggleRepresentation}
 						className="text-template-grey w-max p-2 bg-template-hover-color dark:bg-template-very-dark-green dark:text-template-light-grey dark:hover:bg-template-green rounded shadow hover:text-template-maroon"
 					>
@@ -66,7 +67,12 @@ const Responses = () => {
 						)}
 					</button>
 				</div>
-				{representationType === REPRESENTATION.TEXTUAL ? (
+				{responses.length < 1 ? (
+					<section className="w-full px-12 py-8 shadow-lg bg-white my-4 rounded-lg dark:bg-template-very-dark-green dark:text-template-light-grey">
+						No Responses yet. Share the link with people
+						to get responses
+					</section>
+				) : representationType === REPRESENTATION.TEXTUAL ? (
 					responses.map((resp, id) => (
 						<div key={id}>
 							<ResponseCard response={resp} id={id} />

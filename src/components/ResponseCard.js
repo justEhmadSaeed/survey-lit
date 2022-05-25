@@ -39,7 +39,7 @@ export default ResponseCard;
 
 ResponseCard.propTypes = {
 	response: responsePropType,
-	id: PropTypes.string
+	id: PropTypes.number
 };
 
 ResponseCard.defaultProps = {

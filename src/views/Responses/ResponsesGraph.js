@@ -75,7 +75,7 @@ const ResponsesGraph = ({ title, options, type }) => {
 						<DiscreteColorLegend
 							style={{
 								width: '50%',
-								'justify-content': 'space-evenely',
+								justifyContent: 'space-evenely',
 								margin: '10px'
 							}}
 							orientation="vertical"
