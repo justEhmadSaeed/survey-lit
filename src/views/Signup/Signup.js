@@ -3,17 +3,9 @@ import signupSvg_2 from 'assets/signup_vector_2.svg';
 import surveyit_logo from 'assets/logo.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-	authObj,
-	signupConfigUI
-} from 'services/firebase/firebase';
-import {
-	TYPE_EMAIL,
-	TYPE_PASSWORD
-} from 'utils/constants/input-types.constant';
+import { authObj, signupConfigUI } from 'services/firebase/firebase';
 import PATH from 'utils/constants/routing-paths.constant';
 import AuthNavbar from 'components/AuthNavbar';
-import AuthDivider from 'components/AuthDivider';
 import { StyledFirebaseAuth } from 'react-firebaseui';
 
 const Signup = () => {
@@ -76,7 +68,7 @@ const Signup = () => {
 										</h2>
 										<div className="w-full pb-6 flex flex-col items-center">
 											<StyledFirebaseAuth
-												className='w-full'
+												className="w-full"
 												uiConfig={
 													signupConfigUI
 												}
